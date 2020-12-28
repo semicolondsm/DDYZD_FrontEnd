@@ -1,7 +1,12 @@
 import Link from 'next/link'
 
-const Index = () => (
-  <div></div>
-)
+const Index = () => {
+  return(
+    <div>
+
+    </div>
+  )
+  
+}
 
 export default Index
