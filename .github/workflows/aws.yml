@@ -25,7 +25,6 @@ jobs:
 
       - name: Build 
         run: npm run build
-      - name: MoveFIle
       - name: Deploy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
