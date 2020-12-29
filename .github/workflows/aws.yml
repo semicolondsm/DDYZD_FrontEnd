@@ -1,39 +1,37 @@
-name: Deploy to Production
-    
-on:
+name: React build
+on: 
   push:
     branches:
       - master
-    
+
 jobs:
   build:
-    name: Build, Deploy to S3 bucket
-    runs-on: [ubuntu-latest]
-    strategy:
-      matrix:
-        node-version: [12.16.x]
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout master
+        uses: actions/checkout@master
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
 
-      - name: Npm install
+      - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build 
         run: npm run build
 
-      - name: Transfer to S3 for serving static
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete
+      - name: Deploy to S3
         env:
-          AWS_S3_BUCKET: eungyeole
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
-          AWS_REGION: ap-northeast-2
-          SOURCE_DIR: "build"
-
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp \
+            --recursive \
+            --region ap-northeast-2 \
+            dist s3://eungyeole
