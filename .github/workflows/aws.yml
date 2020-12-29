@@ -1,23 +1,40 @@
-name: Node.js CI
-
-on: [push]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run dev --if-present
-      env:
-        CI: true
+name: Deploy to Production
+    
+    on:
+      push:
+        branches:
+          - master
+    
+    jobs:
+      deploy:
+        name: Build, Deploy to S3 bucket
+        runs-on: [ubuntu-latest]
+    
+        strategy:
+          matrix:
+            node-version: [12.16.x]
+    
+        steps:
+          - uses: actions/checkout@v2
+    
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v1
+            with:
+              node-version: ${{ matrix.node-version }}
+    
+          - name: Npm install
+            run: npm install
+    
+          - name: Build
+            run: npm run build
+    
+          - name: Transfer to S3 for serving static
+            uses: jakejarvis/s3-sync-action@master
+            with:
+              args: --acl public-read --follow-symlinks --delete
+            env:
+              AWS_S3_BUCKET: eungyeole
+              AWS_ACCESS_KEY_ID: ${{ secrets. AWS_IAM_MANAGER_KEY_ID }}
+              AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
+              AWS_REGION: ap-northeast-2
+              SOURCE_DIR: 'dist'
