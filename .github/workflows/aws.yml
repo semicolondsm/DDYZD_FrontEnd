@@ -34,4 +34,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            .next s3://eungyeole
+            .next s3://eungyeole \
