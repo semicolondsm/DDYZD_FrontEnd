@@ -6,14 +6,12 @@ on:
       - master
     
 jobs:
-  deploy:
+  build:
     name: Build, Deploy to S3 bucket
     runs-on: [ubuntu-latest]
-
     strategy:
       matrix:
         node-version: [12.16.x]
-
     steps:
       - uses: actions/checkout@v2
 
@@ -37,4 +35,5 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
+          SOURCE_DIR: "build"
 
