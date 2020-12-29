@@ -58,10 +58,16 @@ export const ButtonWrapper = styled.div`
 export const ItemOption = styled.p`
     font-size: 14px;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
-export const ItemPrice = styled.p`
+export const ItemAddress = styled.p`
     font-size: 16px;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `
 export const ItemName = styled.p`
     white-space: nowrap;

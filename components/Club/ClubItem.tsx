@@ -7,7 +7,7 @@ function ClubItem(){
             <S.ItemElement>
                 <S.ItemName>앱코 해커 B780 가상7.1 RGB 진동 게이밍 헤드셋</S.ItemName>
                 <S.ItemOption>시크블랙</S.ItemOption>
-                <S.ItemPrice>http://www.11st.co.kr/products/2513078761?trTysdsdsd</S.ItemPrice>
+                <S.ItemAddress>http://www.11st.co.kr/products/2513078761?trTysdsdsd</S.ItemAddress>
             </S.ItemElement>
             <td>1개</td>
             <td>59900원</td>
