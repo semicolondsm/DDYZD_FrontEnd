@@ -25,7 +25,7 @@ jobs:
 
       - name: Build 
         run: npm run build
-
+      - name: MoveFIle
       - name: Deploy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -34,4 +34,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            server s3://eungyeole \
+            .next/server s3://eungyeole \
