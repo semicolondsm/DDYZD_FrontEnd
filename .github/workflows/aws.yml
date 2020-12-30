@@ -43,7 +43,7 @@ jobs:
         run: aws s3 cp --region ap-northeast-2 ./build.zip s3://eungyeole/build.zip
         
       - name: Code Deploy
-        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=isntyet-deploy,bundleType=zip,key=build.zip   
+        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
 #      - name: Transfer to S3 for serving static
 #        uses: jakejarvis/s3-sync-action@master
 #        with:
