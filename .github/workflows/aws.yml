@@ -39,8 +39,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
   
-      - name : Test
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://eungyeole/$PROJECT_NAME/$GITHUB_SHA.zip      
+      - name : S3 Upload
+        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://eungyeole/$PROJECT_NAME/$GITHUB_SHA.zip
+        
+      - name: Code Deploy
+        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=isntyet-deploy,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip   
 #      - name: Transfer to S3 for serving static
 #        uses: jakejarvis/s3-sync-action@master
 #        with:
