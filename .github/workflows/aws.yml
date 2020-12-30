@@ -29,7 +29,7 @@ jobs:
         run: npm run build
         
       - name: Make zip file
-        run: zip -qq -r ./$GITHUB_SHA.zip ./.next
+        run: zip -qq -r ./build.zip ./.next
         shell: bash
         
       - name: Configure AWS credentials
@@ -40,10 +40,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
   
       - name : S3 Upload
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://eungyeole/$PROJECT_NAME/$GITHUB_SHA.zip
+        run: aws s3 cp --region ap-northeast-2 ./build.zip s3://eungyeole/build.zip
         
       - name: Code Deploy
-        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=isntyet-deploy,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip   
+        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=isntyet-deploy,bundleType=zip,key=build.zip   
 #      - name: Transfer to S3 for serving static
 #        uses: jakejarvis/s3-sync-action@master
 #        with:
