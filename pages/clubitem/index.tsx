@@ -1,7 +1,7 @@
 import Header from '../../components/Public/Header/Header'
 import ClubItemList from "../../components/Club/ClubItemList";
 import ClubItemApply from '../../components/Club/ClubItemApply';
-const ClubIndex = () => {
+const Index = () => {
   return(
     <>
         <Header></Header>
@@ -14,4 +14,4 @@ const ClubIndex = () => {
   
 }
 
-export default ClubIndex
+export default Index
