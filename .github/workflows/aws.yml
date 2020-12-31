@@ -37,7 +37,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
   
       - name : S3 Upload
-        run: aws s3 sync --region ap-northeast-2 ./.next s3://eungyeole/.next/
+        run: aws s3 cp --region ap-northeast-2 ./.next s3://eungyeole/.next/
         
 #      - name: Code Deploy
 #        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
