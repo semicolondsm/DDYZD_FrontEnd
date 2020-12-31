@@ -1,6 +1,5 @@
 import HeaderMenu from './header/HeaderMenu'
 import ClubItem from './clubitem/ClubItem'
-
 const Index = () => {
   return(
     <>
