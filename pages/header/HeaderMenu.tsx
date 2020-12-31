@@ -1,4 +1,4 @@
-import Header from '../components/Club/Header/Header'
+import Header from '../../components/Public/Header/Header'
 
 function HeaderMenu(){
     return(

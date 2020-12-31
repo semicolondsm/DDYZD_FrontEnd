@@ -1,8 +1,9 @@
-import styled,{css} from 'styled-components';
+import styled from 'styled-components';
 
 const Header = styled.header`
 width:100%; 
-height:120px; 
+height:120px;
+background-color:white; 
 `
 const TopHeader = styled.div`
 height:50%;

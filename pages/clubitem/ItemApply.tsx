@@ -1,4 +1,4 @@
-import ClubItemApply from '../components/Club/ClubItemApply';
+import ClubItemApply from '../../components/Club/ClubItemApply';
 
 function ItemApply(){
     return(
