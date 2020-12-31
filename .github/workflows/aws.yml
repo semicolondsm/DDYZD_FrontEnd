@@ -40,7 +40,7 @@ jobs:
         run: aws s3 cp --recursive --region ap-northeast-2 out s3://eungyeole
         
       - name : CloudFront Cache invalidation
-        run : aws cloudfront create-invalidation --distribution-id {{ secrets.CLOUDFRONT_ID }} --paths / /index.html /clubitem
+        run : aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths / /index.html /clubitem
         
 #      - name: Code Deploy
 #        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
