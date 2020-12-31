@@ -20,6 +20,7 @@ function ClubItemTable(){
             <S.TableBody>
                 {
                     data.map((i)=>{
+                        console.log(i);
                         return(<ClubItem></ClubItem>)
                     })
                 }
