@@ -1,0 +1,53 @@
+name: Deploy to Production
+    
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  deploy:
+    name: Build, Deploy to S3 bucket
+    runs-on: [ubuntu-latest]
+
+    strategy:
+      matrix:
+        node-version: [12.16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Npm install
+        run: npm install
+
+      - name: Npm build
+        run: npm run build
+        
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+  
+      - name : S3 Upload
+        run: aws s3 cp --region ap-northeast-2 ./.next s3://eungyeole/.next/
+        
+#      - name: Code Deploy
+#        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
+#      - name: Transfer to S3 for serving static
+#        uses: jakejarvis/s3-sync-action@master
+#        with:
+#          args: --acl public-read --follow-symlinks --delete
+#        env:
+#          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
+#          AWS_REGION: ${{ secrets.AWS_REGION }}
+#          SOURCE_DIR: './$GITHUB_SHA.zip'
