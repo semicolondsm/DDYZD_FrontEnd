@@ -1,23 +1,21 @@
 import React from 'react';
-import * as h from './ClubHeaderStyle'
+import * as S from './styles'
 
 function Header(){
     return(
-        <div>
-        <h.SubHeader>
-            <h.SubHeaderTitle>
-                <div>
-                    <a>SEMICOLON;</a><a>의 물품리스트</a>  
-                    <div>TIP</div>
-                </div>      
-            </h.SubHeaderTitle>
-            <h.ItemState>
-                <a>전체 (3개)</a>
-                <a>승인 완료 (2개)</a>
-                <a>신청 거절 (1개)</a>
-            </h.ItemState>
-        </h.SubHeader>
-        </div>
+        <>
+            <S.SubHeader>
+                <S.SubHeaderTitle>
+                    <p><b>SEMICOLON;</b>의 물품리스트</p>  
+                    <S.Tip>TIP</S.Tip>
+                </S.SubHeaderTitle>
+                <S.ItemState>
+                    <li>전체 (3개)</li>
+                    <li>승인 완료 (2개)</li>
+                    <li>신청 거절 (1개)</li>
+                </S.ItemState>
+            </S.SubHeader>
+        </>
     )
 }
 
