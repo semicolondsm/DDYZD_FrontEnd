@@ -1,1 +1,4 @@
-module.exports = { exportTrailingSlash: true }
+module.exports = { exportTrailingSlash: true, 
+    images: {
+        loader: 'imgix',
+  }, }
