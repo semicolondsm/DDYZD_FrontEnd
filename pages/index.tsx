@@ -1,9 +1,7 @@
 const Index = () => {
   return(
     <>
-      <div>
-
-      </div>
+      <div>마렵다</div>
     </>
   )
   
