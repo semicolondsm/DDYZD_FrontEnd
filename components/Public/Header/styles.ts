@@ -2,66 +2,62 @@ import styled from 'styled-components';
 
 const Header = styled.header`
 width:100%; 
-height:120px;
 background-color:white; 
+min-width: 1500px;
 `
 const TopHeader = styled.div`
-height:50%;
+height: 60px;
 background-color:#350871;
 display:flex;
 align-items:center;
-padding:0 10%;
+padding:0 250px;
 a{
     text-decoration:none;
-    font-size:1.5vmin;
+    font-size:16px;
     color:white;
-    padding:0 1%;
+    display: flex;
+    align-items: center;
 }
-img{
-    width:60px;
-    height:60px;
-}
+
 `
 
 const BottomHeader = styled.div`
-padding:0 10%;
-height:50%;
-border-bottom:1px solid #DBDBDB;
+padding:0 250px;
+height: 60px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-div{
+background-color:white;
+ul{
     align-items:center;
-    display:flex;   
+    padding: 0;
+    margin: 0;
+    display:flex;  
+    list-style: none; 
     h3{
-        font-size:1.7vmin;  
+        font-size: 16px;  
         font-weight:500;
-        padding:0px 1%;
+        margin: 0;
+        margin-left: 15px;
+        margin-right: 10px;
     }
-    a{
+    li{
         text-decoration:none;
-        font-size:1.3vmin;
-        padding:0px 1.5%;
+        font-size: 14px;
+        margin-left: 20px;
         cursor: pointer;
         :hover{
             color:tomato;
         }
     }
-    :nth-of-type(2){
-        a{
-            color:#545454;
-            padding:0 3%;
-            border-right:1px solid #C8C8C8;
-            :last-child{
-                border:none;
-            }
-        }
-    }
+    
 }
 `
+
+
 
 export{
     Header,
     TopHeader,
-    BottomHeader
+    BottomHeader,
 }

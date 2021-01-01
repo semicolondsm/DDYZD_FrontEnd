@@ -8,6 +8,7 @@ height:600px;
 const Container = styled.div`
 width:100%;
 height:100%;
+padding: 15px 10px;
 background-color:white;
 display:flex;
 flex-direction:column;
@@ -15,7 +16,6 @@ align-items:center;
 div{
     :first-child{ /* 물품 신청하기 */
         width:320px;
-        margin-top:20px;
         display:flex;
         a{
             font-size:20px;

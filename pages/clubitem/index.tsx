@@ -1,14 +1,12 @@
 import Header from '../../components/Public/Header/Header'
-import ClubItemList from "../../components/Club/ClubItemList";
-import ClubItemApply from '../../components/Club/ClubItemApply';
+import ClubHeader from "../../components/Club/ClubHeader/ClubHeader"
+import Club from '../../components/Club/Club'
 const Index = () => {
   return(
     <>
         <Header></Header>
-        <div style={{display:"flex", marginTop:"1%", justifyContent:"space-between", padding:"0 16%"}}>
-            <ClubItemList></ClubItemList>
-            <ClubItemApply></ClubItemApply>
-        </div>
+        <ClubHeader></ClubHeader>
+        <Club></Club>
     </>
   )
   
