@@ -1,10 +1,8 @@
-import Link from 'next/link'
-
 const Index = () => {
   return(
-    <div>
-
-    </div>
+    <>
+      <div>마렵다</div>
+    </>
   )
   
 }

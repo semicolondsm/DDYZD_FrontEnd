@@ -4,4 +4,4 @@
 * React
 * Next.js
 * Typescript
-* redux-sagaa
+* redux-saga
