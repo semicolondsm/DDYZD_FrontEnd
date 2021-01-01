@@ -41,7 +41,7 @@ jobs:
         
       - name : CloudFront Cache invalidation
         run : aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
-        
+# code deploy        
 #      - name: Code Deploy
 #        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
 #      - name: Transfer to S3 for serving static
