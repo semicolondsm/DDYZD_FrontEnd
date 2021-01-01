@@ -3,9 +3,10 @@ import * as h from './HeaderStyle'
 
 function Header(){
     return(
+        <div>
         <h.Header>
             <h.TopHeader>
-                <a href="">대동여지도</a>
+                <a>대동여지도</a>
             </h.TopHeader>
             <h.BottomHeader>
                 <div style={{width:"70%"}}>
@@ -17,12 +18,13 @@ function Header(){
                     <a>공지사항</a>
                 </div>
                 <div style={{width:"20%"}}>
-                    <a href="">이명호 님</a>
-                    <a href="">로그아웃</a>
-                    <a href="">고객센터</a>
+                    <a>이명호 님</a>
+                    <a>로그아웃</a>
+                    <a>고객센터</a>
                 </div>
             </h.BottomHeader>
         </h.Header>
+        </div>
     )
 }
 
