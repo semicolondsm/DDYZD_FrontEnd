@@ -1,9 +1,10 @@
+import ClubItemTable from "./ClubItemTable"
 import * as S from "./styles"
 function ClubItemList(){
     return(
-        <div>
-            <S.Test>나는 행복해</S.Test>
-        </div>
+        <S.Container>
+            <ClubItemTable></ClubItemTable>
+        </S.Container>
     )
 }
 export default ClubItemList
