@@ -1,6 +1,7 @@
 import styled from "styled-components"
 export const Container = styled.div`
-    width: 890px;
+    width: 100%;
+    margin-right: 30px;
 `
 export const Wrapper = styled.li`
     width: 100%;
@@ -84,4 +85,9 @@ export const TableNameWrapper= styled.div`
         font-size: 18px;
         margin-left: 10px;
     }
+`
+export const ClubContainer = styled.div`
+    display: flex;
+    margin-top: 10px;
+    padding: 0 250px;
 `

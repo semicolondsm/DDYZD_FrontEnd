@@ -1,9 +1,15 @@
 import ClubItemTable from "./ClubItemTable"
 import * as S from "./styles"
+const Data=[{},{}];
 function ClubItemList(){
     return(
         <S.Container>
-            <ClubItemTable></ClubItemTable>
+            {
+                Data.map((i)=>{
+                    console.log(i);
+                    return(<ClubItemTable></ClubItemTable>)
+                })
+            }
         </S.Container>
     )
 }

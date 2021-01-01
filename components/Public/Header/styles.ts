@@ -10,7 +10,7 @@ height: 60px;
 background-color:#350871;
 display:flex;
 align-items:center;
-padding:0 320px;
+padding:0 250px;
 a{
     text-decoration:none;
     font-size:16px;
@@ -22,7 +22,7 @@ a{
 `
 
 const BottomHeader = styled.div`
-padding:0 320px;
+padding:0 250px;
 height: 60px;
 display:flex;
 align-items:center;
