@@ -19,7 +19,7 @@ function ClubItemTable({props} : {props: ClubItemTableData}){
             </S.TableHead>
             <S.TableBody>
                 {
-                    props.data.map((i)=>{
+                    props.data.map((i)=>{ 
                         console.log(i);
                         return(<ClubItem props={i}></ClubItem>)
                     })

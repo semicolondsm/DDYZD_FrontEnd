@@ -10,10 +10,10 @@ export type User = {
 }
 export interface ClubItemTableData {
   user_name: string,
-  data : [ClubItemData],
+  data : ClubItemData[],
   
 }
-export type ClubItemData = {
+export interface ClubItemData {
   item_state : string,
   item_name : string,
   option : string,
@@ -21,4 +21,14 @@ export type ClubItemData = {
   amount : string,
   price : number,
   delivery_status : string
+}
+
+export interface FeedData {
+  profile : string,
+  name: string,
+  content : string,
+  src : string[],
+  dday : number,
+  flag : number,
+  created_at : string
 }

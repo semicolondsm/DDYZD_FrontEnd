@@ -5,7 +5,7 @@ import ClubItemTable from "./ClubItemTable"
 import * as S from "./styles"
 
 function ClubItemList(){
-    const [Data,setData] = useState<[ClubItemTableData] | null>(null);
+    const [Data,setData] = useState<ClubItemTableData[] | null>(null);
     return(
         <S.Container>
             {
