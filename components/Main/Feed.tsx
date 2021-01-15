@@ -36,7 +36,7 @@ function Feed(){
     return(
         <S.FeedList>
             {
-                data.map((i)=>(<FeedCard props={i}></FeedCard>))
+                data.map((i,index)=>(<FeedCard key={index} props={i}></FeedCard>))
             }
             
         </S.FeedList>

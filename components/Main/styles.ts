@@ -41,7 +41,7 @@ export const CardSection = styled.div`
 
 `
 export const CardBottom = styled.div`
-    padding: 15px 25px;
+    padding: 20px 25px;
     padding-top: 0;
 `
 export const Content = styled.div`
@@ -56,7 +56,11 @@ export const Slider = styled.div`
     & button{
         position: absolute;
         top: 50%;
+        outline: none;
+        background: none;
+        border: none;
         transform: translateY(-50%);
+        cursor: pointer;
     }
 `
 export const SliderImages = styled.div`
@@ -86,10 +90,14 @@ export const CardUtil = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    & svg{
+        cursor: pointer;
+    }
 `
 export const CardState = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: 13px;
     font-weight: bold;
+    margin-top: 5px;
 `
