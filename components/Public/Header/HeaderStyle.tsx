@@ -10,9 +10,9 @@ height:50%;
 background-color:#350871;
 display:flex;
 align-items:center;
-padding:0 16%;
-min-width:800px;
+min-width:1000px;
 a{
+    margin-left:16%;
     text-decoration:none;
     font-size:1.5vmin;
     color:white;
@@ -25,14 +25,14 @@ img{
 `
 
 const BottomHeader = styled.div`
-padding:0 16%;
 height:50%;
 display:flex;
 align-items:center;
 justify-content:space-between;
-min-width:800px;
+min-width:1000px;
 background-color:white;
 div{
+    margin-left:16%;
     align-items:center;
     display:flex;   
     h3{
