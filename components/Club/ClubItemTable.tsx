@@ -1,15 +1,15 @@
 import ClubItem from "./ClubItem";
 import * as S from "./styles"
 import ToggleItem from "./CheckItem";
-const data: object[] = [{},{},{}];
-function ClubItemTable(){
+import { ClubItemTableData  } from "../../interfaces";
+function ClubItemTable({props} : {props: ClubItemTableData}){
     return(
         <S.Table>
             <S.TableHead>
                 <th>
                     <S.TableNameWrapper>
                         <ToggleItem></ToggleItem>
-                        <span>안은결</span>
+                        <span>{props.user_name}</span>
                     </S.TableNameWrapper>
                 </th>
                 <S.TableName>신청물품 (1개)</S.TableName>
@@ -19,9 +19,9 @@ function ClubItemTable(){
             </S.TableHead>
             <S.TableBody>
                 {
-                    data.map((i)=>{
+                    props.data.map((i)=>{
                         console.log(i);
-                        return(<ClubItem></ClubItem>)
+                        return(<ClubItem props={i}></ClubItem>)
                     })
                 }
             </S.TableBody>
