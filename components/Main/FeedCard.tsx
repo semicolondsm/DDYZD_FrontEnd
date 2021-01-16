@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import FlagToggle from "./FlagToggle";
 function FeedCard({props} : {props: FeedData}){
     const [page, setPage] = useState(0);
+    const [start,setStart] = useState<number>(0);
+    const [end, setEnd] = useState<number>(0);
     const slideRef = useRef<HTMLDivElement>(null);
     function prev(){
         if(page>0) setPage(page-1);
@@ -11,6 +13,17 @@ function FeedCard({props} : {props: FeedData}){
     }
     function next(){
        if(page<props.src.length-1) setPage(page+1);
+    }
+    function Swipe(e : React.TouchEvent){
+        setStart(e.touches[0].clientX);
+    }
+    function TouchEnd(){
+        let temp = start-end;
+        if(temp>0) next();
+        else prev();
+    }
+    function TouchMove(e: React.TouchEvent){
+        setEnd(e.touches[0].clientX);
     }
     useEffect(()=>{
         if(slideRef.current) slideRef.current.style.transform=`translateX(${100/props.src.length*-page}%)`;
@@ -47,7 +60,7 @@ function FeedCard({props} : {props: FeedData}){
             <S.CardSection>
                 <S.Content>{props.content}</S.Content>
                 <S.Slider>
-                    <S.SliderImages ref={slideRef} style={{width: `${props.src.length*100}%`}}>
+                    <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.src.length*100}%`}}>
                         {
                             props.src.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.src.length} )`}} src={i}></img>))
                         }

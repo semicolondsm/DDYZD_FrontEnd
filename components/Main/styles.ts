@@ -65,7 +65,11 @@ export const Slider = styled.div`
 `
 export const SliderImages = styled.div`
     display: flex;
+    width: 100%;
     transition: 0.3s;
+    & img{
+        max-height: 630px;
+    }
  `
 export const Prev = styled.button`
     left: 0;
