@@ -32,3 +32,20 @@ export interface FeedData {
   flag : number,
   created_at : string
 }
+
+export interface ExampleState {
+  count: number;
+  error: null | Error;
+  lastUpdate: number;
+  light: boolean;
+  placeholderData: User[] | null;
+}
+export interface ApiResult {
+  id: number;
+  name: string;
+}
+
+export interface ApiExampleState {
+  apiResult: ApiResult | null;
+  error: null | Error;
+}
