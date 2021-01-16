@@ -38,7 +38,32 @@ const MainSlide =()=>{
         if(transVal == 0) setTransVal(-pos+1); 
         else setTransVal(transVal + 1)
     }
-
+    const ClubData = [
+        {
+            img : "https://lh3.googleusercontent.com/proxy/g4JQHxSBkBqiA7GGH0zOKkiiuX2GCp3h9Wg32XVIRkC8aoKfSgsQ2HFwSp6lLzhScEBM_TWo1dWxRgEFrPkt1anw1UfgmtV-znaVf27kJEbfcCzs-XIIZ0_gBQPXBg2nEl1mlDNZEJw9iFr7BoQVMBco2YjllctvYWY",
+            name : "SEMICOLON;"
+        },
+        {
+            img : "https://lh3.googleusercontent.com/proxy/g4JQHxSBkBqiA7GGH0zOKkiiuX2GCp3h9Wg32XVIRkC8aoKfSgsQ2HFwSp6lLzhScEBM_TWo1dWxRgEFrPkt1anw1UfgmtV-znaVf27kJEbfcCzs-XIIZ0_gBQPXBg2nEl1mlDNZEJw9iFr7BoQVMBco2YjllctvYWY",
+            name : "MODEEP"
+        },
+        {
+            img : "https://lh3.googleusercontent.com/proxy/g4JQHxSBkBqiA7GGH0zOKkiiuX2GCp3h9Wg32XVIRkC8aoKfSgsQ2HFwSp6lLzhScEBM_TWo1dWxRgEFrPkt1anw1UfgmtV-znaVf27kJEbfcCzs-XIIZ0_gBQPXBg2nEl1mlDNZEJw9iFr7BoQVMBco2YjllctvYWY",
+            name : "SINABRO"
+        },
+        {
+            img : "https://lh3.googleusercontent.com/proxy/g4JQHxSBkBqiA7GGH0zOKkiiuX2GCp3h9Wg32XVIRkC8aoKfSgsQ2HFwSp6lLzhScEBM_TWo1dWxRgEFrPkt1anw1UfgmtV-znaVf27kJEbfcCzs-XIIZ0_gBQPXBg2nEl1mlDNZEJw9iFr7BoQVMBco2YjllctvYWY",
+            name : "SEMICOLON;"
+        },
+        {
+            img : "https://lh3.googleusercontent.com/proxy/g4JQHxSBkBqiA7GGH0zOKkiiuX2GCp3h9Wg32XVIRkC8aoKfSgsQ2HFwSp6lLzhScEBM_TWo1dWxRgEFrPkt1anw1UfgmtV-znaVf27kJEbfcCzs-XIIZ0_gBQPXBg2nEl1mlDNZEJw9iFr7BoQVMBco2YjllctvYWY",
+            name : "MODEEP"
+        },
+        {
+            img : "https://lh3.googleusercontent.com/proxy/g4JQHxSBkBqiA7GGH0zOKkiiuX2GCp3h9Wg32XVIRkC8aoKfSgsQ2HFwSp6lLzhScEBM_TWo1dWxRgEFrPkt1anw1UfgmtV-znaVf27kJEbfcCzs-XIIZ0_gBQPXBg2nEl1mlDNZEJw9iFr7BoQVMBco2YjllctvYWY",
+            name : "SINABRO"
+        }
+    ]
     return(
         <>
         <s.SlideContainer> 
@@ -53,7 +78,17 @@ const MainSlide =()=>{
             </s.AllowContainer>
             <Menu></Menu>
         </s.SlideContainer>
-        <s.SlideUnderBar></s.SlideUnderBar>
+        <s.SlideUnderBar>
+          {ClubData.map((e)=>{
+                return(
+                    <s.ClubProfileBox>
+                        <s.ClubProfile><img src={e.img}></img></s.ClubProfile>
+                            <a>{e.name}</a>
+                        <s.ProfileLine></s.ProfileLine>
+                    </s.ClubProfileBox>
+                )
+            })} 
+        </s.SlideUnderBar>
         </>
     )
 }
