@@ -69,6 +69,7 @@ export const SliderImages = styled.div`
     transition: 0.3s;
     & img{
         max-height: 630px;
+        -webkit-user-drag: none;
     }
  `
 export const Prev = styled.button`
