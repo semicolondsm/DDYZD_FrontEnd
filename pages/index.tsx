@@ -1,7 +1,11 @@
+import Header from '../components/Public/Header/Header'
+import MainSlide from '../components/Club/MainSlide/MainSlide'
+
 const Index = () => {
   return(
     <>
-      <div>마렵다</div>
+    <Header></Header>
+    <MainSlide></MainSlide>
     </>
   )
   
