@@ -11,12 +11,14 @@ background-color:#350871;
 display:flex;
 align-items:center;
 min-width:1000px;
+border-bottom:1px solid #C8C8C8;
 a{
     margin-left:16%;
     text-decoration:none;
-    font-size:1.5vmin;
+    font-size:1.8vmin;
     color:white;
     padding:0 1%;
+    font-weight:bold;
 }
 img{
     width:60px;
@@ -32,10 +34,11 @@ justify-content:space-between;
 min-width:1000px;
 background-color:white;
 div{
-    margin-left:16%;
+    width:100%;
     align-items:center;
     display:flex;   
     h3{
+        margin-left:24%;
         font-size:1.7vmin;  
         font-weight:500;
         padding:0px 1%;
