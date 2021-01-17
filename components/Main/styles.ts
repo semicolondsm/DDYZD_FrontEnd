@@ -6,7 +6,7 @@ export const FeedList = styled.ul`
     & li{
         border-radius: 20px;
         background: white;
-        width: 630px;
+        max-width: 580px;
         box-shadow: 0px 5px 5px #00000029;
         border: 1px solid #C8C8C8;
         margin-bottom: 35px;
@@ -53,6 +53,8 @@ export const Slider = styled.div`
     overflow: hidden;
     overflow-y: hidden;
     position: relative;
+    height: 0;
+    padding-bottom: 100%;
     & button{
         position: absolute;
         top: 50%;
@@ -67,8 +69,14 @@ export const SliderImages = styled.div`
     display: flex;
     width: 100%;
     transition: 0.3s;
+    height: 0px;
+    padding-bottom: 100%;
     & img{
-        max-height: 630px;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        object-fit: cover;
         -webkit-user-drag: none;
     }
  `

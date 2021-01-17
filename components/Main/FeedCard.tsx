@@ -19,8 +19,11 @@ function FeedCard({props} : {props: FeedData}){
     }
     function TouchEnd(){
         let temp = start-end;
-        if(temp>0) next();
-        else prev();
+        console.log(temp);
+        if(temp>60 && end!=0) next();
+        else if(temp<-60 && end!=0) prev();
+        setStart(0);
+        setEnd(0);
     }
     function TouchMove(e: React.TouchEvent){
         setEnd(e.touches[0].clientX);
@@ -62,7 +65,7 @@ function FeedCard({props} : {props: FeedData}){
                 <S.Slider>
                     <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.src.length*100}%`}}>
                         {
-                            props.src.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.src.length} )`}} src={i}></img>))
+                            props.src.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.src.length} )`, transform: `translateX(${100*index}%)`}} src={i}></img>))
                         }
                     </S.SliderImages>
                     <S.Prev onClick={prev}>
