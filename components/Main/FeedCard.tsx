@@ -51,7 +51,7 @@ function FeedCard({props} : {props: FeedData}){
                     </div>
                     <S.CreatedAt>{props.created_at}</S.CreatedAt>
                 </S.CardHeaderContent>
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="5" viewBox="0 0 25 5">
+                <svg style={{padding: "15px 10px"}} xmlns="http://www.w3.org/2000/svg" width="25" height="5" viewBox="0 0 25 5">
                 <g id="그룹_511" data-name="그룹 511" transform="translate(-1065 -1035)">
                     <circle id="타원_91" data-name="타원 91" cx="2.5" cy="2.5" r="2.5" transform="translate(1065 1035)" fill="#3d3d3d"/>
                     <circle id="타원_92" data-name="타원 92" cx="2.5" cy="2.5" r="2.5" transform="translate(1075 1035)" fill="#3d3d3d"/>
@@ -69,14 +69,14 @@ function FeedCard({props} : {props: FeedData}){
                         }
                     </S.SliderImages>
                     <S.Prev onClick={prev}>
-                        <svg id="버튼" xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41">
+                        <svg id="버튼" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 40 41">
                         <ellipse id="타원_106" data-name="타원 106" cx="20" cy="20.5" rx="20" ry="20.5" fill="#c8c8c8" opacity="0.5"/>
                         <rect id="사각형_628" data-name="사각형 628" width="2" height="18" rx="1" transform="translate(13.199 21.339) rotate(-135)" fill="#fff"/>
                         <rect id="사각형_629" data-name="사각형 629" width="2" height="18" rx="1" transform="translate(25.927 31.663) rotate(135)" fill="#fff"/>
                         </svg>
                     </S.Prev>
                     <S.Next onClick={next}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 40 41">
                     <g id="버튼" transform="translate(-1050 -1554)">
                         <ellipse id="타원_106" data-name="타원 106" cx="20" cy="20.5" rx="20" ry="20.5" transform="translate(1050 1554)" fill="#c8c8c8" opacity="0.5"/>
                         <rect id="사각형_628" data-name="사각형 628" width="2" height="18" rx="1" transform="translate(1064.073 1562.611) rotate(-45)" fill="#fff"/>
@@ -97,15 +97,15 @@ function FeedCard({props} : {props: FeedData}){
                         
                     }
                     </S.SliderState>
-                    <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                    <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="28" height="30" viewBox="0 0 30 30">
                     <g id="그룹_515" data-name="그룹 515" transform="translate(13.838 6.96)">
                         <g id="그룹_514" data-name="그룹 514">
-                        <path id="패스_117" data-name="패스 117" d="M242.676,129.468l-4.183-3.137v-6.39a1.162,1.162,0,1,0-2.324,0v6.971a1.16,1.16,0,0,0,.465.93l4.647,3.486a1.162,1.162,0,0,0,1.395-1.859Z" transform="translate(-236.169 -118.779)" fill="#350871"/>
+                        <path id="패스_117" data-name="패스 117" d="M242.676,129.468l-4.183-3.137v-6.39a1.162,1.162,0,1,0-2.324,0v6.971a1.16,1.16,0,0,0,.465.93l4.647,3.486a1.162,1.162,0,0,0,1.395-1.859Z" transform="translate(-236.169 -118.779)" fill="#606670"/>
                         </g>
                     </g>
                     <g id="그룹_517" data-name="그룹 517">
                         <g id="그룹_516" data-name="그룹 516">
-                        <path id="패스_118" data-name="패스 118" d="M15,0A15,15,0,1,0,30,15,15.016,15.016,0,0,0,15,0Zm0,27.676A12.676,12.676,0,1,1,27.676,15,12.692,12.692,0,0,1,15,27.676Z" fill="#350871"/>
+                        <path id="패스_118" data-name="패스 118" d="M15,0A15,15,0,1,0,30,15,15.016,15.016,0,0,0,15,0Zm0,27.676A12.676,12.676,0,1,1,27.676,15,12.692,12.692,0,0,1,15,27.676Z" fill="#606670"/>
                         </g>
                     </g>
                     </svg>
