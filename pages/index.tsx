@@ -4,7 +4,7 @@ import MainSlide from '../components/Club/MainSlide/MainSlide'
 const Index = () => {
   return(
     <>
-    <Header></Header>
+    <Header e="1"></Header>
     <MainSlide></MainSlide>
     </>
   )
