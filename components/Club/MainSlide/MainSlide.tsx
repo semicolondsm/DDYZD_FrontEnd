@@ -1,7 +1,6 @@
 import * as s from './MainSlideStyle'
-import { useEffect, Children, useState } from 'react';
-import { INSPECT_MAX_BYTES } from 'buffer';
-import Modal from './Modal'
+import { useEffect, useState} from 'react';
+import useInterval from '../../../hooks/index'
 
 const Menu =()=>{
     return(
@@ -28,32 +27,32 @@ const MainSlide =()=>{
     const ClubData = [
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://lh3.googleusercontent.com/proxy/cs4vlBgF3OeAqiNdGJ4lqz-ziNIQJ81oWipJbGc1D54S5zLm7VZDS0ksTp1LuBQYPszk1m2eNK3nAiJ8e27DjWi7x8CmgjAMM-mliALHPG6oejoMFEcrLA1VzmvVFhVCyTr3gYaDyeljPq1cCe_gxQ400F-E04m5GJc",
+            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
             name : "SEMICOLON;"
         },
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://lh3.googleusercontent.com/proxy/cs4vlBgF3OeAqiNdGJ4lqz-ziNIQJ81oWipJbGc1D54S5zLm7VZDS0ksTp1LuBQYPszk1m2eNK3nAiJ8e27DjWi7x8CmgjAMM-mliALHPG6oejoMFEcrLA1VzmvVFhVCyTr3gYaDyeljPq1cCe_gxQ400F-E04m5GJc",
+            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
             name : "MODEEP"
         },
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://lh3.googleusercontent.com/proxy/cs4vlBgF3OeAqiNdGJ4lqz-ziNIQJ81oWipJbGc1D54S5zLm7VZDS0ksTp1LuBQYPszk1m2eNK3nAiJ8e27DjWi7x8CmgjAMM-mliALHPG6oejoMFEcrLA1VzmvVFhVCyTr3gYaDyeljPq1cCe_gxQ400F-E04m5GJc",
+            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
             name : "SINABRO"
         },
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://lh3.googleusercontent.com/proxy/cs4vlBgF3OeAqiNdGJ4lqz-ziNIQJ81oWipJbGc1D54S5zLm7VZDS0ksTp1LuBQYPszk1m2eNK3nAiJ8e27DjWi7x8CmgjAMM-mliALHPG6oejoMFEcrLA1VzmvVFhVCyTr3gYaDyeljPq1cCe_gxQ400F-E04m5GJc",
+            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
             name : "SEMICOLON;"
         },
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://lh3.googleusercontent.com/proxy/cs4vlBgF3OeAqiNdGJ4lqz-ziNIQJ81oWipJbGc1D54S5zLm7VZDS0ksTp1LuBQYPszk1m2eNK3nAiJ8e27DjWi7x8CmgjAMM-mliALHPG6oejoMFEcrLA1VzmvVFhVCyTr3gYaDyeljPq1cCe_gxQ400F-E04m5GJc",
+            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
             name : "MODEEP"
         },
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://lh3.googleusercontent.com/proxy/cs4vlBgF3OeAqiNdGJ4lqz-ziNIQJ81oWipJbGc1D54S5zLm7VZDS0ksTp1LuBQYPszk1m2eNK3nAiJ8e27DjWi7x8CmgjAMM-mliALHPG6oejoMFEcrLA1VzmvVFhVCyTr3gYaDyeljPq1cCe_gxQ400F-E04m5GJc",
+            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
             name : "SINABRO"
         }
     ]
@@ -74,14 +73,24 @@ const MainSlide =()=>{
         if(transVal == 0) setTransVal(-pos+1); 
         else setTransVal(transVal + 1)
     }
-    let i:number = 0;
+    const ClubProfileClick =(index:number)=>{
+        setTransVal(-index)
+    }
+    useInterval(()=>{
+        if(transVal == -pos+1){
+            setTransVal(0)
+        }
+        else{
+            setTransVal(transVal-1)
+        }
+    },3000)
     return(
         <>
         <s.SlideContainer> 
-            <Modal></Modal>
+{/*             <Modal></Modal> */}
         <s.SlideBox style={{width:ClubData.length * 100 + "%", transform:"translateX("+ transVal*100/pos + "%)"}}> {/* 슬라이드 이미지 */}
-                {ClubData.map((e)=>{
-                    return(<img src={e.pictur} style={{width:100/pos + "%"}}></img>)
+                {ClubData.map((e,index)=>{
+                    return(<img src={e.pictur} key={index} style={{width:100/pos + "%"}}></img>)
                 })}
             </s.SlideBox>
             <s.AllowContainer>
@@ -91,18 +100,12 @@ const MainSlide =()=>{
             <Menu></Menu>
         </s.SlideContainer>
         <s.SlideUnderBar>
-          {ClubData.map((e)=>{ 
-              i++;
-              e.id = i;
-              if(e.id == -transVal){
-                  console.log(e.id)
-                  console.log('sdf')
-              }
+          {ClubData.map((e, index)=>{ 
                 return(
-                    <s.ClubProfileBox>
-                        <s.ClubProfile style={(e.id-1 == -transVal)?CurBorder:none}><img src={e.img}></img></s.ClubProfile>
+                    <s.ClubProfileBox key={index}>
+                        <s.ClubProfile style={(index == -transVal)?CurBorder:none}><img onClick={()=>ClubProfileClick(index)} src={e.img}></img></s.ClubProfile>
                             <a>{e.name}</a>
-                        <s.ProfileLine style={(e.id-1 == -transVal)?CurBack:none}></s.ProfileLine>
+                        <s.ProfileLine style={(index == -transVal)?CurBack:none}></s.ProfileLine>
                     </s.ClubProfileBox>
                 )
             })} 
