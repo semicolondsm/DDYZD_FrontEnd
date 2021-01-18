@@ -29,7 +29,7 @@ function FeedCard({props} : {props: FeedData}){
         setEnd(e.touches[0].clientX);
     }
     useEffect(()=>{
-        if(slideRef.current) slideRef.current.style.transform=`translateX(${100/props.src.length*-page}%)`;
+        slideRef.current!.style.transform=`translateX(${100/props.src.length*-page}%)`;
     },[page])
     return(
         <li>
