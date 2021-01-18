@@ -1,10 +1,6 @@
-import React, { useEffect } from 'react';
 import * as h from './HeaderStyle'
 
 function Header(e:any){
-    useEffect(()=>{
-        console.log(e.e)
-    })
     return(
         <div>
         <h.Header>
