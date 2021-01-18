@@ -3,7 +3,7 @@ import { FeedData } from "../../interfaces"
 import { useEffect, useRef, useState } from "react";
 import FlagToggle from "./FlagToggle";
 function FeedCard({props} : {props: FeedData}){
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState<number>(0);
     const [start,setStart] = useState<number>(0);
     const [end, setEnd] = useState<number>(0);
     const slideRef = useRef<HTMLDivElement>(null);
