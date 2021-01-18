@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css,  } from 'styled-components'
 
 export const ItemWrapper = styled.div<{max: number, now: number}>`
     width: 290px;
@@ -9,16 +9,21 @@ export const ItemWrapper = styled.div<{max: number, now: number}>`
     position: relative;
     cursor: pointer;
     background: white;
-    transition: 0.4s width cubic-bezier(0.3, 0.3, 0.0, 1.0), 0.2s box-shadow linear;
+    transition: 0.4s width cubic-bezier(0.3, 0.3, 0.0, 1.0), 0.2s box-shadow linear, 0.4s right cubic-bezier(0.3, 0.3, 0.0, 1.0);
     overflow: hidden;
+    right: 0;
 
     &:hover {
         width: 620px;
-        
     }
+    &:nth-child(4n):hover {
+        right: 330px;
+    }
+
     &:hover + div {
         box-shadow: none;
     }
+
     &:hover > img {
         margin-left: 30px;
     }
@@ -78,12 +83,14 @@ export const Wrapper = styled.div`
     grid-template-columns: repeat(4, 290px);
     grid-gap: 40px;
     margin: 0 auto;
+    min-width: 1280px;
 `
 
 export const BodyWrapper = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
+    min-width: 1280px;
 `
 
 export const PurpleBack = styled.div`
