@@ -7,7 +7,7 @@ display:flex;
 min-width:1000px;
 background-color:gray;
 position:relative;
-overflow-x:hidden;
+overflow:hidden;
 ::-webkit-scrollbar{
     display:none;   
 }
@@ -123,6 +123,7 @@ background-image: linear-gradient(white,white), linear-gradient(#707070,#707070)
 background-origin: border-box;
 background-clip: content-box, border-box;
 img{
+    cursor: pointer;
     width:90%;
     height:90%;
     border-radius:80%;
@@ -188,6 +189,10 @@ height:100%;
 display:flex;
 flex-direction:column;
 a{
+    cursor: pointer;
+    :hover{
+        color:tomato;
+    }
     :first-child{
         margin-top:6%;
     }
