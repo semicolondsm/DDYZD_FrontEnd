@@ -10,8 +10,8 @@ min-width: 1500px;
 `
 const TopHeader = styled.div<headerCotainer>`
 height: 60px;
-width: 100%;
 position : ${(props)=>props.state>=60 ? "fixed" : null};
+width : ${(props)=>props.state>=60 ? "100%" : null};
 top: 0;
 z-index: 99;    
 /* #350871" */
