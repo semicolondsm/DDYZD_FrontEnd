@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
-import  Image from "next/image"
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
     useEffect(()=>{
@@ -13,7 +12,7 @@ function Header({color} : {color:string}){
         <h.Header>
             <h.TopHeader state={scroll} color={color}>
                 <Link href="/">
-                    <a><Image src="/Logo.png" width={25} height={25}></Image>대동여지도</a>
+                    <a><img src={color=="white" ? "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logoblack.png" : "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logowhite.png"} width={25} height={25}></img>대동여지도</a>
                 </Link>
             </h.TopHeader>
             <h.BottomHeader>
