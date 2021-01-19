@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 
 
-const SubHeader = styled.div`
-width:100%;  
+const SubHeader = styled.div` 
 background-color:white;
 border-top:1px solid #DBDBDB;
+min-width: 1500px;
 `
 const Tip = styled.div`
     width:38px;
@@ -20,12 +20,11 @@ const Tip = styled.div`
     margin-left:1%;
 `
 const SubHeaderTitle = styled.div`
-width:100%;
 display:flex;
 height:80px;
 border-bottom:1px solid #C8C8C8;
 align-items:center;
-padding-left: 320px;
+padding: 0 250px;
 & p{
     font-size: 22px;
     & b{
@@ -36,13 +35,12 @@ padding-left: 320px;
 }
 `
 const ItemState = styled.ul`
-width:100%;
 display:flex;
 height: 60px;
 padding: 0;
 margin: 0;
 list-style : none;
-padding-left: 320px;
+padding: 0 250px;
 align-items: center;
 
 li{

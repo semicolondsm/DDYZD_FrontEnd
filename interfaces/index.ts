@@ -8,3 +8,27 @@ export type User = {
   id: number
   name: string
 }
+export interface ClubItemTableData {
+  user_name: string,
+  data : ClubItemData[],
+  
+}
+export interface ClubItemData {
+  item_state : string,
+  item_name : string,
+  option : string,
+  link : string,
+  amount : string,
+  price : number,
+  delivery_status : string
+}
+
+export interface FeedData {
+  profile : string,
+  name: string,
+  content : string,
+  src : string[],
+  dday : number,
+  flag : number,
+  created_at : string
+}

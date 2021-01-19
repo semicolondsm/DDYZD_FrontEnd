@@ -1,5 +1,5 @@
 import * as S from './ApplyStyle';
-
+import CheckItem from "./CheckItem"
 function ClubItemApply(){
     return(
         <S.BoxCover>
@@ -11,14 +11,14 @@ function ClubItemApply(){
                 <S.line></S.line>
                 <div>
                     <a>물품 상태</a>
-                    <div>✔</div>
+                    <CheckItem/>
                 </div>
                 <input type="text" name="" id=""/>
                 <div>
                     <a>물품명</a>
-                    <div>✔</div>
+                    <CheckItem/>
                 </div>
-                <S.ItemName>게이밍 마우스 2020</S.ItemName>
+                <input type="text" name="" id=""/>
                 <div>
                     <a>옵션 선택</a>
                 </div>

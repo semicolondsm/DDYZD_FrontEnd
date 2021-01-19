@@ -1,17 +1,18 @@
 import * as S from "./styles"
 import CheckItem from "./CheckItem"
-function ClubItem(){
+import { ClubItemData } from "../../interfaces"
+function ClubItem({ props }:{props:ClubItemData}){
     return(
         <S.TableItem>
-            <S.ItemState>승인 완료<S.ButtonWrapper><CheckItem></CheckItem></S.ButtonWrapper></S.ItemState>
+            <S.ItemState>{props.item_state}<S.ButtonWrapper><CheckItem></CheckItem></S.ButtonWrapper></S.ItemState>
             <S.ItemElement>
-                <S.ItemName>앱코 해커 B780 가상7.1 RGB 진동 게이밍 헤드셋</S.ItemName>
-                <S.ItemOption>시크블랙</S.ItemOption>
-                <S.ItemAddress>http://www.11st.co.kr/products/2513078761?trTysdsdsd</S.ItemAddress>
+                <S.ItemName>{props.item_name}</S.ItemName>
+                <S.ItemOption>{props.option}</S.ItemOption>
+                <S.ItemAddress>{props.link}</S.ItemAddress>
             </S.ItemElement>
             <td>1개</td>
-            <td>59900원</td>
-            <td>배송중</td>
+            <td>{props.price}원</td>
+            <td>{props.delivery_status}</td>
         </S.TableItem>
     )
 }
