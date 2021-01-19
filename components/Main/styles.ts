@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+const maxWidth = "630px"
 export const FeedList = styled.ul`
     list-style: none;
     padding: 0;
@@ -7,12 +7,13 @@ export const FeedList = styled.ul`
     & li{
         border-radius: 20px;
         background: white;
-        max-width: 520px;
+        max-width: ${maxWidth};
         box-shadow: 0px 5px 5px #00000029;
         border: 1px solid #eee;
         margin-bottom: 35px;
+        margin: 15px auto;
     }
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         & li{
             border-radius: 0;
             border: none;
@@ -23,7 +24,7 @@ export const CardHeader = styled.div`
     display: flex;
     align-items: center;
     padding: 15px 25px;
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         padding: 15px 15px;
         padding-bottom: 0;
     }
@@ -40,13 +41,13 @@ export const CardHeaderContent = styled.div`
     margin-left: 15px;
     width: 100%;
     font-size: 16px;
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         font-size: 14px;
     }
 `
 export const CreatedAt = styled.div`
     font-size: 14px;
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         font-size: 12px
     }
     color: #A4A4A4;
@@ -55,7 +56,7 @@ export const CardSection = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 14px;
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         font-size: 13px;
     }
 
@@ -63,7 +64,7 @@ export const CardSection = styled.div`
 export const CardBottom = styled.div`
     padding: 20px 25px;
     padding-top: 0;
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         padding: 20px 20px;
         padding-top: 0;
     }
@@ -71,7 +72,7 @@ export const CardBottom = styled.div`
 export const Content = styled.div`
     padding: 0 25px;
     margin-bottom: 10px;
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         padding: 0px 15px;
     }
 `
@@ -147,7 +148,7 @@ export const CardState = styled.div`
     color: #606670;
     margin-top: 5px;
     
-    @media screen and (max-width: 520px) { 
+    @media screen and (max-width: ${maxWidth}) { 
         font-size: 11px;
     }
 `
