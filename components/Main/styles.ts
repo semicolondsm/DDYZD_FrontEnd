@@ -228,7 +228,6 @@ cursor:pointer;
 export const SlideBox = styled.div`
 width:200%;
 height:700px;
-background-color:blue;
 display:flex;
 transition:1s;
 min-width:1000px;
@@ -238,7 +237,6 @@ position:absolute;
 export const Box = styled.div`
 width:200%;
 height:700px;
-background-color:red;
 `
 
 export const ClubProfileBox = styled.div`
