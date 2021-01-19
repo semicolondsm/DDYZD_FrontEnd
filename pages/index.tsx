@@ -1,10 +1,10 @@
 import Header from '../components/Public/Header/Header'
-import MainSlide from '../components/Club/MainSlide/MainSlide'
+import MainSlide from '../Main/MainSlide'
 
 const Index = () => {
   return(
     <>
-    <Header e="1"></Header>
+    <Header color="white"></Header>
     <MainSlide></MainSlide>
     </>
   )
