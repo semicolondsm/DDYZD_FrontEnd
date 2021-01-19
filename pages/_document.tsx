@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"/>
         </Head>
-        <body style={{boxSizing: "border-box", fontFamily: "Noto Sans KR", background: "#F5F5F5", margin: 0}}>
+        <body>
             <Main />
             <NextScript />
         </body>
