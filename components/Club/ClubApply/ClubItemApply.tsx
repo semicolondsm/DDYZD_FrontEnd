@@ -1,7 +1,6 @@
-import * as S from './ApplyStyle';
-import CheckItem from "./CheckItem"
+import * as S from './styles';
+import CheckItem from "../ClubTable/CheckItem"
 function ClubItemApply(){
-    const price:number = 12000;
     return(
         <S.BoxCover>
             <S.Container>

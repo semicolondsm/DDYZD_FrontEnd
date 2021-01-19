@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {color} from '../../style'
+import {color} from '../../../style'
 
 const BoxCover = styled.div`
 width:360px;
