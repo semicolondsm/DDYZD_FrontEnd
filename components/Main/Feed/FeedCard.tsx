@@ -1,5 +1,5 @@
 import * as S from "./styles"
-import { FeedData } from "../../interfaces"
+import { FeedData } from "../../../interfaces"
 import { useEffect, useRef, useState } from "react";
 import FlagToggle from "./FlagToggle";
 function FeedCard({props} : {props: FeedData}){
