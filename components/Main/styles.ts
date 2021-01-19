@@ -177,8 +177,7 @@ align-items:center;
 justify-content:center;
 ` // 아래 동아리 프로필 div
 
-export const MenuBar = styled.div`
-width:130px;
+export const MenuBar = styled.ul`
 padding: 0 83px 0 25px;
 height:700px;
 position:absolute;
@@ -199,7 +198,7 @@ font-family:sans-serif;
 padding:20px 0 4px 0;
 `
 
-export const DetailMenu = styled.a`
+export const DetailMenu = styled.li`
 font-size:14px;
 font-weight:500;
 font-family:sans-serif;
