@@ -1,5 +1,6 @@
 import styled from "styled-components"
 const maxWidth = "630px"
+import { color } from "../../style"
 export const FeedList = styled.ul`
     list-style: none;
     padding: 0;
@@ -8,8 +9,8 @@ export const FeedList = styled.ul`
         border-radius: 20px;
         background: white;
         max-width: ${maxWidth};
-        box-shadow: 0px 5px 5px #00000029;
-        border: 1px solid #eee;
+        box-shadow: 0px 5px 5px ${color.grey200};
+        border: 1px solid ${color.grey100};
         margin-bottom: 35px;
         margin: 15px auto;
     }
@@ -33,7 +34,7 @@ export const CardHeader = styled.div`
     & img{
         width: 40px;
         height: 40px;
-        border: 1px solid #eee;
+        border: 1px solid ${color.grey100};
         border-radius: 50%;
     }
 `
@@ -50,7 +51,7 @@ export const CreatedAt = styled.div`
     @media screen and (max-width: ${maxWidth}) { 
         font-size: 12px
     }
-    color: #A4A4A4;
+    color: ${color.grey400};
 `
 export const CardSection = styled.div`
     display: flex;
@@ -124,7 +125,7 @@ export const StateButton = styled.div`
     width: 7px;
     height: 7px;
     margin-right: 4px;
-    background: #A4A4A4;
+    background: ${color.grey400};
     border-radius: 50%;
 `
 export const CardUtil = styled.div`
@@ -145,7 +146,7 @@ export const CardState = styled.div`
     justify-content: space-between;
     font-size: 13px;
     font-weight: bold;
-    color: #606670;
+    color: ${color.grey600};
     margin-top: 5px;
     
     @media screen and (max-width: ${maxWidth}) { 
@@ -169,7 +170,7 @@ overflow:hidden;
 export const SlideUnderBar = styled.div`
 width:100%;
 height:96px;
-border-bottom:1px solid #DBDBDB;
+border-bottom:1px solid ${color.grey300};
 min-width:1000px;
 background-color:white;
 display:flex;
@@ -265,7 +266,7 @@ margin-top:7%;
 border: 1px solid;
 border: 2px solid transparent;
 border-radius: 80%;
-background-image: linear-gradient(white,white), linear-gradient(#707070,#707070);
+background-image: linear-gradient(white,white), linear-gradient(${color.grey500},${color.grey500});
 background-origin: border-box;
 background-clip: content-box, border-box;
 img{
@@ -281,7 +282,7 @@ img{
 export const ProfileLine = styled.div`
 width:100%;
 height:2px;
-background-color:#C8C8C8;
+background-color:${color.grey300};
 margin-top:2%;
 `
 
@@ -292,8 +293,8 @@ background-color:white;
 position:absolute;
 z-index:50;
 margin-left:16%;
-border-top:1px solid #A4A4A4;
-border-bottom:1px solid #A4A4A4;
+border-top:1px solid ${color.grey400};
+border-bottom:1px solid ${color.grey400};
 padding:0 2%;
 `
 
@@ -314,8 +315,8 @@ margin-top:2%;
 export const CategoryTitle = styled.div`
 width:100%;
 height:13%;
-border-top:2px solid #C8C8C8;
-border-bottom:2px solid #C8C8C8;
+border-top:2px solid ${color.grey300};
+border-bottom:2px solid ${color.grey300};
 display:flex;
 `
 
@@ -352,5 +353,5 @@ display:flex;
 height:100%;
 padding: 0 2.1%;
 font-size:1.3vmin;
-color:#A4A4A4;
+color:${color.grey400};
 `
