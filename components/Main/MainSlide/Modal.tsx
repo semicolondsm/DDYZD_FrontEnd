@@ -1,4 +1,4 @@
-import * as s from './MainSlideStyle'
+import * as s from './styles'
 
 const Modal =()=>{
     return(
