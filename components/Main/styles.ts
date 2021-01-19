@@ -109,10 +109,10 @@ export const SliderImages = styled.div`
     }
  `
 export const Prev = styled.button`
-    left: 0;
+    left: 10px;
  `
 export const Next = styled.button`
-    right: 0;
+    right: 10px;
 `
 export const SliderState = styled.div`
     display: flex;
