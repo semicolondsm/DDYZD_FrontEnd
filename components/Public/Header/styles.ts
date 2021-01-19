@@ -28,7 +28,6 @@ a{
     align-items: center;
 }
 `
-
 const BottomHeader = styled.div`
 padding:0 250px;
 height: 60px;
