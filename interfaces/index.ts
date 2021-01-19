@@ -22,13 +22,15 @@ export interface ClubItemData {
   price : number,
   delivery_status : string
 }
-
 export interface FeedData {
-  profile : string,
-  name: string,
+  feedId : number,
+  clubName : string,
+  profileImage : string,
+  isFollow : boolean,
+  uploadAt : string,
+  pin : boolean,
   content : string,
-  src : string[],
-  dday : number,
-  flag : number,
-  created_at : string
+  media : string[], 
+  isFlag : boolean,
+  flags : number,
 }

@@ -12,7 +12,7 @@ function FeedCard({props} : {props: FeedData}){
         
     }
     function next(){
-       if(page<props.src.length-1) setPage(page+1);
+       if(page<props.media.length-1) setPage(page+1);
     }
     function Swipe(e : React.TouchEvent){
         setStart(e.touches[0].clientX);
@@ -29,15 +29,15 @@ function FeedCard({props} : {props: FeedData}){
         setEnd(e.touches[0].clientX);
     }
     useEffect(()=>{
-        slideRef.current!.style.transform=`translateX(${100/props.src.length*-page}%)`;
+        slideRef.current!.style.transform=`translateX(${100/props.media.length*-page}%)`;
     },[page])
     return(
         <li>
             <S.CardHeader>
-                <img src={props.profile}></img>
+                <img src={props.profileImage}></img>
                 <S.CardHeaderContent>
                     <div style={{display: "flex", alignItems: "center"}}>
-                        <div><strong>{props.name}</strong></div>
+                        <div><strong>{props.clubName}</strong></div>
                         <svg style={{marginLeft: "2px"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                         <g id="그룹_550" data-name="그룹 550" transform="translate(-1283 -160)">
                             <circle id="타원_133" data-name="타원 133" cx="8" cy="8" r="8" transform="translate(1283 160)" fill="#c8c8c8"/>
@@ -49,7 +49,7 @@ function FeedCard({props} : {props: FeedData}){
                         </g>
                         </svg>
                     </div>
-                    <S.CreatedAt>{props.created_at}</S.CreatedAt>
+                    <S.CreatedAt>{props.uploadAt}</S.CreatedAt>
                 </S.CardHeaderContent>
                 <svg style={{padding: "15px 10px"}} xmlns="http://www.w3.org/2000/svg" width="45" height="35" viewBox="0 0 25 5">
                 <g id="그룹_511" data-name="그룹 511" transform="translate(-1065 -1035)">
@@ -63,9 +63,9 @@ function FeedCard({props} : {props: FeedData}){
             <S.CardSection>
                 <S.Content>{props.content}</S.Content>
                 <S.Slider>
-                    <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.src.length*100}%`}}>
+                    <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.media.length*100}%`}}>
                         {
-                            props.src.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.src.length} )`, transform: `translateX(${100*index}%)`}} src={i}></img>))
+                            props.media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.media.length} )`, transform: `translateX(${100*index}%)`}} src={i}></img>))
                         }
                     </S.SliderImages>
                     <S.Prev onClick={prev}>
@@ -90,10 +90,10 @@ function FeedCard({props} : {props: FeedData}){
             </S.CardSection>
             <S.CardBottom>
                 <S.CardUtil>
-                    <FlagToggle state={false}></FlagToggle>
+                    <FlagToggle state={props.isFlag}></FlagToggle>
                     <S.SliderState>
                     {
-                        props.src.map((_i,index)=>(<S.StateButton key={index} style={page==index ? {background: "#713EFF"} : undefined}></S.StateButton>))
+                        props.media.map((_i,index)=>(<S.StateButton key={index} style={page==index ? {background: "#713EFF"} : undefined}></S.StateButton>))
                         
                     }
                     </S.SliderState>
@@ -111,8 +111,8 @@ function FeedCard({props} : {props: FeedData}){
                     </svg>
                 </S.CardUtil>
                 <S.CardState>
-                    <div>FLAGS {props.flag}개</div>
-                    <div>D-{props.dday}</div>
+                    <div>FLAGS {props.flags}개</div>
+                    <div>D-30</div>
                 </S.CardState>
             </S.CardBottom>
         </li>
