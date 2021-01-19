@@ -5,28 +5,28 @@ function ClubItemApply(){
         <S.BoxCover>
             <S.Container>
                 <div>
-                    <a>물품 신청하기</a>
+                    <p>물품 신청하기</p>
                     <div>TIP</div>
                 </div>
                 <S.line></S.line>
                 <div>
-                    <a>물품 상태</a>
+                    <p>물품 상태 </p>
                     <CheckItem/>
                 </div>
                 <input type="text" name="" id=""/>
                 <div>
-                    <a>물품명</a>
+                    <p>물품명 </p>
                     <CheckItem/>
                 </div>
                 <input type="text" name="" id=""/>
                 <div>
-                    <a>옵션 선택</a>
+                    <p>옵션 선택</p>
                 </div>
                 <select name="" id="">
                     <option value="">안녕하세요</option>
                 </select>
                 <div>
-                    <a>수량 선택</a>
+                    <p>수량 선택</p>
                 </div>
                 <S.ItemCount>
                     <section>

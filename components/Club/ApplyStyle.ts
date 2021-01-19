@@ -17,11 +17,12 @@ div{
     :first-child{ /* 물품 신청하기 */
         width:320px;
         display:flex;
-        a{
+        p{
             font-size:20px;
             text-decoration:none;
             color:black;
             font-weight:bold;
+            margin-left:10px;
         }
         div{
             width:38px;
@@ -34,6 +35,7 @@ div{
             align-items:center;
             color:#C8C8C8;
             font-weight:bold;
+            margin-top:3px;
         }
     }
 
@@ -42,7 +44,8 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
+            padding-right:5px;
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -67,7 +70,8 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
+            padding-right:5px;
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -92,7 +96,7 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -104,7 +108,7 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -115,7 +119,7 @@ div{
 }
 
 select{
-    width:320px;
+    width:300px;
     height:34px;
     margin-top:10px;
     border:1.7px solid #C8C8C8;
@@ -136,7 +140,7 @@ input{ /* 물품 링크 입력 */
 }
 `
 const line = styled.section`
-width:320px;
+width:300px;
 height:1px;
 background-color:#C8C8C8;
 margin-top:10px;
@@ -158,7 +162,7 @@ const ItemName = styled.section`
 `
 
 const ItemCount = styled.article`
-width:320px;
+width:300px;
 height:34px;
 margin-top:10px;
 display:flex;
@@ -184,26 +188,21 @@ section{
             color:black;
         }
         button{
-            width:34px;
-            height:34px;
+            width:32px;
+            height:32px;
             border-collapse:collapse;
             border:1px solid #C8C8C8;
             background-color:transparent;
-            font-size:1.6rem;
+            font-size:20px;
             color:#C8C8C8;
             outline:none;
             cursor: pointer;
-            transition:0.5s;
-            :hover{
-                background-color:#C8C8C8;
-                color:white;
-            }
         }
     }
 }
 `
 const ApplyButton = styled.button`
-width:320px;
+width:300px;
 height:50px;
 margin-top:24px;
 color:white;
