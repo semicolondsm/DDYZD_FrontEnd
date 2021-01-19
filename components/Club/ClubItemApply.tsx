@@ -1,6 +1,7 @@
 import * as S from './ApplyStyle';
 import CheckItem from "./CheckItem"
 function ClubItemApply(){
+    const price:number = 12000;
     return(
         <S.BoxCover>
             <S.Container>

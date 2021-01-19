@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {color} from '../../style'
 
 const BoxCover = styled.div`
 width:360px;
@@ -27,13 +28,13 @@ div{
         div{
             width:38px;
             height:24px;
-            border:1px solid #C8C8C8;
+            border:1px solid ${color.grey300};
             border-radius:12px;
             margin-left:10px;
             display:flex;
             justify-content:center;
             align-items:center;
-            color:#C8C8C8;
+            color:${color.grey300};
             font-weight:bold;
             margin-top:3px;
         }
@@ -54,7 +55,7 @@ div{
         div{
             width:18px;
             height:18px;
-            background-color:#713EFF;
+            background-color:${color.purple200};
             border-radius:80%;
             margin-left:5px;
             display:flex;
@@ -80,7 +81,7 @@ div{
         div{
             width:18px;
             height:18px;
-            background-color:#713EFF;
+            background-color:${color.purple200};
             border-radius:80%;
             margin-left:5px;
             display:flex;
@@ -122,7 +123,7 @@ select{
     width:300px;
     height:34px;
     margin-top:10px;
-    border:1.7px solid #C8C8C8;
+    border:1.7px solid ${color.grey300};
     outline:none;
     color:gray;
 }
@@ -130,7 +131,7 @@ select{
 input{ /* 물품 링크 입력 */
             width:300px;
             height:30px;
-            background-color:#F5F5F5;
+            background-color:${color.grey100};
             border:none;
             margin-top:5px;
             outline:none;
@@ -142,12 +143,12 @@ input{ /* 물품 링크 입력 */
 const line = styled.section`
 width:300px;
 height:1px;
-background-color:#C8C8C8;
+background-color:${color.grey300};
 margin-top:10px;
 `
 const ItemName = styled.section`
             width:300px;
-            background-color:#F5F5F5;
+            background-color:${color.grey100};
             border:none;
             margin-top:5px;
             outline:none;
@@ -179,8 +180,8 @@ section{
             width:54px;
             height:32px;
             border-collapse:collapse;
-            border-top:1px solid #C8C8C8;
-            border-bottom:1px solid #C8C8C8;
+            border-top:1px solid ${color.grey300};
+            border-bottom:1px solid ${color.grey300};
             padding:none;
             display:flex;
             justify-content:center;
@@ -191,10 +192,10 @@ section{
             width:32px;
             height:32px;
             border-collapse:collapse;
-            border:1px solid #C8C8C8;
+            border:1px solid ${color.grey300};
             background-color:transparent;
             font-size:20px;
-            color:#C8C8C8;
+            color:${color.grey300};
             outline:none;
             cursor: pointer;
         }
@@ -206,7 +207,7 @@ width:300px;
 height:50px;
 margin-top:24px;
 color:white;
-background-color:#350871;
+background-color:${color.purple300};
 border:none;    
 font-size:18px;
 `
