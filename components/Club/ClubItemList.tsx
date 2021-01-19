@@ -24,9 +24,9 @@ function ClubItemList(){
     return(
         <S.Container>
             {
-                Data?.map((i)=>{
+                Data?.map((i,index)=>{
                     console.log(i);
-                    return(<ClubItemTable props={i}></ClubItemTable>)
+                    return(<ClubItemTable key={index} props={i}></ClubItemTable>)
                 })
             }
         </S.Container>

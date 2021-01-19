@@ -6,22 +6,22 @@ function ClubItemTable({props} : {props: ClubItemTableData}){
     return(
         <S.Table>
             <S.TableHead>
-                <th>
+                <tr>
                     <S.TableNameWrapper>
                         <ToggleItem></ToggleItem>
                         <span>{props.user_name}</span>
                     </S.TableNameWrapper>
-                </th>
-                <S.TableName>신청물품 (1개)</S.TableName>
-                <th>수량</th>
-                <th>가격</th>
-                <th>상태</th>
+                    <S.TableName>신청물품 (1개)</S.TableName>
+                    <th>수량</th>
+                    <th>가격</th>
+                    <th>상태</th>
+                </tr>
+                
             </S.TableHead>
             <S.TableBody>
                 {
-                    props.data.map((i)=>{ 
-                        console.log(i);
-                        return(<ClubItem props={i}></ClubItem>)
+                    props.data.map((i,index)=>{ 
+                        return(<ClubItem key={index} props={i}></ClubItem>)
                     })
                 }
             </S.TableBody>

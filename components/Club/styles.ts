@@ -77,7 +77,7 @@ export const ItemName = styled.p`
     text-overflow: ellipsis;
     margin: 0;
 `
-export const TableNameWrapper= styled.div`
+export const TableNameWrapper= styled.th`
     display: flex;
     align-items: center;
     padding-left: 10px;
