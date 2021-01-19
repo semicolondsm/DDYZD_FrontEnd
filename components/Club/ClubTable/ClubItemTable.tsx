@@ -1,7 +1,7 @@
 import ClubItem from "./ClubItem";
 import * as S from "./styles"
 import ToggleItem from "./CheckItem";
-import { ClubItemTableData  } from "../../interfaces";
+import { ClubItemTableData  } from "../../../interfaces";
 function ClubItemTable({props} : {props: ClubItemTableData}){
     return(
         <S.Table>
