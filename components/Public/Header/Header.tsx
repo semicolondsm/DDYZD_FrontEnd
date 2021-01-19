@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
 import  Image from "next/image"
 function Header({color} : {color:string}){
+    const [scroll, setScroll] = useState<number>(0);
+    useEffect(()=>{
+        window.onscroll=()=>setScroll(window.scrollY);
+    },[])
     return(
         <div>
         <h.Header>
-            <h.TopHeader color={color}>
+            <h.TopHeader state={scroll} color={color}>
                 <Link href="/">
                     <a><Image src="/Logo.png" width={25} height={25}></Image>대동여지도</a>
                 </Link>

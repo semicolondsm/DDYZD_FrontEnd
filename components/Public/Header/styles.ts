@@ -1,12 +1,19 @@
 import styled from 'styled-components';
-
+interface headerCotainer{
+    state: number,
+    color: string,
+}
 const Header = styled.header`
 width:100%; 
 background-color:white; 
 min-width: 1500px;
 `
-const TopHeader = styled.div`
+const TopHeader = styled.div<headerCotainer>`
 height: 60px;
+width: 100%;
+position : ${(props)=>props.state>=60 ? "fixed" : null};
+top: 0;
+z-index: 99;    
 /* #350871" */
 background-color: ${(props)=>props.color=="purple"?"#350871":props.color=="white"?"white":"#350871"};
 display:flex;
