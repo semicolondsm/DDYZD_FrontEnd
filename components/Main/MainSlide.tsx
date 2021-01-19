@@ -1,6 +1,6 @@
 import * as s from './styles'
 import { useState } from 'react';
-import useInterval from '../hooks/index'
+import useInterval from '../../hooks/index'
 
 const Menu =()=>{
     return(

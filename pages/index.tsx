@@ -1,5 +1,5 @@
 import Header from '../components/Public/Header/Header'
-import MainSlide from '../Main/MainSlide'
+import MainSlide from '../components/Main/MainSlide'
 
 const Index = () => {
   return(
