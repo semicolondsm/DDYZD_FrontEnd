@@ -1,4 +1,4 @@
-import styled, { css,  } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const ItemWrapper = styled.div<{max: number, now: number}>`
     width: 290px;
@@ -16,15 +16,18 @@ export const ItemWrapper = styled.div<{max: number, now: number}>`
     &:hover {
         width: 620px;
     }
+
     &:nth-child(4n):hover {
         right: 330px;
     }
 
-    &:hover + div {
-        box-shadow: none;
-    }
+    ${props => (props.now+1) % 4 != 0 && css`
+        &:hover + div {
+            box-shadow: none !important;
+        }
+    `} 
 
-    &:hover > img {
+    &:hover > div > img {
         margin-left: 30px;
     }
 
