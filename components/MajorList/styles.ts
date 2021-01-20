@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
-
+import { color } from '../../style'
+ 
 export const ItemWrapper = styled.div<{max: number, now: number}>`
     width: 290px;
     height: 200px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-    border: 1px solid #C8C8C8;
+    border: 1px solid ${color.grey300};
     border-radius: 5px;
     position: relative;
     cursor: pointer;
@@ -55,7 +56,7 @@ export const ItemHeader = styled.h2`
 export const ItemSubHeader = styled.h3`
     font-weight: 500;
     font-size: 14px;
-    color: #545454;
+    color: ${color.grey600};
     margin: 0 0 -5px;
 `
 
@@ -69,7 +70,7 @@ export const ItemDesWrapper = styled.div`
 
 export const ItemDes = styled.span`
     font-size: 12px;
-    color: #545454;
+    color: ${color.grey600};
 `
 
 export const PointButton = styled.button`
@@ -98,7 +99,7 @@ export const BodyWrapper = styled.div`
 
 export const PurpleBack = styled.div`
     position: absolute;
-    background: #7B1ACF;
+    background: ${color.purple200};
     width: 400px;
     height: 350px;
     bottom: 0;
