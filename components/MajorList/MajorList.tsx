@@ -2,6 +2,23 @@ import * as S from './styles'
 import MajorItem from './MajorItem'
 import { MutableRefObject, useLayoutEffect, useRef } from 'react'
 
+interface dummyType {
+    imgSrc: string;
+    header: string;
+    subHeader: string;
+    description: string;
+}
+
+const url: string = "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F24283C3858F778CA2EFABE" 
+
+const dummy: dummyType[] = Array(12)
+
+dummy.fill({
+        imgSrc: url,
+        header: "PANG",
+        subHeader: "웹 프로젝트 진행을 위한 웹 개발 동아리",
+        description: "프로젝트 위주의 운영으로 자유롭고 친한 분위기 속에 진행을 하고 있습니다"})
+
 const MajorList = () => {
     const time: MutableRefObject<any> = useRef({})
 
@@ -29,14 +46,18 @@ const MajorList = () => {
     return (
         <S.BodyWrapper>
             <S.Wrapper>
-                <MajorItem className="majoritem" max={8} now={0} />
-                <MajorItem className="majoritem" max={8} now={1} />
-                <MajorItem className="majoritem" max={8} now={2} />
-                <MajorItem className="majoritem" max={8} now={3} />
-                <MajorItem className="majoritem" max={8} now={4} />
-                <MajorItem className="majoritem" max={8} now={5} />
-                <MajorItem className="majoritem" max={8} now={6} />
-                <MajorItem className="majoritem" max={8} now={7} />
+                {
+                    dummy.map((value, i) => {
+                        const { header, subHeader, description, imgSrc } = value
+                        return <MajorItem className="majoritem" 
+                                max={dummy.length} 
+                                now={i} 
+                                header={header} 
+                                subHeader={subHeader} 
+                                description={description} 
+                                imgSrc={imgSrc} />
+                    })
+                }
             </S.Wrapper>
         </S.BodyWrapper>
     )

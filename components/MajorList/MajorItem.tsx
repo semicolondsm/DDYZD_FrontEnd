@@ -4,20 +4,26 @@ interface propsType {
     max: number;
     now: number;
     className: string;
+    imgSrc?: string;
+    header: string;
+    subHeader: string;
+    description: string;
 }
 
 const MajorItem = (props: propsType) => {
+    const {imgSrc, header, subHeader, description} = props
+
     return (
             <S.ItemWrapper max={props.max} now={props.now}>
             <div className={props.className}>
                 <S.PurpleBack />
                 <S.PointButton></S.PointButton>
-                <S.ItemImg />
+                <S.ItemImg src={imgSrc} />
                 <S.ItemFontWrapper>
-                    <S.ItemHeader>PANG</S.ItemHeader>
-                    <S.ItemSubHeader>웹 프로젝트 진행을 위한 웹 개발 동아리</S.ItemSubHeader>
+                    <S.ItemHeader>{header}</S.ItemHeader>
+                    <S.ItemSubHeader>{subHeader}</S.ItemSubHeader>
                     <S.ItemDesWrapper>
-                        <S.ItemDes>프로젝트 위주의 운영으로 자유롭고 친한 분위기 속에 진행으 ㄹ하고 있습니다</S.ItemDes>
+                        <S.ItemDes>{description}</S.ItemDes>
                     </S.ItemDesWrapper>
                 </S.ItemFontWrapper>
         </div>
