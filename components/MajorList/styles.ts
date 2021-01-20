@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const ItemWrapper = styled.div<{max: number, now: number}>`
     width: 290px;
     height: 200px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.29);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     border: 1px solid #C8C8C8;
     border-radius: 5px;
     position: relative;
