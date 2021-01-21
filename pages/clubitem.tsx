@@ -3,8 +3,8 @@ import Club from "../components/Club"
 const Index = () => {
   return(
     <>
-        <Header color="purple"></Header>
-        <Club></Club>
+      <Header color="purple"></Header>
+      <Club></Club>
     </>
   )
   
