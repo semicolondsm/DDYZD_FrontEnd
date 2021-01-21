@@ -3,8 +3,8 @@ import Main from "../components/Main"
 const Index = () => {
   return(
     <>
-    <Header color="white"></Header>
-    <Main></Main>
+      <Header color="white"></Header>
+      <Main></Main>
     </>
   )
   
