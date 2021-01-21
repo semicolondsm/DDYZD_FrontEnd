@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import {color} from '../../../style/index'
+
 export const Container = styled.div`
     width: 100%;
     margin-right: 30px;
@@ -30,19 +32,19 @@ export const TableHead = styled.thead`
 export const TableBody = styled.tbody`
     text-align: center;
     font-size: 18px;
-    border-top: 1px solid #C8C8C8;
+    border-top: 1px solid ${color.grey300};
 `
 export const TableName = styled.th`
     text-align: left;
 `
 export const TableItem = styled.tr`
-    border-left: 6px solid #713EFF;
-    border-bottom: 10px solid #F5F5F5;
+    border-left: 6px solid ${color.purple200};
+    border-bottom: 10px solid ${color.grey100};
     height: 110px;
 
 `
 export const ItemState =styled.td`
-    color: #713EFF;
+    color: ${color.purple200};
     position: relative;
 `
 export const ItemElement = styled.td`

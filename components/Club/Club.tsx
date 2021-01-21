@@ -1,14 +1,13 @@
-import ClubItemList from "./ClubItemList";
-import ClubItemApply from './ClubItemApply';
-import * as S from "./styles"
-function Club(){
-    return(
-        <div style={{minWidth: "1500px"}}>
-            <S.ClubContainer>
-                <ClubItemList></ClubItemList>
-                <ClubItemApply></ClubItemApply>
-            </S.ClubContainer>
-        </div>
-    )
+import ClubHeader from "../../components/Club/ClubHeader/ClubHeader"
+import ClubContainer from './ClubTable/ClubContainer'
+const Club = () => {
+  return(
+    <>
+        <ClubHeader></ClubHeader>
+        <ClubContainer></ClubContainer>
+    </>
+  )
+  
 }
+
 export default Club;

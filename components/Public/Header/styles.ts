@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {color} from '../../../style/index'
+
 interface headerCotainer{
     state: number,
     color: string,
@@ -15,11 +17,11 @@ width : ${(props)=>props.state>=60 ? "100%" : null};
 top: 0;
 z-index: 99;    
 /* #350871" */
-background-color: ${(props)=>props.color=="purple"?"#350871":props.color=="white"?"white":"#350871"};
+background-color: ${(props)=>props.color=="purple"?color.purple300:props.color=="white"?"white":color.purple300};
 display:flex;
 align-items:center;
 padding:0 250px;
-border-bottom:1px solid #C8C8C8;
+border-bottom:1px solid ${color.grey300};
 a{
     text-decoration:none;
     font-size:16px;
@@ -28,7 +30,6 @@ a{
     align-items: center;
 }
 `
-
 const BottomHeader = styled.div`
 padding:0 250px;
 height: 60px;

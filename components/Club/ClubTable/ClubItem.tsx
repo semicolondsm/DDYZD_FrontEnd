@@ -1,6 +1,6 @@
 import * as S from "./styles"
 import CheckItem from "./CheckItem"
-import { ClubItemData } from "../../interfaces"
+import { ClubItemData } from "../../../interfaces"
 function ClubItem({ props }:{props:ClubItemData}){
     return(
         <S.TableItem>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ClubItemTableData } from "../../interfaces";
+import { ClubItemTableData } from "../../../interfaces";
 import ClubItemTable from "./ClubItemTable"
 import * as S from "./styles"
 

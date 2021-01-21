@@ -1,11 +1,9 @@
 import Header from '../../components/Public/Header/Header'
-import ClubHeader from "../../components/Club/ClubHeader/ClubHeader"
-import Club from '../../components/Club/Club'
+import Club from "../../components/Club"
 const Index = () => {
   return(
     <>
-        <Header></Header>
-        <ClubHeader></ClubHeader>
+        <Header color="purple"></Header>
         <Club></Club>
     </>
   )
