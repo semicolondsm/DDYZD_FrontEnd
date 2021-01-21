@@ -1,7 +1,10 @@
+import Header from '../components/Public/Header/Header'
+import Main from "../components/Main"
 const Index = () => {
   return(
     <>
-      <div>마렵다</div>
+    <Header color="white"></Header>
+    <Main></Main>
     </>
   )
   
