@@ -8,7 +8,7 @@ function ToggleItem(){
             !state ? 
                 <svg style={{cursor: "pointer"}} onClick={()=>setState(true)} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <g id="그룹_426" data-name="그룹 426" transform="translate(-330 -295)">
-                        <g id="타원_110" data-name="타원 110" transform="translate(330 295)" fill="none" stroke="#a4a4a4" stroke-width="1">
+                        <g id="타원_110" data-name="타원 110" transform="translate(330 295)" fill="none" stroke="#a4a4a4" strokeWidth="1">
                         <circle cx="10" cy="10" r="10" stroke="none"/>
                         <circle cx="10" cy="10" r="9.5" fill="none"/>
                         </g>
