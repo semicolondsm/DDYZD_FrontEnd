@@ -27,7 +27,7 @@ export interface FeedData {
   clubName : string,
   profileImage : string,
   isFollow : boolean,
-  uploadAt : string,
+  uploadAt : Date,
   pin : boolean,
   content : string,
   media : string[], 

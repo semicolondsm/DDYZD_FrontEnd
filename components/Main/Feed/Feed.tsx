@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react"
+import feed from "@/utils/api/feed"
 import FeedCard from "./FeedCard"
 import * as S from "./styles"
-const data = [
+import { FeedData } from "@/interfaces";
+
+/*const data = [
     {
         feedId : 0,
         clubName : "semicolone",
@@ -19,12 +23,45 @@ const data = [
         isFlag : false,
         flags : 30,
     },
-]
+]*/
+
+  
 function Feed(){
+    const [data, setData] = useState<FeedData[]>([]);
+    const [page, setPage] = useState(0);
+    function infiniteScroll(){
+        let scrollHeight = Math.max(
+          document.documentElement.scrollHeight,
+          document.body.scrollHeight  
+        );
+        let scrollTop = Math.max(
+          document.documentElement.scrollTop,
+          document.body.scrollTop
+        );
+        let clientHeight = document.documentElement.clientHeight;
+      
+        if (scrollTop + clientHeight >= scrollHeight) {
+          feed.getFeed(page+1)
+          .then((res)=>{
+            if(res.data.length!==0){
+                setPage(page+1);
+                setData([...data , ...res.data]);
+            }
+          })
+        }
+      }
+    useEffect(()=>{
+        feed.getFeed(page)
+        .then((res)=>setData(res.data))
+        .catch((e)=>console.log(e))
+    },[])
+    useEffect(()=>{
+        window.onscroll=infiniteScroll;
+      },[data])
     return(
         <S.FeedList>
             {
-                data.map((i,index)=>(<FeedCard key={index} props={i}></FeedCard>))
+                data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
             }
             
         </S.FeedList>
