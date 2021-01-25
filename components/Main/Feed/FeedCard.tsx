@@ -1,5 +1,5 @@
 import * as S from "./styles"
-import { FeedData } from "../../../interfaces"
+import { FeedData } from "@/interfaces"
 import { useEffect, useRef, useState } from "react";
 import FlagToggle from "./FlagToggle";
 function FeedCard({props} : {props: FeedData}){
@@ -29,8 +29,24 @@ function FeedCard({props} : {props: FeedData}){
         setEnd(e.touches[0].clientX);
     }
     useEffect(()=>{
-        slideRef.current!.style.transform=`translateX(${100/props.media.length*-page}%)`;
+        if(props.media.length!==0) slideRef.current!.style.transform=`translateX(${100/props.media.length*-page}%)`;
     },[page])
+    function date(params : Date){
+        let date = new Date(params);
+        let diff = (((new Date()).getTime() - date.getTime()) / 1000),
+        day_diff = Math.floor(diff / 86400);
+        if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+            return `${date.getFullYear()}년 ${date.getDay()}월 ${date.getDate()}일`;
+        return day_diff == 0 && (
+                diff < 60 && "방금" ||
+                diff < 120 && "1분 전" ||
+                diff < 3600 && Math.floor( diff / 60 ) + "분 전" ||
+                diff < 7200 && "1시간 전" ||
+                diff < 86400 && Math.floor( diff / 3600 ) + "시간 전") ||
+            day_diff == 1 && "어제" ||
+            day_diff < 7 && day_diff + "일 전" ||
+            day_diff < 31 && Math.ceil( day_diff / 7 ) + "주 전";
+    }
     return(
         <li>
             <S.CardHeader>
@@ -49,7 +65,7 @@ function FeedCard({props} : {props: FeedData}){
                         </g>
                         </svg>
                     </div>
-                    <S.CreatedAt>{props.uploadAt}</S.CreatedAt>
+                    <S.CreatedAt>{date(props.uploadAt)}</S.CreatedAt>
                 </S.CardHeaderContent>
                 <svg style={{padding: "15px 10px"}} xmlns="http://www.w3.org/2000/svg" width="45" height="35" viewBox="0 0 25 5">
                 <g id="그룹_511" data-name="그룹 511" transform="translate(-1065 -1035)">
@@ -62,31 +78,35 @@ function FeedCard({props} : {props: FeedData}){
             </S.CardHeader>
             <S.CardSection>
                 <S.Content>{props.content}</S.Content>
-                <S.Slider>
-                    <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.media.length*100}%`}}>
-                        {
-                            props.media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.media.length} )`, transform: `translateX(${100*index}%)`}} src={i}></img>))
-                        }
-                    </S.SliderImages>
-                    <S.Prev onClick={prev}>
-                        <svg id="버튼" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 40 41">
-                        <ellipse id="타원_106" data-name="타원 106" cx="20" cy="20.5" rx="20" ry="20.5" fill="#c8c8c8" opacity="0.5"/>
-                        <rect id="사각형_628" data-name="사각형 628" width="2" height="18" rx="1" transform="translate(13.199 21.339) rotate(-135)" fill="#fff"/>
-                        <rect id="사각형_629" data-name="사각형 629" width="2" height="18" rx="1" transform="translate(25.927 31.663) rotate(135)" fill="#fff"/>
+                {
+                    props.media.length!==0 ? 
+                    <S.Slider>
+                        <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.media.length*100}%`}}>
+                            {
+                                props.media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.media.length} )`, transform: `translateX(${100*index}%)`}} src={i}></img>))
+                            }
+                        </S.SliderImages>
+                        <S.Prev onClick={prev}>
+                            <svg id="버튼" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 40 41">
+                            <ellipse id="타원_106" data-name="타원 106" cx="20" cy="20.5" rx="20" ry="20.5" fill="#c8c8c8" opacity="0.5"/>
+                            <rect id="사각형_628" data-name="사각형 628" width="2" height="18" rx="1" transform="translate(13.199 21.339) rotate(-135)" fill="#fff"/>
+                            <rect id="사각형_629" data-name="사각형 629" width="2" height="18" rx="1" transform="translate(25.927 31.663) rotate(135)" fill="#fff"/>
+                            </svg>
+                        </S.Prev>
+                        <S.Next onClick={next}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 40 41">
+                        <g id="버튼" transform="translate(-1050 -1554)">
+                            <ellipse id="타원_106" data-name="타원 106" cx="20" cy="20.5" rx="20" ry="20.5" transform="translate(1050 1554)" fill="#c8c8c8" opacity="0.5"/>
+                            <rect id="사각형_628" data-name="사각형 628" width="2" height="18" rx="1" transform="translate(1064.073 1562.611) rotate(-45)" fill="#fff"/>
+                            <rect id="사각형_629" data-name="사각형 629" width="2" height="18" rx="1" transform="translate(1076.801 1572.935) rotate(45)" fill="#fff"/>
+                        </g>
                         </svg>
-                    </S.Prev>
-                    <S.Next onClick={next}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 40 41">
-                    <g id="버튼" transform="translate(-1050 -1554)">
-                        <ellipse id="타원_106" data-name="타원 106" cx="20" cy="20.5" rx="20" ry="20.5" transform="translate(1050 1554)" fill="#c8c8c8" opacity="0.5"/>
-                        <rect id="사각형_628" data-name="사각형 628" width="2" height="18" rx="1" transform="translate(1064.073 1562.611) rotate(-45)" fill="#fff"/>
-                        <rect id="사각형_629" data-name="사각형 629" width="2" height="18" rx="1" transform="translate(1076.801 1572.935) rotate(45)" fill="#fff"/>
-                    </g>
-                    </svg>
 
 
-                    </S.Next>
-                </S.Slider>
+                        </S.Next>
+                    </S.Slider>
+                    : null
+                }
             </S.CardSection>
             <S.CardBottom>
                 <S.CardUtil>
