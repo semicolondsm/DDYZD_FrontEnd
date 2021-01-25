@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios'
 
 const instance = axios.create({
-    baseURL: 'http://180.228.167.34:8080',
+    baseURL: 'https://api.eungyeol.live',
     timeout: 1000
 });
 instance.interceptors.request.use(
