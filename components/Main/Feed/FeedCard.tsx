@@ -50,7 +50,7 @@ function FeedCard({props} : {props: FeedData}){
     return(
         <li>
             <S.CardHeader>
-                <img src={props.profileImage}></img>
+                <img src={`${process.env.NEXT_PUBLIC_URL}/file/${props.profileImage}`}></img>
                 <S.CardHeaderContent>
                     <div style={{display: "flex", alignItems: "center"}}>
                         <div><strong>{props.clubName}</strong></div>
@@ -83,7 +83,7 @@ function FeedCard({props} : {props: FeedData}){
                     <S.Slider>
                         <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${props.media.length*100}%`}}>
                             {
-                                props.media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.media.length} )`, transform: `translateX(${100*index}%)`}} src={i}></img>))
+                                props.media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${props.media.length} )`, transform: `translateX(${100*index}%)`}} src={`${process.env.NEXT_PUBLIC_URL}/file/${i}`}></img>))
                             }
                         </S.SliderImages>
                         <S.Prev onClick={prev}>
@@ -117,22 +117,9 @@ function FeedCard({props} : {props: FeedData}){
                         
                     }
                     </S.SliderState>
-                    <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="28" height="30" viewBox="0 0 30 30">
-                    <g id="그룹_515" data-name="그룹 515" transform="translate(13.838 6.96)">
-                        <g id="그룹_514" data-name="그룹 514">
-                        <path id="패스_117" data-name="패스 117" d="M242.676,129.468l-4.183-3.137v-6.39a1.162,1.162,0,1,0-2.324,0v6.971a1.16,1.16,0,0,0,.465.93l4.647,3.486a1.162,1.162,0,0,0,1.395-1.859Z" transform="translate(-236.169 -118.779)" fill="#606670"/>
-                        </g>
-                    </g>
-                    <g id="그룹_517" data-name="그룹 517">
-                        <g id="그룹_516" data-name="그룹 516">
-                        <path id="패스_118" data-name="패스 118" d="M15,0A15,15,0,1,0,30,15,15.016,15.016,0,0,0,15,0Zm0,27.676A12.676,12.676,0,1,1,27.676,15,12.692,12.692,0,0,1,15,27.676Z" fill="#606670"/>
-                        </g>
-                    </g>
-                    </svg>
                 </S.CardUtil>
                 <S.CardState>
                     <div>FLAGS {props.flags}개</div>
-                    <div>D-30</div>
                 </S.CardState>
             </S.CardBottom>
         </li>
