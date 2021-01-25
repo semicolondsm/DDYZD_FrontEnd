@@ -117,7 +117,10 @@ export const Next = styled.button`
 `
 export const SliderState = styled.div`
     display: flex;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 0px;
     justify-content: center;
 `
@@ -131,6 +134,7 @@ export const StateButton = styled.div`
 export const CardUtil = styled.div`
     display: flex;
     justify-content: space-between;
+    position: relative;
     margin-top: 10px;
     & svg{
         cursor: pointer;
