@@ -40,7 +40,7 @@ function Feed(){
         );
         let clientHeight = document.documentElement.clientHeight;
       
-        if (scrollTop + clientHeight >= scrollHeight) {
+        if (scrollTop + clientHeight >= scrollHeight-200) {
           feed.getFeed(page+1)
           .then((res)=>{
             if(res.data.length!==0){

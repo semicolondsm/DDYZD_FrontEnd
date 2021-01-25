@@ -8,6 +8,7 @@ class ReactApp extends App<any> {
       <>
         <Head>
           <title>DDYZD</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         </Head>
         <Component {...pageProps}/>
       </>

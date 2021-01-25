@@ -35,7 +35,6 @@ export default class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"/>
           <link rel="stylesheet" type="text/css" href="https://semicolondsm.xyz/css/index.css"></link>
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         </Head>
         <body>
             <Main />
