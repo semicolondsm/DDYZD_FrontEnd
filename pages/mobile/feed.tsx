@@ -1,8 +1,8 @@
 import Feed from "@/components/Main/Feed/Feed"
 
-function test(){
+function mobilefeed(){
     return(
         <Feed></Feed>
     )
 }
-export default test
+export default mobilefeed
