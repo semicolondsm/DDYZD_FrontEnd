@@ -29,6 +29,7 @@ import { FeedData } from "@/interfaces";
 function Feed(){
     const [data, setData] = useState<FeedData[]>([]);
     const [page, setPage] = useState(0);
+    const [last, setLast] = useState(false);
     function infiniteScroll(){
         let scrollHeight = Math.max(
           document.documentElement.scrollHeight,
@@ -40,14 +41,17 @@ function Feed(){
         );
         let clientHeight = document.documentElement.clientHeight;
       
-        if (scrollTop + clientHeight >= scrollHeight-200) {
+        if (scrollTop + clientHeight >= scrollHeight-200) {  
           feed.getFeed(page+1)
           .then((res)=>{
-            if(res.data.length!==0){
-                setPage(page+1);
-                setData([...data , ...res.data]);
+            setPage(page+1);
+            setData([...data , ...res.data]);
+            if(res.data.length===0){
+              setLast(true)
             }
           })
+          window.onscroll=null;
+          
         }
       }
     useEffect(()=>{
@@ -56,13 +60,13 @@ function Feed(){
         .catch((e)=>console.log(e))
     },[])
     useEffect(()=>{
-        window.onscroll=infiniteScroll;
-      },[data])
+      if(!last) window.onscroll=infiniteScroll;
+    },[data])
     return(
         <S.FeedList>
-            {
-                data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
-            }
+          {
+              data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
+          }
             
         </S.FeedList>
     )
