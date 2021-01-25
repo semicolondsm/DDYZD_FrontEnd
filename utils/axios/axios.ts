@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios'
 
 const instance = axios.create({
-    baseURL: 'https://api.eungyeol.live',
+    baseURL: process.env.NEXT_PUBLIC_URL,
     timeout: 1000
 });
 instance.interceptors.request.use(
