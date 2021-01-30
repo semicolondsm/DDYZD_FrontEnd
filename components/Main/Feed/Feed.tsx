@@ -62,6 +62,23 @@ function Feed(){
     useEffect(()=>{
       if(!last) window.onscroll=infiniteScroll;
     },[data])
+
+    const getCookie = function(name:string) {
+      let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return value? value[2] : "null";
+    };
+    var setCookie = function(name:string, value:string, exp:number) {
+      var date = new Date();
+      date.setTime(date.getTime() + exp*24*60*60*1000);
+      document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+    };
+    useEffect(()=>{
+      setCookie("token","sdfsdf",1)
+      if(typeof getCookie("token") !== "undefined"){
+        localStorage.setItem("accessToken",getCookie("token"))
+        console.log(localStorage.accessToken)
+      }
+    },[])
     return(
         <S.FeedList>
           {
