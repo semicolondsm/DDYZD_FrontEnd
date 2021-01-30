@@ -12,11 +12,15 @@ const Main = () => {
         if(typeof code!=="undefined"){
             user.getAuthToken(code) 
             .then((res)=>{
+
                 // auth 토큰 받았으면 대동여지도 토큰 넘겨주기
-                console.log(res.data['access-token'])
-                token.getToken("token",res.data['access-token'])
+                token.getToken(res.data['access-token'])
                 .then((res)=>{
                     console.log(res)
+                    console.log(res.data["access_token"])
+                    localStorage.setItem("accessToken",res.data["access_token"])
+                    localStorage.setItem("refreshToken",res.data["refresh_token"])
+                    window.location.href="/";
                 }).catch((err)=>{
                     console.log(err)
                 })

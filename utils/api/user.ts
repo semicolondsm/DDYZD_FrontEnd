@@ -11,5 +11,5 @@ import axios from 'axios'
                 code: code
              }
          })
-     },
+     }
  }
