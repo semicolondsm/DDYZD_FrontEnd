@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
+
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
     useEffect(()=>{
