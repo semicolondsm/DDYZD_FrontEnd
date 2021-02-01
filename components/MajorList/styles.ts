@@ -1,3 +1,4 @@
+import { EDEADLK } from 'constants'
 import styled, { css } from 'styled-components'
 import { color } from '../../style'
  
@@ -8,7 +9,6 @@ export const ItemWrapper = styled.div<{max: number, now: number}>`
     border: 1px solid ${color.grey300};
     border-radius: 5px;
     position: relative;
-    cursor: pointer;
     background: white;
     transition: 0.4s width cubic-bezier(0.3, 0.3, 0.0, 1.0), 0.2s box-shadow linear, 0.4s right cubic-bezier(0.3, 0.3, 0.0, 1.0);
     overflow: hidden;
@@ -106,4 +106,71 @@ export const PurpleBack = styled.div`
     left: 330px;
     transform-origin: left bottom;
     transform: rotate(17deg);
+`
+
+export const ButtonsWrapper = styled.div`
+    position: absolute;
+    left: 425px;
+    bottom: 12px;
+    display: flex;
+`
+
+export const RadiusButton = styled.div<{active?: boolean}>`
+    padding: 5px 18px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    background: #350871;
+    outline: none;
+    font-size: 14px;
+    white-space: nowrap;
+    ${props => props.active && css`
+        padding: 5px 30px;
+        cursor: pointer;
+        &:hover {
+            background: #2A084A;
+        }
+    `}
+    &:last-child {
+        margin-left: 10px;
+    }
+`
+
+export const IconWrapper = styled.div`
+    position: absolute;
+    top: 25px;
+    left: 339px;
+    border-radius: 50%;
+    width: 66px;
+    height: 66px;
+    border: 2.5px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(to bottom, #f8df7d 10%, #6618ab 55%, #7c36ee 150%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const Icon = styled.img`
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+`
+
+export const IntroWrapper = styled.div`
+    position: absolute;
+    left: 435px;
+    top: 30px;
+    width: 160px;
+    font-size: 12px;
+    color: white;
+    padding: 10px 5px;
+    border-bottom: 2px solid white;
+`
+// 아이콘 추가
+export const FieldIconWrapper = styled.div`
+    position: absolute;
+    top: 100%;
+    left: 0;
 `
