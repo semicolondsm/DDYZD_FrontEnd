@@ -2,7 +2,7 @@ import * as S from "./styles"
 import { FeedData } from "@/interfaces"
 import { useEffect, useRef, useState } from "react";
 import FlagToggle from "./FlagToggle";
-import {useSampleDispatch} from '@/public/context/context'
+import {setState} from '@/context/context'
 function FeedCard({props} : {props: FeedData}){
     const [page, setPage] = useState<number>(0);
     const [start,setStart] = useState<number>(0);
@@ -48,7 +48,7 @@ function FeedCard({props} : {props: FeedData}){
             day_diff < 7 && day_diff + "일 전" ||
             day_diff < 31 && Math.ceil( day_diff / 7 ) + "주 전";
     }
-    const dispatch = useSampleDispatch();
+    const dispatch = setState();
     const ModalOn =()=> dispatch({type:"SET_MODAL",name:"feed"})
     return(
         <li>

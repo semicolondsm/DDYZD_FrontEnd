@@ -34,13 +34,13 @@ export function SampleProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useSampleState() {
+export function getState() {
   const state = useContext(SampleStateContext);
   if (!state) throw new Error('Cannot find SampleProvider');
   return state;
 }
 
-export function useSampleDispatch() {
+export function setState() {
   const dispatch = useContext(SampleDispatchContext);
   if (!dispatch) throw new Error('Cannot find SampleProvider');
   return dispatch;

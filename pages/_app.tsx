@@ -1,8 +1,8 @@
 import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
-import {SampleProvider} from '@/public/context/context'
-import ReturnModal from '@/public/modal';
+import {SampleProvider} from '@/context/context'
+import ReturnModal from '@/components/Public/Modals';
 
 class ReactApp extends App<any> {
   public render() {

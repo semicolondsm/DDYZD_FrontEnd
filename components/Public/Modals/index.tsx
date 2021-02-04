@@ -1,8 +1,8 @@
-import FeedModal from '@/components/Public/Modals/Menu/Feed';
-import {useSampleState} from './context/context'
+import FeedModal from '@/components/Public/Modals/Feed';
+import {getState} from '../../../context/context'
 
 const ReturnModal=()=>{
-    const state = useSampleState();
+    const state = getState();
     const name = state.modalName;
     return(
         <>

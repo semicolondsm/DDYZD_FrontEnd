@@ -1,8 +1,8 @@
-import { useSampleDispatch } from '@/public/context/context'
+import { setState } from '@/context/context'
 import * as s from './styles'
 
 export default function FeedModal(){
-    const dispatch = useSampleDispatch();
+    const dispatch = setState();
     const close=()=>dispatch({type:"SET_MODAL",name:""})
     return(
         <s.FeedModalCover>
