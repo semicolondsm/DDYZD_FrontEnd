@@ -3,6 +3,7 @@ import feed from "@/utils/api/feed"
 import FeedCard from "./FeedCard"
 import * as S from "./styles"
 import { FeedData } from "@/interfaces";
+import FeedModal from "@/components/Public/Modals/Menu/Feed";
 
 /*const data = [
     {
@@ -64,6 +65,7 @@ function Feed(){
     },[data])
     return(
         <S.FeedList>
+          <FeedModal></FeedModal>
           {
               data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
           }

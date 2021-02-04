@@ -1,5 +1,6 @@
 import * as S from './styles';
 import CheckItem from "../ClubTable/CheckItem"
+
 function ClubItemApply(){
     return(
         <S.BoxCover>
