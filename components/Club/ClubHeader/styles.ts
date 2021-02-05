@@ -1,17 +1,18 @@
 import styled from 'styled-components';
+import {color} from '../../../style/index'
 
 
 
 const SubHeader = styled.div` 
 background-color:white;
-border-top:1px solid #DBDBDB;
+border-top:1px solid ${color.grey300};
 min-width: 1500px;
 `
 const Tip = styled.div`
     width:38px;
     height:24px;
     border-radius:24px;
-    border:1px solid #C8C8C8;
+    border:1px solid ${color.grey300};
     color:#A4A4A4;
     display:flex;
     justify-content:center;
@@ -22,7 +23,7 @@ const Tip = styled.div`
 const SubHeaderTitle = styled.div`
 display:flex;
 height:80px;
-border-bottom:1px solid #C8C8C8;
+border-bottom:1px solid ${color.grey300};
 align-items:center;
 padding: 0 250px;
 & p{

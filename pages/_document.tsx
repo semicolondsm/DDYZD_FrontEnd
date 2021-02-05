@@ -1,5 +1,6 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { GlobalStyle } from '../style/GlobalStyled'
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
@@ -7,7 +8,12 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+        enhanceApp: App => props => sheet.collectStyles(
+          <>
+            <GlobalStyle></GlobalStyle>
+            <App {...props} />
+          </>
+        ),
       })
       const initialProps = await Document.getInitialProps(ctx)
       return {
@@ -28,8 +34,10 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"/>
+          <link rel="stylesheet" type="text/css" href="https://semicolondsm.xyz/css/index.css"></link>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         </Head>
-        <body style={{fontFamily: "Noto Sans KR", background: "#F5F5F5", margin: 0}}>
+        <body>
             <Main />
             <NextScript />
         </body>

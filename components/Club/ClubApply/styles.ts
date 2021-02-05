@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {color} from '../../../style'
 
 const BoxCover = styled.div`
 width:360px;
@@ -17,23 +18,25 @@ div{
     :first-child{ /* 물품 신청하기 */
         width:320px;
         display:flex;
-        a{
+        p{
             font-size:20px;
             text-decoration:none;
             color:black;
             font-weight:bold;
+            margin-left:10px;
         }
         div{
             width:38px;
             height:24px;
-            border:1px solid #C8C8C8;
+            border:1px solid ${color.grey300};
             border-radius:12px;
             margin-left:10px;
             display:flex;
             justify-content:center;
             align-items:center;
-            color:#C8C8C8;
+            color:${color.grey300};
             font-weight:bold;
+            margin-top:3px;
         }
     }
 
@@ -42,7 +45,8 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
+            padding-right:5px;
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -51,7 +55,7 @@ div{
         div{
             width:18px;
             height:18px;
-            background-color:#713EFF;
+            background-color:${color.purple200};
             border-radius:80%;
             margin-left:5px;
             display:flex;
@@ -67,7 +71,8 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
+            padding-right:5px;
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -76,7 +81,7 @@ div{
         div{
             width:18px;
             height:18px;
-            background-color:#713EFF;
+            background-color:${color.purple200};
             border-radius:80%;
             margin-left:5px;
             display:flex;
@@ -92,7 +97,7 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -104,7 +109,7 @@ div{
         margin-top:10px;
         display:flex;
         align-items:center;
-        a{
+        p{
             text-decoration:none;
             color:black;
             font-weight:bold;
@@ -115,10 +120,10 @@ div{
 }
 
 select{
-    width:320px;
+    width:300px;
     height:34px;
     margin-top:10px;
-    border:1.7px solid #C8C8C8;
+    border:1.7px solid ${color.grey300};
     outline:none;
     color:gray;
 }
@@ -126,7 +131,7 @@ select{
 input{ /* 물품 링크 입력 */
             width:300px;
             height:30px;
-            background-color:#F5F5F5;
+            background-color:${color.grey100};
             border:none;
             margin-top:5px;
             outline:none;
@@ -136,14 +141,14 @@ input{ /* 물품 링크 입력 */
 }
 `
 const line = styled.section`
-width:320px;
+width:300px;
 height:1px;
-background-color:#C8C8C8;
+background-color:${color.grey300};
 margin-top:10px;
 `
 const ItemName = styled.section`
             width:300px;
-            background-color:#F5F5F5;
+            background-color:${color.grey100};
             border:none;
             margin-top:5px;
             outline:none;
@@ -158,7 +163,7 @@ const ItemName = styled.section`
 `
 
 const ItemCount = styled.article`
-width:320px;
+width:300px;
 height:34px;
 margin-top:10px;
 display:flex;
@@ -175,8 +180,8 @@ section{
             width:54px;
             height:32px;
             border-collapse:collapse;
-            border-top:1px solid #C8C8C8;
-            border-bottom:1px solid #C8C8C8;
+            border-top:1px solid ${color.grey300};
+            border-bottom:1px solid ${color.grey300};
             padding:none;
             display:flex;
             justify-content:center;
@@ -184,30 +189,25 @@ section{
             color:black;
         }
         button{
-            width:34px;
-            height:34px;
+            width:32px;
+            height:32px;
             border-collapse:collapse;
-            border:1px solid #C8C8C8;
+            border:1px solid ${color.grey300};
             background-color:transparent;
-            font-size:1.6rem;
-            color:#C8C8C8;
+            font-size:20px;
+            color:${color.grey300};
             outline:none;
             cursor: pointer;
-            transition:0.5s;
-            :hover{
-                background-color:#C8C8C8;
-                color:white;
-            }
         }
     }
 }
 `
 const ApplyButton = styled.button`
-width:320px;
+width:300px;
 height:50px;
 margin-top:24px;
 color:white;
-background-color:#350871;
+background-color:${color.purple300};
 border:none;    
 font-size:18px;
 `
