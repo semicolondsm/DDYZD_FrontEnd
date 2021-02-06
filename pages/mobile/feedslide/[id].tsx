@@ -4,9 +4,10 @@ import { useRouter } from 'next/router';
 
 const feedSlide = () => {
     const router = useRouter();
+    const { id } = router.query;
 
     return (
-        <FeedSlider id={Number(router.query.id)}></FeedSlider>
+        <FeedSlider id={Number(id)} />
     )
 }
 

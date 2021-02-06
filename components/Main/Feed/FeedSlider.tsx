@@ -1,20 +1,27 @@
 import { useState, useRef, useEffect } from 'react'
 import * as S from './styles'
+import feedId from '@/utils/api/feedId';
+import { FeedData } from '@/interfaces'
 
 const FeedSlider = (props: {id: number}) => {
     const [page, setPage] = useState<number>(0);
     const [start,setStart] = useState<number>(0);
     const [end, setEnd] = useState<number>(0);
-    const [media, setMedia] = useState<File[]>([]);
+    const [media, setMedia] = useState<string[]>([]);
     const slideRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const { id } = props;
-        console.log( id)
+        if(!id) return
+        console.log(id)
         // 사진 불러오기
-        /*
-            setMedia(res.filter(data => data.feedId === id.media);
-        */
-    }, [])
+        feedId.getFeed(id)
+        .then((res) => {
+            setMedia(res.data.media);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [props.id])
     function prev(){
         if(page>0) setPage(page-1);
         
