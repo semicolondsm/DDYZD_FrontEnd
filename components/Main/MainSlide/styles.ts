@@ -12,7 +12,59 @@ overflow:hidden;
 ::-webkit-scrollbar{
     display:none;   
 }
-` // 동아리 홍보사진 div
+`// 동아리 홍보사진 div
+
+export const MWrapper = styled.div`
+    background: white;
+`
+export const MSlideContainer = styled.div`
+width:100%;
+display:flex;
+box-sizing:content-box;
+background-color:gray;
+position:relative;
+overflow:hidden;
+::-webkit-scrollbar{
+    display:none;   
+}
+`
+export const MSlideUnderBar = styled.div`
+width: 100%;
+box-sizing: border-box;
+padding: 20px 25px;
+display: flex;
+justify-content: center;
+`
+export const MSlideUnderBarContent = styled.div`
+background-color:white;
+display:flex;
+align-items:center;
+overflow-x: scroll;
+margin: 0 auto;
+::-webkit-scrollbar{
+    display:none;   
+}
+`
+export const MClubProfileBox = styled.div`
+width:86px;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+font-size:1.3vmin;
+font-family:sans-serif;
+color:black;
+padding:0 1%;
+margin-right: 15px;
+a{
+    padding: 3% 0;
+}
+`
+export const MSlideBox = styled.div<{count: number}>`
+display: grid;
+grid-template-columns: repeat(${props => props.count}, 100%);
+transition:1s;
+`
 
 export const SlideUnderBar = styled.div`
 width:100%;

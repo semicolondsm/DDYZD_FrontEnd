@@ -65,7 +65,7 @@ function Feed(){
 
     const getCookie = function(name:string) {
       let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-      return value? value[2] : "null";
+      return value? value[2] : undefined;
     };
     var setCookie = function(name:string, value:string, exp:number) {
       var date = new Date();
@@ -73,9 +73,8 @@ function Feed(){
       document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
     };
     useEffect(()=>{
-      setCookie("token","sdfsdf",1)
       if(typeof getCookie("token") !== "undefined"){
-        localStorage.setItem("accessToken",getCookie("token"))
+        localStorage.setItem("accessToken",getCookie("token")!.toString())
         console.log(localStorage.accessToken)
       }
     },[])
