@@ -12,7 +12,54 @@ overflow:hidden;
 ::-webkit-scrollbar{
     display:none;   
 }
-` // 동아리 홍보사진 div
+`// 동아리 홍보사진 div
+
+export const MWrapper = styled.div`
+    background: white;
+`
+export const MSlideContainer = styled.div`
+width:100%;
+height: 300px;
+display:flex;
+background-color:gray;
+position:relative;
+overflow:hidden;
+::-webkit-scrollbar{
+    display:none;   
+}
+`
+export const MSlideUnderBar = styled.div`
+width: 100%;
+box-sizing: border-box\;
+padding: 20px 25px;
+`
+export const MSlideUnderBarContent = styled.div`
+width:100%;
+border-bottom:1px solid ${color.grey300};
+background-color:white;
+display:flex;
+align-items:center;
+overflow-x: scroll;
+box-sizing: content-box;
+::-webkit-scrollbar{
+    display:none;   
+}
+`
+export const MClubProfileBox = styled.div`
+width:86px;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+font-size:1.3vmin;
+font-family:sans-serif;
+color:black;
+padding:0 1%;
+margin-right: 15px;
+a{
+    padding: 3% 0;
+}
+`
 
 export const SlideUnderBar = styled.div`
 width:100%;
