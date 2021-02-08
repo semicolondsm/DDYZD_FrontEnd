@@ -65,11 +65,11 @@ const MobileSlide =()=>{
         <s.MWrapper>
         <s.MSlideContainer> 
 {/*             <Modal></Modal> */}
-        <s.SlideBox style={{width:ClubData.length * 100 + "%", transform:"translateX("+ transVal*100/pos + "%)"}}> {/* 슬라이드 이미지 */}
+        <s.MSlideBox count={pos} style={{width: 100 + "%", transform:"translateX("+ transVal*100 + "%)"}}> {/* 슬라이드 이미지 */}
                 {ClubData.map((e,index)=>{
-                    return(<img src={e.pictur} key={index} style={{width:100/pos + "%"}}></img>)
+                    return(<img src={e.pictur} key={index} style={{width:100 + "%"}} />)
                 })}
-            </s.SlideBox>
+            </s.MSlideBox>
         </s.MSlideContainer>
         <s.MSlideUnderBar>
             <s.MSlideUnderBarContent>

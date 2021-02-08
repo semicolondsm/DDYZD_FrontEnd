@@ -19,8 +19,8 @@ export const MWrapper = styled.div`
 `
 export const MSlideContainer = styled.div`
 width:100%;
-height: 300px;
 display:flex;
+box-sizing:content-box;
 background-color:gray;
 position:relative;
 overflow:hidden;
@@ -30,17 +30,17 @@ overflow:hidden;
 `
 export const MSlideUnderBar = styled.div`
 width: 100%;
-box-sizing: border-box\;
+box-sizing: border-box;
 padding: 20px 25px;
+display: flex;
+justify-content: center;
 `
 export const MSlideUnderBarContent = styled.div`
-width:100%;
-border-bottom:1px solid ${color.grey300};
 background-color:white;
 display:flex;
 align-items:center;
 overflow-x: scroll;
-box-sizing: content-box;
+margin: 0 auto;
 ::-webkit-scrollbar{
     display:none;   
 }
@@ -59,6 +59,11 @@ margin-right: 15px;
 a{
     padding: 3% 0;
 }
+`
+export const MSlideBox = styled.div<{count: number}>`
+display: grid;
+grid-template-columns: repeat(${props => props.count}, 100%);
+transition:1s;
 `
 
 export const SlideUnderBar = styled.div`
