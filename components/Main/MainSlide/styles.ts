@@ -51,19 +51,49 @@ height:100%;
 display:flex;
 flex-direction:column;
 align-items:center;
-font-size:1.3vmin;
+font-size: 12.5px;
 font-family:sans-serif;
 color:black;
-padding:0 1%;
+padding:0 5px;
 margin-right: 15px;
 a{
-    padding: 3% 0;
+    padding: 5px 0;
 }
 `
 export const MSlideBox = styled.div<{count: number}>`
 display: grid;
 grid-template-columns: repeat(${props => props.count}, 100%);
 transition:1s;
+`
+export const MClubProfile = styled.div`
+width:54px;
+height:54px;
+border-radius:80%;
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top: 12px;
+border: 1px solid;
+border: 2px solid transparent;
+border-radius: 80%;
+background-image: linear-gradient(white,white), linear-gradient(${color.grey500},${color.grey500});
+background-origin: border-box;
+background-clip: content-box, border-box;
+img{
+    cursor: pointer;
+    width:90%;
+    height:90%;
+    border-radius:80%;
+    object-fit:cover;
+    background-color:white;
+}
+`
+
+export const MProfileLine = styled.div`
+width:100%;
+height:2px;
+background-color:${color.grey300};
+margin-top:3px;
 `
 
 export const SlideUnderBar = styled.div`
