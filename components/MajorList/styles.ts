@@ -1,4 +1,3 @@
-import { EDEADLK } from 'constants'
 import styled, { css } from 'styled-components'
 import { color } from '../../style'
  
