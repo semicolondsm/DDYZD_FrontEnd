@@ -53,7 +53,7 @@ const FeedSlider = (props: {id: number}) => {
                     <S.Slider>
                         <S.SliderImages onTouchStart={Swipe} onTouchMove={TouchMove} onTouchEnd={TouchEnd} ref={slideRef} style={{width: `${media.length*100}%`}}>
                             {
-                                media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${media.length} )`, transform: `translateX(${100*index}%)`}} src={`${process.env.NEXT_PUBLIC_URL}/file/${i}`}></img>))
+                                media.map((i,index)=>(<img key={index} style={{width: `calc( 100% / ${media.length} )`, transform: `translateX(${100*index}%)`}} src={`${process.env.NEXT_PUBLIC_URL}/file/${i}`} />))
                             }
                         </S.SliderImages>
                         <S.Prev onClick={prev}>
