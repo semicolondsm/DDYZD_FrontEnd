@@ -42,14 +42,6 @@ const MobileSlide =()=>{
     const none = {
         display:"flex"
     }
-    const rightShow=()=>{
-        if(transVal == -pos + 1) setTransVal(0);
-        else setTransVal(transVal-1)
-    }
-    const LeftShow=()=>{
-        if(transVal == 0) setTransVal(-pos+1); 
-        else setTransVal(transVal + 1)
-    }
     const ClubProfileClick =(index:number)=>{
         setTransVal(-index)
     }
