@@ -99,7 +99,7 @@ export const BodyWrapper = styled.div`
 
 export const PurpleBack = styled.div`
     position: absolute;
-    background: ${color.purple200};
+    background: ${color.purple400};
     width: 400px;
     height: 350px;
     bottom: 0;
@@ -169,8 +169,12 @@ export const IntroWrapper = styled.div`
     border-bottom: 2px solid white;
 `
 // 아이콘 추가
+export const IntroIcon = styled.div`
+    position: relative;
+`
+
 export const FieldIconWrapper = styled.div`
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: calc(100% + 15px);
+    right: 0;
 `

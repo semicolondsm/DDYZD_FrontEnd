@@ -1,4 +1,6 @@
 import * as S  from './styles'
+import earthIc from '@/public/images/earth'
+import phonoeIc from '@/public/images/phone'
 
 interface propsType {
     max: number;
@@ -11,7 +13,7 @@ interface propsType {
 }
 
 const MajorItem = (props: propsType) => {
-    const {imgSrc, header, description} = props
+    const {imgSrc, header, description, tag} = props
 
     return (
             <S.ItemWrapper max={props.max} now={props.now}>
@@ -35,9 +37,19 @@ const MajorItem = (props: propsType) => {
                     </S.IconWrapper>
                     <S.IntroWrapper>
                         {description}
-                        <S.FieldIconWrapper>
-
-                        </S.FieldIconWrapper>
+                        <S.IntroIcon>
+                            <S.FieldIconWrapper>
+                                {
+                                    tag.map(val => {
+                                        if(val === "웹") {
+                                            return earthIc
+                                        } else if(val === "앱") {
+                                            return phonoeIc
+                                        }
+                                    })
+                                }
+                            </S.FieldIconWrapper>
+                        </S.IntroIcon>
                     </S.IntroWrapper>
                 </div>
             </S.ItemWrapper>

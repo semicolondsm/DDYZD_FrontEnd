@@ -1,6 +1,6 @@
 import * as S from './styles'
 import MajorItem from './MajorItem'
-import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import club from '@/utils/api/club.ts'
 import { MajorData } from '@/interfaces'
 
