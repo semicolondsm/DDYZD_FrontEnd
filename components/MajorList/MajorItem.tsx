@@ -6,12 +6,12 @@ interface propsType {
     className: string;
     imgSrc?: string;
     header: string;
-    subHeader: string;
+    tag: string[];
     description: string;
 }
 
 const MajorItem = (props: propsType) => {
-    const {imgSrc, header, subHeader, description} = props
+    const {imgSrc, header, description} = props
 
     return (
             <S.ItemWrapper max={props.max} now={props.now}>
@@ -21,7 +21,7 @@ const MajorItem = (props: propsType) => {
                     <S.ItemImg src={imgSrc} />
                     <S.ItemFontWrapper>
                         <S.ItemHeader>{header}</S.ItemHeader>
-                        <S.ItemSubHeader>{subHeader}</S.ItemSubHeader>
+                        <S.ItemSubHeader>{description}</S.ItemSubHeader>
                         <S.ItemDesWrapper>
                             <S.ItemDes>{description}</S.ItemDes>
                         </S.ItemDesWrapper>
@@ -31,12 +31,10 @@ const MajorItem = (props: propsType) => {
                         <S.RadiusButton active={true}>신청하기</S.RadiusButton>
                     </S.ButtonsWrapper>
                     <S.IconWrapper>
-                        <S.Icon src={imgSrc} />
+                        <S.Icon src={`${process.env.NEXT_PUBLIC_URL}/file/${imgSrc}`} />
                     </S.IconWrapper>
                     <S.IntroWrapper>
-                        안녕하세요 PICK입니다.<br />
-                        저희 PICK에서 1학년 멤버를 <br />
-                        모집합니다.
+                        {description}
                         <S.FieldIconWrapper>
 
                         </S.FieldIconWrapper>
