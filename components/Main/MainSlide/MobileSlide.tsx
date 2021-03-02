@@ -10,6 +10,7 @@ interface paramsType {
 
 const MobileSlide = () => {
   const [banner, setBanner] = useState([] as paramsType[]);
+  const [loading, setLoading] = useState<boolean[]>([]);
   const bannerlength: MutableRefObject<number | undefined> = useRef();
   const [transVal, setTransVal] = useState(0);
   const CurBack = {
@@ -31,6 +32,13 @@ const MobileSlide = () => {
       .getBanner()
       .then((res) => {
         setBanner(res.data);
+        for (let i = 0; i < res.data.length; i++) {
+          setLoading((prev) => {
+            const temp = prev;
+            temp.push(false);
+            return temp;
+          });
+        }
       })
       .catch((err) => console.log(err));
   }, []);
@@ -44,15 +52,22 @@ const MobileSlide = () => {
   useEffect(() => {
     bannerlength.current! = banner.length;
   }, [banner]);
+  useEffect(() => {
+    if (loading.find((val) => val === false) === undefined) {
+      document.getElementById("asd")!.style.display = "grid";
+    }
+  }, [loading]);
   return (
     <s.MWrapper>
       <s.MSlideContainer>
         {/*             <Modal></Modal> */}
         <s.MSlideBox
+          id="asd"
           count={bannerlength.current!}
           style={{
             width: 100 + "%",
             transform: "translateX(" + transVal * 100 + "%)",
+            display: "none",
           }}
         >
           {" "}
@@ -63,6 +78,11 @@ const MobileSlide = () => {
                 src={"https://api.semicolon.live/file/" + e.image}
                 key={index}
                 style={{ width: 100 + "%" }}
+                onLoad={() =>
+                  setLoading((prev) =>
+                    prev.map((val, i) => (i === index ? true : false))
+                  )
+                }
               />
             );
           })}
