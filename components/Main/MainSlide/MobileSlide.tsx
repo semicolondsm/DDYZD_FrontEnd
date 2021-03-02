@@ -56,7 +56,6 @@ const MobileSlide = () => {
     if (loading.find((val) => val === false) === undefined) {
       document.getElementById("asd")!.style.display = "grid";
     }
-    console.log("ASd");
   }, [loading]);
   return (
     <s.MWrapper>
@@ -81,7 +80,7 @@ const MobileSlide = () => {
                 style={{ width: 100 + "%" }}
                 onLoad={() =>
                   setLoading((prev) =>
-                    prev.map((val, i) => (i === index ? true : false))
+                    prev.map((_val, i) => (i === index ? true : false))
                   )
                 }
               />
