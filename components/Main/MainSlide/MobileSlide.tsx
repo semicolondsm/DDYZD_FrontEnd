@@ -56,7 +56,6 @@ const MobileSlide = () => {
     if (loading.find((val) => val === false) === undefined) {
       document.getElementById("asd")!.style.display = "grid";
     }
-    console.log("ASd");
   }, [loading]);
   return (
     <s.MWrapper>
