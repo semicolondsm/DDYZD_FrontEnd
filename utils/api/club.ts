@@ -7,4 +7,10 @@ export default {
       method: "get",
     });
   },
+  getClubList() {
+    return request({
+      url: `/club/list`,
+      method: "get",
+    });
+  },
 };
