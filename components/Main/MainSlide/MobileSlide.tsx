@@ -31,7 +31,11 @@ const MobileSlide = () => {
     club
       .getBanner()
       .then((res) => {
-        setBanner(res.data);
+        setBanner(
+          res.data.filter(
+            ({ image }: { image: string | null }) => image !== null
+          )
+        );
         for (let i = 0; i < res.data.length; i++) {
           setLoading((prev) => {
             const temp = prev;
