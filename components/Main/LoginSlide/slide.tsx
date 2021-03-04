@@ -31,16 +31,16 @@ function Slide(){
     },[page])
     const data:any=[
         {
-            img: "https://image.chosun.com/sitedata/image/202005/18/2020051800681_0.png"
+            img: "/images/슬라이드1.PNG"
         },
         {
-            img: "https://image.chosun.com/sitedata/image/202005/18/2020051800681_0.png"
+            img: "/images/슬라이드2.PNG"
         },
         {
-            img: "https://image.chosun.com/sitedata/image/202005/18/2020051800681_0.png"
+            img: "/images/슬라이드3.PNG"
         },
         {
-            img: "https://image.chosun.com/sitedata/image/202005/18/2020051800681_0.png"
+            img: "/images/슬라이드4.PNG"
         }
     ]
     return(
