@@ -1,6 +1,5 @@
 import * as s from "./styles";
 import { useState, useRef, useEffect, MutableRefObject } from "react";
-import useInterval from "../../../utils/hooks";
 import club from "@/utils/api/club";
 
 interface paramsType {
