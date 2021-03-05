@@ -13,6 +13,9 @@ const MobileSlide = () => {
   const [loading, setLoading] = useState<boolean[]>([]);
   const bannerlength: MutableRefObject<number | undefined> = useRef();
   const [transVal, setTransVal] = useState(0);
+  const timer: MutableRefObject<ReturnType<typeof setInterval> | null> = useRef(
+    null
+  );
   const CurBack = {
     background:
       "transparent linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%) 0% 0% no-repeat padding-box",
@@ -24,7 +27,25 @@ const MobileSlide = () => {
   const none = {
     display: "flex",
   };
+  const resetTimer = () => {
+    clearTimeout(timer.current!);
+    setTimer();
+  };
+  const setTimer = () => {
+    timer.current = setTimeout(() => {
+      if (transVal == -bannerlength.current! + 1) {
+        setTransVal(0);
+      } else {
+        setTransVal(transVal - 1);
+      }
+    }, 4000);
+  };
+  useEffect(() => {
+    resetTimer();
+  }, [transVal]);
+  useEffect(setTimer, []);
   const ClubProfileClick = (index: number) => {
+    resetTimer();
     setTransVal(-index);
   };
   useEffect(() => {
@@ -46,13 +67,6 @@ const MobileSlide = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  useInterval(() => {
-    if (transVal == -bannerlength.current! + 1) {
-      setTransVal(0);
-    } else {
-      setTransVal(transVal - 1);
-    }
-  }, 3000);
   useEffect(() => {
     bannerlength.current! = banner.length;
   }, [banner]);
@@ -69,25 +83,23 @@ const MobileSlide = () => {
           id="asd"
           count={bannerlength.current!}
           style={{
-            width: 100 + "%",
             transform: "translateX(" + transVal * 100 + "%)",
             display: "none",
           }}
         >
-          {" "}
-          {/* 슬라이드 이미지 */}
           {banner.map((e, index) => {
             return (
-              <img
-                src={"https://api.semicolon.live/file/" + e.image}
-                key={index}
-                style={{ width: 100 + "%" }}
-                onLoad={() =>
-                  setLoading((prev) =>
-                    prev.map((_val, i) => (i === index ? true : false))
-                  )
-                }
-              />
+              <s.ImgWarpper>
+                <s.Img
+                  src={"https://api.semicolon.live/file/" + e.image}
+                  key={index}
+                  onLoad={() =>
+                    setLoading((prev) =>
+                      prev.map((_val, i) => (i === index ? true : false))
+                    )
+                  }
+                />
+              </s.ImgWarpper>
             );
           })}
         </s.MSlideBox>

@@ -64,7 +64,22 @@ export const MClubProfileBox = styled.div`
 export const MSlideBox = styled.div<{ count: number }>`
   display: grid;
   grid-template-columns: repeat(${(props) => props.count}, 100%);
+  grid-template-rows: 100%;
   transition: 1s;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+`;
+export const ImgWarpper = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+`;
+export const Img = styled.img`
+  width: auto;
+  height: 100%;
 `;
 export const MClubProfile = styled.div`
   width: 54px;
