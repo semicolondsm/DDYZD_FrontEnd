@@ -57,7 +57,7 @@ const MainSlide =()=>{
 
     const ClubProfileClick =(index:number)=>{
         setTransVal(-index)
-        setDelay(6000);
+        setDelay(6000 + index);
         setTimeout(() => {
             setDelay(5000);
         }, 8000);
