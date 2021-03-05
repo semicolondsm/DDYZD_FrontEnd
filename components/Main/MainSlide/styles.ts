@@ -167,7 +167,6 @@ align-items:center;
 margin-top:7%;
 border: 1px solid;
 border: 2px solid transparent;
-border-radius: 80%;
 background-image: linear-gradient(white,white), linear-gradient(${color.grey500},${color.grey500});
 background-origin: border-box;
 background-clip: content-box, border-box;
@@ -178,6 +177,7 @@ img{
     border-radius:80%;
     object-fit:cover;
     background-color:white;
+    border-radius:80%;
 }
 `
 
