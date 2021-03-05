@@ -18,7 +18,7 @@ const MajorItem = (props: propsType) => {
                 <div className={props.className}>
                     <S.PurpleBack />
                     <S.PointButton></S.PointButton>
-                    <S.ItemImg src={imgSrc} />
+                    <S.ItemImg src={`https://api.semicolon.live/file/` + imgSrc} />
                     <S.ItemFontWrapper>
                         <S.ItemHeader>{header}</S.ItemHeader>
                         <S.ItemSubHeader>{subHeader}</S.ItemSubHeader>
@@ -27,16 +27,13 @@ const MajorItem = (props: propsType) => {
                         </S.ItemDesWrapper>
                     </S.ItemFontWrapper>
                     <S.ButtonsWrapper>
-                        <S.RadiusButton>D-3</S.RadiusButton>
-                        <S.RadiusButton active={true}>신청하기</S.RadiusButton>
+                        <S.RadiusButton active={true}>자세히보기</S.RadiusButton>
                     </S.ButtonsWrapper>
                     <S.IconWrapper>
-                        <S.Icon src={imgSrc} />
+                        <S.Icon src={`https://api.semicolon.live/file/` + imgSrc} />
                     </S.IconWrapper>
                     <S.IntroWrapper>
-                        안녕하세요 PICK입니다.<br />
-                        저희 PICK에서 1학년 멤버를 <br />
-                        모집합니다.
+                        {description}
                         <S.FieldIconWrapper>
 
                         </S.FieldIconWrapper>

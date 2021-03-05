@@ -1,6 +1,7 @@
 import * as S from './styles'
 import MajorItem from './MajorItem'
-import { MutableRefObject, useLayoutEffect, useRef } from 'react'
+import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import club from '@/utils/api/club'
 
 interface dummyType {
     imgSrc: string;
@@ -21,7 +22,11 @@ dummy.fill({
 
 const MajorList = () => {
     const time: MutableRefObject<any> = useRef({})
-
+    const [data, setData] = useState([]);
+    useEffect(()=>{
+        club.getClubs()
+        .then((res)=>setData(res.data))
+    },[])
     useLayoutEffect(() => {
         const items: any = document.querySelectorAll('.majoritem')
 
@@ -43,18 +48,18 @@ const MajorList = () => {
     }, [])
 
     return (
-        <S.BodyWrapper>
+        <S.BodyWrapper> 
             <S.Wrapper>
                 {
-                    dummy.map((value, i) => {
-                        const { header, subHeader, description, imgSrc } = value
+                    data.map((value, i) => {
+                        const { clubname, clubtag, clubdescription, clubimage } = value
                         return <MajorItem className="majoritem" 
-                                max={dummy.length} 
+                                max={data.length} 
                                 now={i} 
-                                header={header} 
-                                subHeader={subHeader} 
-                                description={description} 
-                                imgSrc={imgSrc} />
+                                header={clubname} 
+                                subHeader={clubtag} 
+                                description={clubdescription} 
+                                imgSrc={clubimage} />
                     })
                 }
             </S.Wrapper>
