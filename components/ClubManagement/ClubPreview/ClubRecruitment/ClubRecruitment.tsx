@@ -27,6 +27,7 @@ function ClubRecruitment({club_id} : {club_id : number}){
     useEffect(()=>{
         club.getRecruitment(club_id)
         .then((res)=>setData(res.data))
+        .catch((e)=>console.error)
     },[])
     return(
         <>
@@ -36,7 +37,7 @@ function ClubRecruitment({club_id} : {club_id : number}){
                     <div>
                         <S.HeaderWrapper>
                             <p>모집분야</p>
-                            <S.CloseIco onClick={()=>{club.delRecruitment(club_id).then((res)=>window.location.href=window.location.href)  }}></S.CloseIco>
+                            
                         </S.HeaderWrapper>
                         <S.TagList>
                             {

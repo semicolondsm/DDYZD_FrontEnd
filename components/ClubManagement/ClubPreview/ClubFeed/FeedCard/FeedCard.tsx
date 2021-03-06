@@ -1,14 +1,14 @@
 import * as S from "./styles"
 import { useContext, useEffect, useRef, useState } from "react";
-import FeedData from "../../../../interfaces/feed";
-import ModalContext from "../../../../../utils/context/modals";
+import FlagToggle from './FlagToggle';
 const fileURL="https://api.semicolon.live"
-function FeedCard({props} : {props: FeedData}){
+function FeedCard({props} : {props: any}){
+
     const [page, setPage] = useState<number>(0);
     const [start,setStart] = useState<number>(0);
     const [end, setEnd] = useState<number>(0);
+    const [flags, setFlags] = useState<number>(props.flags); 
     const slideRef = useRef<HTMLDivElement>(null);
-    const { setModalState } = useContext(ModalContext);
     function prev(){
         if(page>0) setPage(page-1);
     }
@@ -20,7 +20,6 @@ function FeedCard({props} : {props: FeedData}){
     }
     function TouchEnd(){
         let temp = start-end;
-        console.log(temp);
         if(temp>60 && end!=0) next();
         else if(temp<-60 && end!=0) prev();
         setStart(0);
@@ -55,11 +54,9 @@ function FeedCard({props} : {props: FeedData}){
                 <S.CardHeaderContent>
                     <div style={{display: "flex", alignItems: "center"}}>
                         <div><strong>{props.clubName}</strong></div>
-                        <S.PinIco $pin={props.pin}></S.PinIco>
                     </div>
                     <S.CreatedAt>{date(props.uploadAt)}</S.CreatedAt>
                 </S.CardHeaderContent>
-                <S.FeedMenuIco onClick={()=>setModalState({state: "feedmenu", feed_id:props.feedId, owner : props.owner})}></S.FeedMenuIco> 
             </S.CardHeader>
             <S.CardSection>
                 <S.Content>{props.content}</S.Content>
@@ -72,10 +69,8 @@ function FeedCard({props} : {props: FeedData}){
                             }
                         </S.SliderImages>
                         <S.Prev onClick={prev}>
-                            <S.PrevIco></S.PrevIco>
                         </S.Prev>
                         <S.Next onClick={next}>
-                            <S.NextIco></S.NextIco>
                         </S.Next>
                     </S.Slider>
                     : null
@@ -83,15 +78,16 @@ function FeedCard({props} : {props: FeedData}){
             </S.CardSection>
             <S.CardBottom>
                 <S.CardUtil>
+                    <FlagToggle setFlags={setFlags} flags={flags} feed_id={props.feedId} state={props.flag}></FlagToggle>
                     <S.SliderState>
                     {
-                        props.media.map((_i,index)=>(<S.StateButton key={index} style={page==index ? {background: "#713EFF"} : undefined}></S.StateButton>))
+                        props.media.map((_i:any,index:any)=>(<S.StateButton key={index} style={page==index ? {background: "#713EFF"} : undefined}></S.StateButton>))
                         
                     }
                     </S.SliderState>
                 </S.CardUtil>
                 <S.CardState>
-                    <div>FLAGS {props.flags}개</div>
+                    <div>FLAGS {flags}개</div>
                 </S.CardState>
             </S.CardBottom>
         </li>

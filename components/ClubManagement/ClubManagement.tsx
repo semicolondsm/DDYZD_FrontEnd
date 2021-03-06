@@ -1,11 +1,23 @@
 import club from "@/utils/api/club";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { Background } from "../Main/LoginSlide/styles";
 import Header from "../Public/Header/Header";
 import ClubPreview from "./ClubPreview/ClubPreview";
-function ClubManagement({ club_id } : { club_id : number}){
+function ClubManagement(){
+    const router = useRouter()
+    let id :number = +router.query.id
     return(
         <>
-            <Header color="white"></Header>
-            <ClubPreview club_id={club_id}></ClubPreview>
+            
+            {
+                id ? 
+                <>
+                    <Header color="white"></Header>
+                    <ClubPreview club_id={id}></ClubPreview>
+                </>
+                : null
+            }
         </>
     )
 }
