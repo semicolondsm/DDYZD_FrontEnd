@@ -50,7 +50,9 @@ function FeedCard({props} : {props: FeedData}){
             day_diff < 31 && Math.ceil( day_diff / 7 ) + "주 전";
     }
     const dispatch = setState();
-    const ModalOn =()=> dispatch({type:"SET_MODAL",name:"feed"})
+    const ModalOn =()=> {
+        dispatch({type:"SET_MODAL",name:"feed"})
+    }
     return(
         <li>
             <S.CardHeader>

@@ -25,5 +25,11 @@ export default{
             url : `/club/list`,
             method : 'get'
         })
+    },
+    getClubPromotion(){
+        return request({
+            url : `/club/promotional`,
+            method : `get`,
+        })
     }
 }
