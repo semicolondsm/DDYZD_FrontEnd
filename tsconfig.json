@@ -4,6 +4,7 @@
     "alwaysStrict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "es2017"],

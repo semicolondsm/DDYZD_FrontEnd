@@ -9,6 +9,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "axios": "*",
     "next": "*",
     "next-redux-saga": "*",
@@ -32,9 +33,11 @@
     "@types/styled-components": "*",
     "babel-plugin-root-import": "*",
     "babel-plugin-styled-components": "*",
+    "file-loader": "^6.2.0",
     "jest": "*",
     "redux-devtools-extension": "*",
-    "typescript": "*"
+    "typescript": "*",
+    "url-loader": "^4.1.1"
   },
   "license": "MIT"
 }
