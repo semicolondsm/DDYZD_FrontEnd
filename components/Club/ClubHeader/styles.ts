@@ -7,6 +7,7 @@ const SubHeader = styled.div`
 background-color:white;
 border-top:1px solid ${color.grey300};
 min-width: 1500px;
+
 `
 const Tip = styled.div`
     width:38px;

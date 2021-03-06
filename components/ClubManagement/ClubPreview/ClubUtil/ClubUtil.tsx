@@ -1,19 +1,37 @@
-import { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom";
-import ModalContext from "../../../../utils/context/modals"
-import * as S from "./styles"
-function ClubUtil({club_id} : {club_id : number}){
-    const { setModalState } = useContext(ModalContext);
-    const history=useHistory();
-    const { location : { pathname : path } }=history;
+import { useContext, useEffect, useState } from "react"
+import { useRouter } from 'next/router'
+import club from '@/utils/api/club';
+import * as S from "./styles";
+function ClubUtil({data} : {data : any}){
+    const router = useRouter()
+
+    const [ info, setInfo ] = useState<any>(data);
+    const [ follow, setFollow ] = useState<boolean>(data.follow)
+    
+    const onFollow = () => {
+        if(!follow){
+            club.postFollow(info.clubid)
+            .then(()=> setFollow(true))
+        }else{
+            club.deleteFollow(info.clubid)
+            .then(()=>setFollow(false))
+        }
+    }
+    
+    const onSupport = () => {
+        router.push("/chat?id="+router.query.id)
+    }
+
+    const member = `https://api.eungyeol.live/file/icon/member.png`
+    const support = `https://api.eungyeol.live/file/icon/recruitment.png`
+    
     return(
         <S.Wrapper>
             <S.UtilWrapper>
-                <li onClick={()=>history.push(path+"/chat")}><S.memberIco/><p>멤버</p></li>
+                <li ><img style={{width: "15px"}} src={member}></img><p>멤버</p></li>
                 <div>
-                    <li onClick={()=>setModalState({state : "feed", club_id : club_id})}><S.feedIco/><p>글쓰기</p></li>
-                    <li onClick={()=>setModalState({state : "hongbo", club_id : club_id})}><S.feedIco/><p>홍보물</p></li>
-                    <li onClick={()=>setModalState({state : "recruitment", club_id : club_id})}><S.recruitmentIco/><p>모집공고</p></li>
+                    <li><p onClick={onFollow}>{follow ? "팔로우 취소" : "팔로우"}</p></li>
+                    <li><img style={{width: "20px"}} src={support}></img><p onClick={onSupport}>지원하기</p></li>
                 </div>
             </S.UtilWrapper>
         </S.Wrapper>

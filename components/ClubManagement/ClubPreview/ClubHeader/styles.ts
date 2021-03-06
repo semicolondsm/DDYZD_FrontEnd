@@ -3,7 +3,6 @@ export const Wrapper=styled.div`
     position: relative;
 `
 export const BannerWrapper=styled.div`
-    cursor: pointer;
     & > img{
         width: 100%;
         height: 300px;
@@ -33,7 +32,6 @@ export const Center=styled.div`
     flex-direction: column;
     align-items: center;
     & img{
-        cursor: pointer;
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -56,4 +54,8 @@ export const Center=styled.div`
             border: none;
         }
     }
+`
+
+export const Description = styled.div`
+    font-size: 14px;
 `

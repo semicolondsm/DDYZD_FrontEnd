@@ -1,9 +1,6 @@
 import styled from "styled-components"
 import { color } from "../../../../../style"
-import { ReactComponent as FeedMenu } from "../../../../../assets/images/feedmenu.svg"
-import { ReactComponent as Pin } from "../../../../../assets/images/pin.svg"
-import { ReactComponent as PrevSVG } from "../../../../../assets/images/prev.svg"
-import { ReactComponent as NextSVG } from "../../../../../assets/images/next.svg"
+
 const maxWidth = "630px"
 export const CardHeader = styled.div`
     display: flex;
@@ -25,18 +22,6 @@ export const CardHeader = styled.div`
 interface PinData{
     $pin : boolean
 }
-export const PrevIco=styled(PrevSVG)``
-export const NextIco=styled(NextSVG)``
-export const PinIco=styled(Pin)<PinData>`
-    margin-left: 2px;
-    & circle{
-        fill: ${(props)=>props.$pin ? "#350871" : "#c8c8c8"}
-    }
-`
-export const FeedMenuIco = styled(FeedMenu)`
-    padding: 15px 10px;
-    cursor: pointer;
-`
 export const CardHeaderContent = styled.div`
     margin-left: 15px;
     width: 100%;

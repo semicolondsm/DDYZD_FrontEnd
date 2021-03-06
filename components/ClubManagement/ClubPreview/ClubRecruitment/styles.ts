@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { ReactComponent as Close } from "../../../../assets/images/next.svg"
 export const Wrapper=styled.div`
     & > div{
         background: white;
@@ -24,7 +23,6 @@ export const RecuitmentDay=styled.p`
     font-size: 14px;
     color: #333;
 `
-export const CloseIco=styled(Close)``
 
 export const TagList=styled.div`
     display:flex;
