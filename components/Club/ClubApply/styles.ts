@@ -4,6 +4,7 @@ import {color} from '../../../style'
 const BoxCover = styled.div`
 width:360px;
 height:600px;
+
 `
 
 const Container = styled.div`

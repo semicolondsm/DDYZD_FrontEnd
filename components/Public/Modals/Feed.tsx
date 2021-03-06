@@ -1,0 +1,23 @@
+import { setState } from '@/context/context'
+import * as s from './styles'
+import club from '@/utils/api/club'
+
+export default function FeedModal(){
+    const dispatch = setState();
+    const close=()=>dispatch({type:"SET_MODAL",name:""})
+    const clubFollow=()=>{
+        club.follow(1)
+    }
+    return(
+        <s.FeedModalCover>
+            <s.FeedModalContainer>
+                <s.FeedModalMenu>
+                    <s.Menu style={{color:"tomato"}} onClick={clubFollow}>팔로우 취소</s.Menu>
+                    <s.Menu style={{color:"tomato"}}>게시글 신고</s.Menu>
+                    <s.Menu>게시물 공유</s.Menu>
+                    <s.Menu onClick={close}>취소</s.Menu>
+                </s.FeedModalMenu>
+            </s.FeedModalContainer>
+        </s.FeedModalCover>
+    )
+}

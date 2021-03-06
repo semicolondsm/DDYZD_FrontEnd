@@ -11,6 +11,7 @@ display:flex;
 flex-direction:column;
 z-index:30;
 min-width:100px;
+cursor:pointer;
 `
 
 export const TitleMenu = styled.h3`

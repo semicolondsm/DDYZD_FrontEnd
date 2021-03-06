@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="면접시간발신-001" transform="translate(-1500 -985)">
+    <rect id="사각형_885" data-name="사각형 885" width="40" height="40" rx="15" transform="translate(1500 985)" fill="#350871"/>
+    <g id="schedule-button" transform="translate(1505 990)">
+      <g id="schedule">
+        <path id="패스_120" data-name="패스 120" d="M15,0A15,15,0,1,0,30,15,15.044,15.044,0,0,0,15,0Zm0,27A12,12,0,1,1,27,15,12.035,12.035,0,0,1,15,27Z" fill="rgba(255,255,255,0.9)"/>
+        <path id="패스_121" data-name="패스 121" d="M231.75,127.5H229.5v9l7.8,4.8,1.2-1.95-6.75-4.05Z" transform="translate(-216 -120)" fill="rgba(255,255,255,0.9)"/>
+      </g>
+    </g>
+  </g>
+</svg>
