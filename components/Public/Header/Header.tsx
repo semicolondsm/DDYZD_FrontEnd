@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
-
+import UserContext from '@/context/user';
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
-    const [token,setToken] = useState<string|undefined>('')
+    const { user_state, setUserState } = useContext(UserContext);
     useEffect(()=>{
         window.onscroll=()=>setScroll(window.scrollY);
-        setToken(localStorage.accessToken)
-    },[token])
+        localStorage.userCache && setUserState(JSON.parse(localStorage.userCache))
+    },[])
     const logout =()=>{
         alert("로그아웃 되었습니다.")
         localStorage.clear()
@@ -34,9 +34,10 @@ function Header({color} : {color:string}){
                     <li>공지사항</li>
                 </ul>
                 <ul>
-                {typeof token==="undefined"?
-                    <li onClick={()=>window.location.href="http://193.123.237.232/external/login?redirect_url=http://localhost:3000&client_id=2866a041a4594f3fba25f62126e49557"}>로그인</li>:
-                    <><li>이명호님</li><li onClick={logout}>로그아웃</li></>}
+                {
+                    user_state?
+                        <><li>{user_state?.name}</li><li onClick={logout}>로그아웃</li></>
+                    :<li onClick={()=>window.location.href="/login"}>로그인</li>}
                     <li>고객센터</li>
                 </ul>
             </h.BottomHeader>
