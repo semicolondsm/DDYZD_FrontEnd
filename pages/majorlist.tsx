@@ -1,9 +1,13 @@
+import Header from '@/components/Public/Header/Header'
 import MajorList from '../components/MajorList/MajorList'
 
 const majorlist = () => {
 
     return (
-        <MajorList />
+        <>
+            <Header color="white"></Header>
+            <MajorList />
+        </>
     )
 }
 
