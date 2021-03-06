@@ -35,141 +35,148 @@ export const ItemWrapper = styled.div<{max: number, now: number}>`
 `
 
 export const ItemFontWrapper = styled.div`
-    margin: 0 10px;
-`
+  margin: 0 10px;
+`;
 
 export const ItemImg = styled.img`
-    width: 270px;
-    height: 100px;
-    margin: 10px;
-    transition: 0.2s margin ease-out;
-`
+  width: 270px;
+  height: 100px;
+  margin: 10px;
+  transition: 0.2s margin ease-out;
+`;
 
 export const ItemHeader = styled.h2`
-    font-size: 16px;
-    color: black;
-    letter-spacing: 0;
-    margin: 0 0 3px;
-` 
+  font-size: 16px;
+  color: black;
+  letter-spacing: 0;
+  margin: 0 0 3px;
+`;
 
 export const ItemSubHeader = styled.h3`
-    font-weight: 500;
-    font-size: 14px;
-    color: ${color.grey600};
-    margin: 0 0 -5px;
-`
+  font-weight: 500;
+  font-size: 14px;
+  color: ${color.grey600};
+  margin: 0 0 -5px;
+`;
 
 export const ItemDesWrapper = styled.div`
-    margin-right: -6px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 290px;
-`
+  margin-right: -6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 290px;
+`;
 
 export const ItemDes = styled.span`
-    font-size: 12px;
-    color: ${color.grey600};
-`
+  font-size: 12px;
+  color: ${color.grey600};
+`;
 
 export const PointButton = styled.button`
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    outline: none;
-    border: none;
-    border-radius: 50%;
-`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+`;
 
 export const Wrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 290px);
-    grid-gap: 40px;
-    margin: 0 auto;
-    min-width: 1280px;
-`
+  display: grid;
+  grid-template-columns: repeat(4, 290px);
+  grid-gap: 40px;
+  margin: 0 auto;
+  min-width: 1280px;
+`;
 
 export const BodyWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-width: 1280px;
-`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 1280px;
+`;
 
 export const PurpleBack = styled.div`
-    position: absolute;
-    background: ${color.purple200};
-    width: 400px;
-    height: 350px;
-    bottom: 0;
-    left: 330px;
-    transform-origin: left bottom;
-    transform: rotate(17deg);
-`
+  position: absolute;
+  background: ${color.purple400};
+  width: 400px;
+  height: 350px;
+  bottom: 0;
+  left: 330px;
+  transform-origin: left bottom;
+  transform: rotate(17deg);
+`;
 
 export const ButtonsWrapper = styled.div`
-    position: absolute;
-    left: 425px;
-    bottom: 12px;
-    display: flex;
-`
+  position: absolute;
+  left: 425px;
+  bottom: 12px;
+  display: flex;
+`;
 
-export const RadiusButton = styled.div<{active?: boolean}>`
-    padding: 5px 18px;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    background: #350871;
-    outline: none;
-    font-size: 14px;
-    white-space: nowrap;
-    ${props => props.active && css`
-        padding: 5px 30px;
-        cursor: pointer;
-        &:hover {
-            background: #2A084A;
-        }
+export const RadiusButton = styled.div<{ active?: boolean }>`
+  padding: 5px 18px;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  background: #350871;
+  outline: none;
+  font-size: 14px;
+  white-space: nowrap;
+  ${(props) =>
+    props.active &&
+    css`
+      padding: 5px 30px;
+      cursor: pointer;
+      &:hover {
+        background: #2a084a;
+      }
     `}
-    &:last-child {
-        margin-left: 10px;
-    }
-`
+  &:last-child {
+    margin-left: 10px;
+  }
+`;
 
 export const IconWrapper = styled.div`
-    position: absolute;
-    top: 25px;
-    left: 339px;
-    border-radius: 50%;
-    width: 66px;
-    height: 66px;
-    border: 2.5px solid transparent;
-    background-image: linear-gradient(white, white), linear-gradient(to bottom, #f8df7d 10%, #6618ab 55%, #7c36ee 150%);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
+  position: absolute;
+  top: 25px;
+  left: 339px;
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+  border: 2.5px solid transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to bottom, #f8df7d 10%, #6618ab 55%, #7c36ee 150%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const Icon = styled.img`
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-`
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+`;
 
 export const IntroWrapper = styled.div`
-    position: absolute;
-    left: 435px;
-    top: 30px;
-    width: 160px;
-    font-size: 12px;
-    color: white;
-    padding: 10px 5px;
-    border-bottom: 2px solid white;
-`
+  position: absolute;
+  left: 435px;
+  top: 30px;
+  width: 160px;
+  font-size: 12px;
+  color: white;
+  padding: 10px 5px;
+  border-bottom: 2px solid white;
+`;
 // 아이콘 추가
+export const IntroIcon = styled.div`
+  position: relative;
+`;
+
 export const FieldIconWrapper = styled.div`
-    position: absolute;
-    top: 100%;
-    left: 0;
-`
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+`;

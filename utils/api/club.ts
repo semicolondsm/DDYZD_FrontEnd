@@ -1,7 +1,7 @@
 import request from '../axios/axios'
 
 export default{
-    getClubs(){
+    getClubList(){
         return request({
             url : `/club/list`,
             method : 'get'
