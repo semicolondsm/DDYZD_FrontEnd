@@ -4,9 +4,12 @@ import Link from "next/link"
 import ListIco from './ListIco';
 
 import UserContext from '@/context/user';
+import { setState } from '@/context/context';
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
     const { user_state, setUserState } = useContext(UserContext);
+    const [toggle,setToggle] = useState<boolean>(true);
+    const dispatch = setState();
     useEffect(()=>{
         window.onscroll=()=>setScroll(window.scrollY);
         localStorage.userCache && setUserState(JSON.parse(localStorage.userCache))
@@ -16,6 +19,13 @@ function Header({color} : {color:string}){
         localStorage.clear()
         window.location.href="/"  
     }
+    
+    const ModalOn=()=>{
+        setToggle(!toggle)
+        if(toggle) dispatch({type:"SET_MODAL",name:"mainModal"})
+        else dispatch({type:"SET_MODAL",name:""})
+    }
+
     return(
         <div>
         <h.Header>
@@ -34,11 +44,14 @@ function Header({color} : {color:string}){
                     <li>동아리 물품 신청</li>
                     <li>공지사항</li>
                 </ul>
-                {
-                    user_state?
-                        <><li>{user_state?.name}</li><li onClick={logout}>로그아웃</li></>
-                    :<li onClick={()=>window.location.href="/login"}>로그인</li>}
+                <ul>
+                    {
+                        user_state?
+                            <><li>{user_state?.name}</li><li onClick={logout}>로그아웃</li></>
+                        :<li onClick={()=>window.location.href="/login"}>로그인</li>
+                    }
                     <li>고객센터</li>
+                    
                 </ul>
             </h.BottomHeader>
         </h.Header>

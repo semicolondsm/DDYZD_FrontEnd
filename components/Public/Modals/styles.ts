@@ -1,15 +1,15 @@
 import styled from "styled-components"
 import {color} from "../../../style"
 export const ModalContainer = styled.div`
-width: 64%;
+width: 100%;
 height:698px;
 background-color:white;
 position:absolute;
 z-index:50;
-margin-left:250px;
+margin: 0 auto;
 border-top:1px solid ${color.grey400};
 border-bottom:1px solid ${color.grey400};
-padding:0 2%;
+padding:0 30px;
 min-width:698px;
 `
 
