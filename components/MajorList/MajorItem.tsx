@@ -14,6 +14,7 @@ interface propsType {
 
 const MajorItem = (props: propsType) => {
   const { imgSrc, header, description, tag } = props;
+  console.log(`https://api.eungyeol.live/file/${imgSrc}`);
 
   return (
     <S.ItemWrapper max={props.max} now={props.now}>
@@ -32,7 +33,7 @@ const MajorItem = (props: propsType) => {
           <S.RadiusButton active={true}>신청하기</S.RadiusButton>
         </S.ButtonsWrapper>
         <S.IconWrapper>
-          <S.Icon src={`${process.env.NEXT_PUBLIC_URL}/file/${imgSrc}`} />
+          <S.Icon src={`https://api.eungyeol.live/file/${imgSrc}`} />
         </S.IconWrapper>
         <S.IntroWrapper>
           {description}
