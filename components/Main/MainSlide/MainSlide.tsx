@@ -37,6 +37,7 @@ const MainSlide =()=>{
         }
     ]
     const [transVal, setTransVal] = useState(0);
+    const [delay,setDelay] = useState(5000);
     const pos = ClubData.length;
     const CurBack ={background: "transparent linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%) 0% 0% no-repeat padding-box"}
     const CurBorder = {
@@ -53,8 +54,13 @@ const MainSlide =()=>{
         if(transVal == 0) setTransVal(-pos+1); 
         else setTransVal(transVal + 1)
     }
+
     const ClubProfileClick =(index:number)=>{
         setTransVal(-index)
+        setDelay(6000);
+        setTimeout(() => {
+            setDelay(5000);
+        }, 8000);
     }
     useInterval(()=>{
         if(transVal == -pos+1){
@@ -63,7 +69,7 @@ const MainSlide =()=>{
         else{
             setTransVal(transVal-1)
         }
-    },3000)
+    },delay)
     return(
         <>
         <s.SlideContainer> 

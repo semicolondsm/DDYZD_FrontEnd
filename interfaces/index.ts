@@ -31,7 +31,7 @@ export interface FeedData {
   pin : boolean,
   content : string,
   media : string[], 
-  isFlag : boolean,
+  flag : boolean,
   flags : number,
 }
 

@@ -28,7 +28,7 @@ function Header({color} : {color:string}){
                     <ListIco></ListIco>
                     <h3>전체 카테고리</h3>
                     <li>동아리 소개</li>
-                    <li>동아리 신청</li>
+                    <li><Link href="/majorlist">동아리 신청</Link></li>
                     <li>동아리 게시물</li>
                     <li>동아리 물품 신청</li>
                     <li>공지사항</li>

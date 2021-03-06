@@ -1,42 +1,38 @@
-import { EDEADLK } from "constants";
-import styled, { css } from "styled-components";
-import { color } from "../../style";
+import styled, { css } from 'styled-components'
+import { color } from '../../style'
+ 
+export const ItemWrapper = styled.div<{max: number, now: number}>`
+    width: 290px;
+    height: 200px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid ${color.grey300};
+    border-radius: 5px;
+    position: relative;
+    background: white;
+    transition: 0.4s width cubic-bezier(0.3, 0.3, 0.0, 1.0), 0.2s box-shadow linear, 0.4s right cubic-bezier(0.3, 0.3, 0.0, 1.0);
+    overflow: hidden;
+    right: 0;
 
-export const ItemWrapper = styled.div<{ max: number; now: number }>`
-  width: 290px;
-  height: 200px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  border: 1px solid ${color.grey300};
-  border-radius: 5px;
-  position: relative;
-  background: white;
-  transition: 0.4s width cubic-bezier(0.3, 0.3, 0, 1), 0.2s box-shadow linear,
-    0.4s right cubic-bezier(0.3, 0.3, 0, 1);
-  overflow: hidden;
-  right: 0;
+    &:hover {
+        width: 620px;
+    }
 
-  &:hover {
-    width: 620px;
-  }
+    &:nth-child(4n):hover {
+        right: 330px;
+    }
 
-  &:nth-child(4n):hover {
-    right: 330px;
-  }
+    ${props => (props.now+1) % 4 != 0 && css`
+        &:hover + div {
+            box-shadow: none !important;
+        }
+    `} 
 
-  ${(props) =>
-    (props.now + 1) % 4 != 0 &&
-    css`
-      &:hover + div {
-        box-shadow: none !important;
-      }
-    `}
+    &:hover > div > img {
+        margin-left: 30px;
+    }
 
-  &:hover > div > img {
-    margin-left: 30px;
-  }
-
-  z-index: ${(props) => props.max - props.now};
-`;
+    z-index: ${props => props.max - props.now};
+`
 
 export const ItemFontWrapper = styled.div`
   margin: 0 10px;

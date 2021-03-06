@@ -67,11 +67,6 @@ function Feed(){
       let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
       return value? value[2] : undefined;
     };
-    var setCookie = function(name:string, value:string, exp:number) {
-      var date = new Date();
-      date.setTime(date.getTime() + exp*24*60*60*1000);
-      document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-    };
     useEffect(()=>{
       if(typeof getCookie("token") !== "undefined"){
         localStorage.setItem("accessToken",getCookie("token")!.toString())
