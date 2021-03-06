@@ -40,7 +40,13 @@ const MajorList = () => {
     <S.BodyWrapper>
       <S.Wrapper>
         {clubList.map((value, i) => {
-          const { clubname, clubtag, clubimage, clubdescription } = value;
+          const {
+            clubname,
+            clubtag,
+            clubimage,
+            clubdescription,
+            clubbanner,
+          } = value;
           return (
             <MajorItem
               className="majoritem"
@@ -50,6 +56,7 @@ const MajorList = () => {
               tag={clubtag}
               description={clubdescription}
               imgSrc={clubimage}
+              banner={clubbanner}
             />
           );
         })}
