@@ -6,10 +6,11 @@ height:698px;
 background-color:white;
 position:absolute;
 z-index:50;
-margin-left:16%;
+margin-left:250px;
 border-top:1px solid ${color.grey400};
 border-bottom:1px solid ${color.grey400};
 padding:0 2%;
+min-width:698px;
 `
 
 export const ModalTitle = styled.h1`
@@ -56,12 +57,12 @@ a{
     :first-child{
         margin-top:6%;
     }
-    padding:2% 0;
+    padding:2% 0%;
 }
 `
 
 export const Flex = styled.div`
-width:100%;
+width:104%;
 display:flex;
 height:100%;
 padding: 0 2.1%;

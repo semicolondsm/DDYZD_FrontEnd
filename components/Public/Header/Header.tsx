@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
+
 import UserContext from '@/context/user';
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
@@ -13,7 +14,7 @@ function Header({color} : {color:string}){
     const logout =()=>{
         alert("로그아웃 되었습니다.")
         localStorage.clear()
-        window.location.href="/"
+        window.location.href="/"  
     }
     return(
         <div>
@@ -25,15 +26,14 @@ function Header({color} : {color:string}){
             </h.TopHeader>
             <h.BottomHeader>
                 <ul>
-                    <ListIco></ListIco>
-                    <h3>전체 카테고리</h3>
+                    <div onClick={ModalOn} style={{cursor:"pointer"}}><ListIco></ListIco></div>
+                    <h3 onClick={ModalOn} style={{cursor:"pointer"}}>전체 카테고리</h3>
                     <li>동아리 소개</li>
-                    <li><Link href="/majorlist">동아리 신청</Link></li>
+                    <li>동아리 신청</li>
                     <li>동아리 게시물</li>
                     <li>동아리 물품 신청</li>
                     <li>공지사항</li>
                 </ul>
-                <ul>
                 {
                     user_state?
                         <><li>{user_state?.name}</li><li onClick={logout}>로그아웃</li></>

@@ -10,5 +10,4 @@ const majorlist = () => {
         </>
     )
 }
-
 export default majorlist
