@@ -5,8 +5,8 @@ export const SlideContainer = styled.div`
 width:100%;
 height:700px;
 display:flex;
-min-width:1000px;
-background-color:gray;
+min-width:1500px;
+background-color:whitesmoke;
 position:relative;
 overflow:hidden;
 ::-webkit-scrollbar{
@@ -98,13 +98,19 @@ margin-top:3px;
 
 export const SlideUnderBar = styled.div`
 width:100%;
-height:96px;
+height:120px;
 border-bottom:1px solid ${color.grey300};
 min-width:1000px;
 background-color:white;
 display:flex;
 align-items:center;
 justify-content:center;
+overflow-x:scroll;
+position:relative;
+min-width:1500px;
+::-webkit-scrollbar{
+    display:none;
+}
 ` // 아래 동아리 프로필 div
 
 

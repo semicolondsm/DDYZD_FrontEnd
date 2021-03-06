@@ -4,44 +4,16 @@ import useInterval from '../../../utils/hooks'
 import Menu from '../Menu/Menu';
 import {getState} from '../../../context/context'
 import Modal from '@/components/Public/Modals/Menu';
+import club from '@/utils/api/club'
+import { useEffect } from 'react';
 
 const MainSlide =()=>{
     const state = getState();
-    const ClubData = [
-        {
-            pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
-            name : "SEMICOLON;"
-        },
-        {
-            pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
-            name : "MODEEP"
-        },
-        {
-            pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
-            name : "SINABRO"
-        },
-        {
-            pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
-            name : "SEMICOLON;"
-        },
-        {
-            pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
-            name : "MODEEP"
-        },
-        {
-            pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
-            img : "https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png",
-            name : "SINABRO"
-        }
-    ]
     const [transVal, setTransVal] = useState(0);
     const [delay,setDelay] = useState(5000);
-    const pos = ClubData.length;
+    const [promoData,setPromoData] = useState<any>([])
+    const [data,setData] = useState<any>([]);
+    const pos = promoData.length;
     const CurBack ={background: "transparent linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%) 0% 0% no-repeat padding-box"}
     const CurBorder = {
         backgroundImage: "linear-gradient(white,white), linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%)"
@@ -73,13 +45,22 @@ const MainSlide =()=>{
             setTransVal(transVal-1)
         }
     },delay)
+    useEffect(()=>{
+        club.getClubPromotion()
+        .then((e)=>{
+            setData(e.data)
+        })
+    },[])
+    useEffect(()=>{
+        setPromoData(data.filter((e : any) => e.image != null))
+    },[data])
     return(
         <>
         <s.SlideContainer> 
-        {state.modalName == "mainModal" && <Modal></Modal>}
-        <s.SlideBox style={{width:ClubData.length * 100 + "%", transform:"translateX("+ transVal*100/pos + "%)"}}> {/* 슬라이드 이미지 */}
-                {ClubData.map((e,index)=>{
-                    return(<img src={e.pictur} key={index} style={{width:100/pos + "%"}}></img>)
+        {state.modalName === "mainModal" && <Modal></Modal>}
+        <s.SlideBox style={{width:promoData.length * 100 + "%", transform:"translateX("+ transVal*100/pos + "%)"}}> {/* 슬라이드 이미지 */}
+                {promoData.map((e:any,index:any)=>{
+                    return e.image != null && <img src={"https://api.eungyeol.live/file/" + e.image} key={index} style={{width:100/pos + "%", objectFit:"contain"}}></img>
                 })}
             </s.SlideBox>
             <s.AllowContainer>
@@ -89,14 +70,14 @@ const MainSlide =()=>{
             <Menu></Menu>
         </s.SlideContainer>
         <s.SlideUnderBar>
-          {ClubData.map((e, index)=>{ 
-                return(
+          {promoData.map((e:any, index:any)=>{ 
+                return e.image != null &&
                     <s.ClubProfileBox key={index}>
-                        <s.ClubProfile style={(index == -transVal)?CurBorder:none}><img onClick={()=>ClubProfileClick(index)} src={e.img}></img></s.ClubProfile>
+                        <s.ClubProfile style={(index == -transVal)?CurBorder:none}><img onClick={()=>ClubProfileClick(index)} src={"https://api.eungyeol.live/file/" + e.profile}></img></s.ClubProfile>
                             <a>{e.name}</a>
                         <s.ProfileLine style={(index == -transVal)?CurBack:none}></s.ProfileLine>
                     </s.ClubProfileBox>
-                )
+                
             })} 
         </s.SlideUnderBar>
         </>

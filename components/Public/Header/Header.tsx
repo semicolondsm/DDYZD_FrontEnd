@@ -2,11 +2,20 @@ import React, { useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
+import {setState} from '../../../context/context'
+
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
+    const [toggle,setToggle] = useState<boolean>(true);
     useEffect(()=>{
         window.onscroll=()=>setScroll(window.scrollY);
     },[])
+    const dispatch = setState();
+    const ModalOn=()=>{
+        setToggle(!toggle)
+        if(toggle) dispatch({type:"SET_MODAL",name:"mainModal"})
+        else dispatch({type:"SET_MODAL",name:""})
+    }
     return(
         <div>
         <h.Header>
@@ -17,8 +26,8 @@ function Header({color} : {color:string}){
             </h.TopHeader>
             <h.BottomHeader>
                 <ul>
-                    <ListIco></ListIco>
-                    <h3>전체 카테고리</h3>
+                    <div onClick={ModalOn} style={{cursor:"pointer"}}><ListIco></ListIco></div>
+                    <h3 onClick={ModalOn} style={{cursor:"pointer"}}>전체 카테고리</h3>
                     <li>동아리 소개</li>
                     <li>동아리 신청</li>
                     <li>동아리 게시물</li>
