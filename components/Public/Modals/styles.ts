@@ -6,7 +6,7 @@ height:698px;
 background-color:white;
 position:absolute;
 z-index:50;
-margin-left:16%;
+margin-left:13%;
 border-top:1px solid ${color.grey400};
 border-bottom:1px solid ${color.grey400};
 padding:0 2%;

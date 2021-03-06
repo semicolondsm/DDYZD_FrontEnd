@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios'
 
 const instance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_URL,
-    timeout: 1000
+    timeout: 3000
 });
 instance.interceptors.request.use(
     function (config) {

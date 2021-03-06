@@ -2,8 +2,11 @@ import * as s from './styles'
 import { useState } from 'react';
 import useInterval from '../../../utils/hooks'
 import Menu from '../Menu/Menu';
+import {getState} from '../../../context/context'
+import Modal from '@/components/Public/Modals/Menu';
 
 const MainSlide =()=>{
+    const state = getState();
     const ClubData = [
         {
             pictur :     "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=800&h=400",
@@ -37,6 +40,7 @@ const MainSlide =()=>{
         }
     ]
     const [transVal, setTransVal] = useState(0);
+    const [delay,setDelay] = useState(5000);
     const pos = ClubData.length;
     const CurBack ={background: "transparent linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%) 0% 0% no-repeat padding-box"}
     const CurBorder = {
@@ -53,8 +57,13 @@ const MainSlide =()=>{
         if(transVal == 0) setTransVal(-pos+1); 
         else setTransVal(transVal + 1)
     }
+
     const ClubProfileClick =(index:number)=>{
         setTransVal(-index)
+        setDelay(6000);
+        setTimeout(() => {
+            setDelay(5000);
+        }, 8000);
     }
     useInterval(()=>{
         if(transVal == -pos+1){
@@ -63,11 +72,11 @@ const MainSlide =()=>{
         else{
             setTransVal(transVal-1)
         }
-    },3000)
+    },delay)
     return(
         <>
         <s.SlideContainer> 
-{/*             <Modal></Modal> */}
+        {state.modalName == "mainModal" && <Modal></Modal>}
         <s.SlideBox style={{width:ClubData.length * 100 + "%", transform:"translateX("+ transVal*100/pos + "%)"}}> {/* 슬라이드 이미지 */}
                 {ClubData.map((e,index)=>{
                     return(<img src={e.pictur} key={index} style={{width:100/pos + "%"}}></img>)

@@ -19,5 +19,11 @@ export default{
                 "access-token": window.localStorage.getItem('access-token')
             }
         })
+    },
+    getClubList(){
+        return request({
+            url : `/club/list`,
+            method : 'get'
+        })
     }
 }

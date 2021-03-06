@@ -12,7 +12,89 @@ overflow:hidden;
 ::-webkit-scrollbar{
     display:none;   
 }
-` // 동아리 홍보사진 div
+`// 동아리 홍보사진 div
+
+export const MWrapper = styled.div`
+    background: white;
+`
+export const MSlideContainer = styled.div`
+width:100%;
+display:flex;
+box-sizing:content-box;
+background-color:gray;
+position:relative;
+overflow:hidden;
+::-webkit-scrollbar{
+    display:none;   
+}
+`
+export const MSlideUnderBar = styled.div`
+width: 100%;
+box-sizing: border-box;
+padding: 20px 25px;
+display: flex;
+justify-content: center;
+`
+export const MSlideUnderBarContent = styled.div`
+background-color:white;
+display:flex;
+align-items:center;
+overflow-x: scroll;
+margin: 0 auto;
+::-webkit-scrollbar{
+    display:none;   
+}
+`
+export const MClubProfileBox = styled.div`
+width:86px;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+font-size: 12.5px;
+font-family:sans-serif;
+color:black;
+padding:0 5px;
+margin-right: 15px;
+a{
+    padding: 5px 0;
+}
+`
+export const MSlideBox = styled.div<{count: number}>`
+display: grid;
+grid-template-columns: repeat(${props => props.count}, 100%);
+transition:1s;
+`
+export const MClubProfile = styled.div`
+width:54px;
+height:54px;
+border-radius:80%;
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top: 12px;
+border: 1px solid;
+border: 2px solid transparent;
+border-radius: 80%;
+background-image: linear-gradient(white,white), linear-gradient(${color.grey500},${color.grey500});
+background-origin: border-box;
+background-clip: content-box, border-box;
+img{
+    cursor: pointer;
+    width:90%;
+    height:90%;
+    border-radius:80%;
+    object-fit:cover;
+    background-color:white;
+}
+`
+
+export const MProfileLine = styled.div`
+width:100%;
+height:2px;
+background-color:${color.grey300};
+margin-top:3px;
+`
 
 export const SlideUnderBar = styled.div`
 width:100%;
@@ -76,26 +158,27 @@ a{
 `
 
 export const ClubProfile = styled.div`
-width:54px;
-height:54px;
-border-radius:80%;
-display:flex;
-justify-content:center;
-align-items:center;
-margin-top:7%;
+width: 54px;
+height: 54px;
+border-radius: 80%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 7%;
 border: 1px solid;
 border: 2px solid transparent;
 border-radius: 80%;
-background-image: linear-gradient(white,white), linear-gradient(${color.grey500},${color.grey500});
+background-image: linear-gradient(white, white),
+linear-gradient(${color.grey500}, ${color.grey500});
 background-origin: border-box;
 background-clip: content-box, border-box;
-img{
+img {
     cursor: pointer;
-    width:90%;
-    height:90%;
-    border-radius:80%;
-    object-fit:cover;
-    background-color:white;
+    width: 90%;
+    height: 90%;
+    border-radius: 80%;
+    object-fit: cover;
+    background-color: white;
 }
 `
 

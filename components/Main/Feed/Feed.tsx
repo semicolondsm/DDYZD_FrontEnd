@@ -62,6 +62,17 @@ function Feed(){
     useEffect(()=>{
       if(!last) window.onscroll=infiniteScroll;
     },[data])
+
+    const getCookie = function(name:string) {
+      let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return value? value[2] : undefined;
+    };
+    useEffect(()=>{
+      if(typeof getCookie("token") !== "undefined"){
+        localStorage.setItem("accessToken",getCookie("token")!.toString())
+        console.log(localStorage.accessToken)
+      }
+    },[])
     return(
         <S.FeedList>
           {

@@ -1,9 +1,17 @@
 import { useState } from "react"
+import feed from "@/utils/api/feed"
 const color = "#606670";
-function FlagToggle({state} : {state: boolean}){
+function FlagToggle({setFlags, flags, feed_id, state} : {setFlags: any ,flags : number,feed_id: number, state: boolean}){
     const [toggle,setToggle] = useState<boolean>(state); 
-    function togglehandler(){
-        toggle ? setToggle(false) : setToggle(true);
+    async function togglehandler(){
+        let temp=await feed.putFlag(feed_id);
+        if(temp.data.msg==="Add Feed Flag Success"){ 
+            setToggle(true) 
+            setFlags(flags+1)
+        }else {
+            setToggle(false);
+            setFlags(flags-1)
+        }
     }
     return(
         <div>
