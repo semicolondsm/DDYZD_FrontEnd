@@ -14,7 +14,6 @@ interface propsType {
 
 const MajorItem = (props: propsType) => {
   const { imgSrc, header, description, tag } = props;
-
   return (
     <S.ItemWrapper max={props.max} now={props.now}>
       <div className={props.className}>
