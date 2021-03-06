@@ -130,7 +130,7 @@ export const ButtonsWrapper = styled.div`
   display: flex;
 `;
 
-export const RadiusButton = styled.div<{ active?: boolean }>`
+export const RadiusButton = styled.a<{ active?: boolean }>`
   padding: 5px 18px;
   color: white;
   border: none;

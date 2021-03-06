@@ -6,6 +6,7 @@ import etcIc from "@/public/images/etc";
 import shieldIc from "@/public/images/shield";
 import embedIc from "@/public/images/embed";
 import phone from "@/public/images/phone";
+import Link from "next/link";
 
 interface propsType {
   max: number;
@@ -16,10 +17,11 @@ interface propsType {
   tag: string[];
   description: string;
   banner: string;
+  id : number;
 }
 
 const MajorItem = (props: propsType) => {
-  const { imgSrc, header, description, tag, banner } = props;
+  const { imgSrc, header, description, tag, banner, id } = props;
   console.log(tag);
   return (
     <S.ItemWrapper max={props.max} now={props.now}>
@@ -35,7 +37,7 @@ const MajorItem = (props: propsType) => {
           <S.ItemSubHeader>{description}</S.ItemSubHeader>
         </S.ItemFontWrapper>
         <S.ButtonsWrapper>
-          <S.RadiusButton active={true}>신청하기</S.RadiusButton>
+          <Link href={`/clubinfo?id=${id}`}><S.RadiusButton active={true}>신청하기</S.RadiusButton></Link>
         </S.ButtonsWrapper>
         <S.IconWrapper>
           <S.Icon src={`${process.env.NEXT_PUBLIC_URL}/file/${imgSrc}`} />

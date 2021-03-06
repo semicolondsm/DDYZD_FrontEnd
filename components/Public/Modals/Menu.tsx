@@ -3,19 +3,23 @@ import club from '@/utils/api/club'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import { useMenuDispatch, useMenuState } from '@/context/menuProvider';
+import { getMenu } from '@/context/actions/menuActions';
 
 const Modal =()=>{
     const [data,setData] = useState<any>([]);
     const router = useRouter();
+    const dispatch = useMenuDispatch();
+    const state: any=useMenuState();
     const replacePage =(e : any)=>{
         router.push(`clubinfo?id=${e.target.className}`) 
     }
     useEffect(()=>{
-        club.getClubList()
-        .then((res)=>{
-            setData(res.data);
-        })
+        state.MenuList.data || getMenu(dispatch)
     },[])
+    useEffect(()=>{
+        state.MenuList.data && setData(state.MenuList.data);
+    },[state])
     return(
         <s.ModalContainer>
             <s.ModalTitle>전체 카테고리</s.ModalTitle>

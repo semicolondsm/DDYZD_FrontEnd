@@ -52,11 +52,14 @@ ul{
     }
     li{
         text-decoration:none;
+        & a{
+            color: black;
+        }
         font-size: 14px;
         margin-left: 20px;
         cursor: pointer;
         :hover{
-            color:tomato;
+            color:tomato !important;
         }
     }
     

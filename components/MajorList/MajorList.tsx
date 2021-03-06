@@ -46,6 +46,7 @@ const MajorList = () => {
             clubimage,
             clubdescription,
             clubbanner,
+            clubid
           } = value;
           return (
             <MajorItem
@@ -57,6 +58,7 @@ const MajorList = () => {
               description={clubdescription}
               imgSrc={clubimage}
               banner={clubbanner}
+              id={clubid}
             />
           );
         })}

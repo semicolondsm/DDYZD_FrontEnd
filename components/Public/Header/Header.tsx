@@ -38,10 +38,8 @@ function Header({color} : {color:string}){
                 <ul>
                     <div onClick={ModalOn} style={{cursor:"pointer"}}><ListIco></ListIco></div>
                     <h3 onClick={ModalOn} style={{cursor:"pointer"}}>전체 카테고리</h3>
-                    <li>동아리 소개</li>
-                    <li>동아리 신청</li>
-                    <li>동아리 게시물</li>
-                    <li>동아리 물품 신청</li>
+                    <li><Link href="/majorlist"><a>동아리 신청</a></Link></li>
+                    <li onClick={()=>alert("개발중")}>동아리 물품 신청</li>
                     <li>공지사항</li>
                 </ul>
                 <ul>
