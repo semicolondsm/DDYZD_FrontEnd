@@ -4,7 +4,7 @@ import React from 'react';
 import {SampleProvider} from '@/context/context'
 import ReturnModal from '@/components/Public/Modals';
 import { UserProvider } from '@/context/user';
-import { onSilentRefresh } from './Callback';
+import { onSilentRefresh } from './callback';
 
 class ReactApp extends App<any> {
   componentDidMount(){
