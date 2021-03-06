@@ -34,3 +34,11 @@ export interface FeedData {
   flag : boolean,
   flags : number,
 }
+
+export interface MajorData {
+  clubid: number;
+  clubname: string;
+  clubtag: string[];
+  clubimage: string;
+  clubdescription: string;
+}
