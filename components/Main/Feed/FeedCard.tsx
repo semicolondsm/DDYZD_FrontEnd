@@ -7,6 +7,7 @@ function FeedCard({props} : {props: FeedData}){
     const [page, setPage] = useState<number>(0);
     const [start,setStart] = useState<number>(0);
     const [end, setEnd] = useState<number>(0);
+    const [flags, setFlags] = useState<number>(props.flags); 
     const slideRef = useRef<HTMLDivElement>(null);
     function prev(){
         if(page>0) setPage(page-1);
@@ -113,7 +114,7 @@ function FeedCard({props} : {props: FeedData}){
             </S.CardSection>
             <S.CardBottom>
                 <S.CardUtil>
-                    <FlagToggle state={props.isFlag}></FlagToggle>
+                    <FlagToggle setFlags={setFlags} flags={flags} feed_id={props.feedId} state={props.flag}></FlagToggle>
                     <S.SliderState>
                     {
                         props.media.map((_i,index)=>(<S.StateButton key={index} style={page==index ? {background: "#713EFF"} : undefined}></S.StateButton>))
@@ -122,7 +123,7 @@ function FeedCard({props} : {props: FeedData}){
                     </S.SliderState>
                 </S.CardUtil>
                 <S.CardState>
-                    <div>FLAGS {props.flags}개</div>
+                    <div>FLAGS {flags}개</div>
                 </S.CardState>
             </S.CardBottom>
         </li>
