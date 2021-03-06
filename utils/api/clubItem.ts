@@ -1,9 +1,9 @@
 import request from '../axios/axios'
 
 export default{
-    getFeed(id : number){
+    getFeed(page : number){
         return request({
-            url : `/feed/${id}`,
+            url : `/feed/list?page=${page}`,
             method : 'get'
         })
     }

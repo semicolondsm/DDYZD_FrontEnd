@@ -184,6 +184,7 @@ export default{
         })
     },
     getFollow(){
+
         return request({
             url : `/club/follow`,
             method : 'get',
