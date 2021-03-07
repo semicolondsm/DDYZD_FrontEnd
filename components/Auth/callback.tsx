@@ -44,7 +44,7 @@ function Callback(params: any){
         onLogin()
     },[])
     return(
-        <div></div>
+        <div>이동중...</div>
     )
 }
 export default withRouter(Callback);
