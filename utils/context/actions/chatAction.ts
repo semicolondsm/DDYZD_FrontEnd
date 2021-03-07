@@ -51,8 +51,14 @@ export async function getRoomList(dispatch: any, club_id: number | undefined) {
     let response;
     if (club_id === undefined) {
       response = await chatApi.getUserList(club_id);
+      response.data.rooms = response.data.rooms.filter(
+        (val: any) => val.index === 0
+      );
     } else {
       response = await chatApi.getUserList(club_id);
+      response.data.rooms = response.data.rooms.filter(
+        (val: any) => val.index === 0
+      );
     }
     dispatch({ type: GET_ROOM_LIST_SUCCESS, data: response.data });
   } catch (err) {
