@@ -3,7 +3,6 @@ import club from "../../../../utils/api/club";
 import { FeedData } from "@/interfaces/index";
 import FeedCard from "./FeedCard/FeedCard";
 import * as S from "./styles"
-import { unwatchFile } from "fs";
 function ClubFeed({club_id} : {club_id : number}){
     const [data, setData] = useState<FeedData[]>([]);
     const [page, setPage] = useState(0);

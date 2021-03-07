@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from "react"
-import club from "../../../../utils/api/club";
 import * as S from "./styles"
 function ClubHeader({data} : {data : any}){
     return(
