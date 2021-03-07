@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
-
+import ChatIco from './ChatIco';
 import UserContext from '@/context/user';
 import { setState } from '@/context/context';
 /**야야 */
@@ -34,7 +34,9 @@ function Header({color} : {color:string}){
                 <Link href="/">
                     <a><img src={color=="white" ? "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logoblack.png" : "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logowhite.png"} width={25} height={25}></img>대동여지도</a>
                 </Link>
-                <div>test</div>
+                <Link href="/chat">
+                  <a><ChatIco></ChatIco></a>
+                </Link>
             </h.TopHeader>
             <h.BottomHeader>
                 <ul>
