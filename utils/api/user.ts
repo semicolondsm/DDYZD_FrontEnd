@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import request from "../axios/axios"
  export default{
      getAuthToken(code:string|string[]){
          return axios({
@@ -11,5 +11,35 @@ import axios from 'axios'
                 code: code
              }
          })
-     }
+     },
+    postUserInformationGithub(git : string){
+        return request({
+            url : `/users/profile/git`,
+            method: 'put',
+            data : {
+                git : git
+            },
+            headers : {
+                "Authorization" : `Bearer ${localStorage.accessToken}`
+            }
+        })
+    },
+    getUserInfo(gcn : string){
+        return request({
+            url : `/users/${gcn}`,
+            method : 'get'
+        })
+    },
+    postUserInformationIntro(intro : string){
+        return request({
+            url : `/users/profile/bio`,
+            method : 'put',
+            data : {
+                bio : intro
+            },
+            headers : {
+                "Authorization" : `Bearer ${localStorage.accessToken}`
+            }
+        })
+    },
  }

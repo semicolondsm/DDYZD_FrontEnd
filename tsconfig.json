@@ -4,6 +4,7 @@
     "alwaysStrict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "es2017"],
@@ -23,5 +24,5 @@
     }
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "next.config.js"]
+  "include": ["**/*.ts", "**/*.tsx", "next.config.js", "public/context/context.js"]
 }

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { color } from "../../../style";
 
 export const SlideContainer = styled.div`
+<<<<<<< HEAD
   width: 100%;
   height: 700px;
   display: flex;
@@ -13,6 +14,19 @@ export const SlideContainer = styled.div`
     display: none;
   }
 `; // 동아리 홍보사진 div
+=======
+width:100%;
+height:700px;
+display:flex;
+min-width:1500px;
+background-color:whitesmoke;
+position:relative;
+overflow:hidden;
+::-webkit-scrollbar{
+    display:none;   
+}
+`// 동아리 홍보사진 div
+>>>>>>> develop
 
 export const MWrapper = styled.div`
   background: white;
@@ -114,6 +128,7 @@ export const MProfileLine = styled.div`
 `;
 
 export const SlideUnderBar = styled.div`
+<<<<<<< HEAD
   width: 100%;
   height: 96px;
   border-bottom: 1px solid ${color.grey300};
@@ -123,6 +138,24 @@ export const SlideUnderBar = styled.div`
   align-items: center;
   justify-content: center;
 `; // 아래 동아리 프로필 div
+=======
+width:100%;
+height:120px;
+border-bottom:1px solid ${color.grey300};
+min-width:1000px;
+background-color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow-x:scroll;
+position:relative;
+min-width:1500px;
+::-webkit-scrollbar{
+    display:none;
+}
+` // 아래 동아리 프로필 div
+
+>>>>>>> develop
 
 export const AllowContainer = styled.div`
   width: 100%;
@@ -174,6 +207,7 @@ export const ClubProfileBox = styled.div`
 `;
 
 export const ClubProfile = styled.div`
+<<<<<<< HEAD
   width: 54px;
   height: 54px;
   border-radius: 80%;
@@ -189,14 +223,36 @@ export const ClubProfile = styled.div`
   background-origin: border-box;
   background-clip: content-box, border-box;
   img {
+=======
+width: 54px;
+height: 54px;
+border-radius: 80%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 7%;
+border: 1px solid;
+border: 2px solid transparent;
+border-radius: 80%;
+background-image: linear-gradient(white, white),
+linear-gradient(${color.grey500}, ${color.grey500});
+background-origin: border-box;
+background-clip: content-box, border-box;
+img {
+>>>>>>> develop
     cursor: pointer;
     width: 90%;
     height: 90%;
     border-radius: 80%;
     object-fit: cover;
     background-color: white;
+<<<<<<< HEAD
   }
 `;
+=======
+}
+`
+>>>>>>> develop
 
 export const ProfileLine = styled.div`
   width: 100%;
