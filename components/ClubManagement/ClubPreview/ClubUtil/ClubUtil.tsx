@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react"
+import { useState } from "react"
 import { useRouter } from 'next/router'
 import club from '@/utils/api/club';
 import * as S from "./styles";
 function ClubUtil({data} : {data : any}){
     const router = useRouter()
 
-    const [ info, setInfo ] = useState<any>(data);
+    const [ info ] = useState<any>(data);
     const [ follow, setFollow ] = useState<boolean>(data.follow)
     
     const onFollow = () => {

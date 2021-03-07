@@ -19,9 +19,7 @@ export const CardHeader = styled.div`
         border-radius: 50%;
     }
 `
-interface PinData{
-    $pin : boolean
-}
+
 export const CardHeaderContent = styled.div`
     margin-left: 15px;
     width: 100%;
