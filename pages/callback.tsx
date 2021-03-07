@@ -30,9 +30,9 @@ export const onSilentRefresh = () => {
     const { data } : { data : UserData} = await auth.getProfile(gcn.data.gcn)
     localStorage.setItem("userCache",JSON.stringify(data))
  }
-function Callback(params: any){
+function Callback(){
     const onLogin = () => {
-        const code=String(params.location.search);
+        const code=String(window.location.href.split("?code=")[1]);
         auth.postToken(code.split("?code=")[1].split("&state=")[0])
         .then((res)=>auth.getUsersToken(res.data['access-token']).then(async (res)=>{ await OnLoginSuccess(res); window.location.href="/"}))
         /*auth.getToken(code.split("?code=")[1].split("&state=")[0])
