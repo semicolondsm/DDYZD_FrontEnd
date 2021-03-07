@@ -5,6 +5,7 @@ import ListIco from './ListIco';
 
 import UserContext from '@/context/user';
 import { setState } from '@/context/context';
+/**야야 */
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
     const { user_state, setUserState } = useContext(UserContext);
