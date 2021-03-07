@@ -45,7 +45,7 @@ function Header({color} : {color:string}){
                 <ul>
                     {
                         user_state?
-                            <><li>{user_state?.name}</li><li onClick={logout}>로그아웃</li></>
+                            <><li><Link href={`/profile?id=${user_state.gcn}`}><a>{user_state?.name}</a></Link></li><li onClick={logout}>로그아웃</li></>
                         :<li onClick={()=>window.location.href="/login"}>로그인</li>
                     }
                     <li>고객센터</li>
