@@ -44,7 +44,8 @@ function Header({color} : {color:string}){
                     <h3 onClick={ModalOn} style={{cursor:"pointer"}}>전체 카테고리</h3>
                     <li><Link href="/majorlist"><a>동아리 신청</a></Link></li>
                     <li onClick={()=>alert("개발중")}>동아리 물품 신청</li>
-                    <li>공지사항</li>
+                    <li>관리 페이지</li>
+                    <li onClick={()=>window.location.href="https://ddyzd-club.dsmkr.com/"}>공지사항</li>
                 </ul>
                 <ul>
                     {
