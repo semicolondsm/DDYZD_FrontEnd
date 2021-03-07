@@ -5,6 +5,7 @@ import club from "@/utils/api/club";
 interface paramsType {
   image: string;
   name: string;
+  profile: string;
 }
 
 const MobileSlide = () => {
@@ -112,10 +113,10 @@ const MobileSlide = () => {
                   <img
                     draggable="false"
                     onClick={() => ClubProfileClick(index)}
-                    src="https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png"
+                    src={"https://api.semicolon.live/file/" + e.profile}
                   />
                 </s.ClubProfile>
-                <a>{e.name}</a>
+                <a style={{ whiteSpace: "nowrap" }}>{e.name}</a>
                 <s.ProfileLine
                   style={index == -transVal ? CurBack : none}
                 ></s.ProfileLine>
