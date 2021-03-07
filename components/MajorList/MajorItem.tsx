@@ -5,7 +5,6 @@ import brainIc from "@/public/images/brain";
 import etcIc from "@/public/images/etc";
 import shieldIc from "@/public/images/shield";
 import embedIc from "@/public/images/embed";
-import phone from "@/public/images/phone";
 import Link from "next/link";
 
 interface propsType {

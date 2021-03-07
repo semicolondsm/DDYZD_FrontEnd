@@ -27,7 +27,7 @@ function ClubRecruitment({club_id} : {club_id : number}){
     useEffect(()=>{
         club.getRecruitment(club_id)
         .then((res)=>setData(res.data))
-        .catch((e)=>console.error)
+        .catch((e)=>console.error(e))
     },[])
     return(
         <>
