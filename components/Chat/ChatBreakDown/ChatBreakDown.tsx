@@ -13,7 +13,6 @@ import {
 } from "../../../utils/context/actions/chatAction";
 import Loading from "../../Public/Loading/Loading";
 import clubApi from "../../../utils/api/club";
-import { useRouter } from "next/router";
 
 function ChatBreakDown({
   roomToken,
@@ -43,7 +42,7 @@ function ChatBreakDown({
   const messagesEndRef = useRef<any>(null);
   const dispatch = useChatDispatch();
   const state = useChatState();
-  const router = useRouter();
+
   const selectRef: any = useRef(null);
   useEffect(() => {
     if (state.ChatList.data !== null) {
