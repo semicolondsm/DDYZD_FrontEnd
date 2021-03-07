@@ -34,6 +34,7 @@ function Header({color} : {color:string}){
                 <Link href="/">
                     <a><img src={color=="white" ? "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logoblack.png" : "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logowhite.png"} width={25} height={25}></img>대동여지도</a>
                 </Link>
+                <div>test</div>
             </h.TopHeader>
             <h.BottomHeader>
                 <ul>
