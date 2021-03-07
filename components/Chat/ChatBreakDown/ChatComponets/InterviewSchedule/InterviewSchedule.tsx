@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ChatData } from "../../../../../interfaces";
 import * as S from "./styles";
 function InterviewSchedule({ data, info }: { data: ChatData; info: any }) {

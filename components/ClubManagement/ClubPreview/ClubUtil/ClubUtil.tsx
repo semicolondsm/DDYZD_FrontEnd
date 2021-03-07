@@ -19,11 +19,6 @@ function ClubUtil({ data }: { data: any }) {
         }
     }
     
-    const onSupport = () => {
-        router.push("/chat?id="+router.query.id)
-    }
-  };
-
   const onSupport = () => {
     router.push("/chat?club_id=" + router.query.id);
   };

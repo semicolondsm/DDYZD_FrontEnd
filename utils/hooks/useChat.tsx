@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { useChatDispatch } from "../../utils/context/chatProvider";
 import {
-  pushMessage,
-  refreshLastMessage,
-  getChatList,
   changeStatus,
   getRoomList,
 } from "../context/actions/chatAction";
-import chatApi from "../api/chat";
 import { useRouter } from "next/router";
 
 interface ChatData {
@@ -16,13 +12,9 @@ interface ChatData {
   title: string;
   user_type: "U" | "C" | "H1" | "H2" | "H3" | "H4";
 }
-interface messageType {
-  message: string;
-  date: Date;
-}
 
 const useChat = (roomId: number, roomToken: string, Socket: any) => {
-  const [messages, setMessages] = useState<ChatData[]>([]);
+  const [messages] = useState<ChatData[]>([]);
   const router = useRouter();
   const dispatch = useChatDispatch();
   useEffect(() => {

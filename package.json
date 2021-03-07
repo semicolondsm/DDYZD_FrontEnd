@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
-    "@types/socket.io-client": "^1.4.35",
     "axios": "*",
     "next": "*",
     "next-redux-saga": "*",
@@ -32,6 +31,7 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "@types/react-redux": "*",
+    "@types/socket.io-client": "^1.4.35",
     "@types/styled-components": "*",
     "babel-plugin-root-import": "*",
     "babel-plugin-styled-components": "*",
