@@ -1,56 +1,11 @@
 import styled, { css } from "styled-components";
 import { color } from "../../style";
-<<<<<<< HEAD
-
-export const ItemWrapper = styled.div<{ max: number; now: number }>`
-  width: 290px;
-  height: 200px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  border: 1px solid ${color.grey300};
-  border-radius: 5px;
-  position: relative;
-  background: white;
-  transition: 0.4s width cubic-bezier(0.3, 0.3, 0, 1), 0.2s box-shadow linear,
-    0.4s right cubic-bezier(0.3, 0.3, 0, 1);
-  overflow: hidden;
-  right: 0;
-
-  &:hover {
-    width: 620px;
-  }
-
-  &:nth-child(4n):hover {
-    right: 330px;
-  }
-
-  ${(props) =>
-    (props.now + 1) % 4 != 0 &&
-    css`
-      &:hover + div {
-        box-shadow: none !important;
-      }
-    `}
-
-  &:hover > div > img {
-    margin-left: 30px;
-  }
-
-  z-index: ${(props) => props.max - props.now};
-`;
-=======
->>>>>>> develop
 
 export const ItemFontWrapper = styled.div`
   margin: 0 10px;
 `;
 
 export const ItemImg = styled.img`
-<<<<<<< HEAD
-  width: 270px;
-  height: 100px;
-  margin: 10px;
-  transition: 0.2s margin ease-out;
-=======
   height: 100%;
   width: auto;
 `;
@@ -63,7 +18,6 @@ export const ItemImgWrap = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: center;
->>>>>>> develop
 `;
 
 export const ItemHeader = styled.h2`
@@ -79,8 +33,6 @@ export const ItemSubHeader = styled.h3`
   color: ${color.grey600};
   margin: 0 0 -5px;
   width: 268px;
-<<<<<<< HEAD
-=======
   height: 40px;
   transition: 0.2s all linear;
   overflow: hidden;
@@ -120,7 +72,6 @@ export const ItemWrapper = styled.div<{ max: number; now: number }>`
     width: 320px;
   }
   z-index: ${(props) => props.max - props.now};
->>>>>>> develop
 `;
 
 export const ItemDesWrapper = styled.div`
@@ -158,19 +109,12 @@ export const BodyWrapper = styled.div`
   justify-content: center;
   width: 100%;
   min-width: 1280px;
-<<<<<<< HEAD
-=======
   padding: 30px 0 100px;
->>>>>>> develop
 `;
 
 export const PurpleBack = styled.div`
   position: absolute;
-<<<<<<< HEAD
-  background: ${color.purple200};
-=======
   background: ${color.purple400};
->>>>>>> develop
   width: 400px;
   height: 350px;
   bottom: 0;
@@ -181,20 +125,12 @@ export const PurpleBack = styled.div`
 
 export const ButtonsWrapper = styled.div`
   position: absolute;
-<<<<<<< HEAD
-  left: 425px;
-=======
   left: 480px;
->>>>>>> develop
   bottom: 12px;
   display: flex;
 `;
 
-<<<<<<< HEAD
-export const RadiusButton = styled.div<{ active?: boolean }>`
-=======
 export const RadiusButton = styled.a<{ active?: boolean }>`
->>>>>>> develop
   padding: 5px 18px;
   color: white;
   border: none;
@@ -235,13 +171,8 @@ export const IconWrapper = styled.div`
 `;
 
 export const Icon = styled.img`
-<<<<<<< HEAD
-  width: 60px;
-  height: 60px;
-=======
   width: 56px;
   height: 56px;
->>>>>>> develop
   border-radius: 50%;
 `;
 
@@ -254,15 +185,12 @@ export const IntroWrapper = styled.div`
   color: white;
   padding: 10px 5px;
   border-bottom: 2px solid white;
-<<<<<<< HEAD
-=======
   & p {
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 60px;
   }
->>>>>>> develop
 `;
 // 아이콘 추가
 export const IntroIcon = styled.div`
@@ -271,14 +199,9 @@ export const IntroIcon = styled.div`
 
 export const FieldIconWrapper = styled.div`
   position: absolute;
-<<<<<<< HEAD
-  top: 100%;
-  left: 0;
-=======
   top: calc(100% + 15px);
   right: 0;
   & svg {
     margin-left: 5px;
   }
->>>>>>> develop
 `;
