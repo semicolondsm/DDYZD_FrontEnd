@@ -89,7 +89,7 @@ const MobileSlide = () => {
         >
           {banner.map((e, index) => {
             return (
-              <s.ImgWarpper>
+              <s.ImgWarpper key={index}>
                 <s.Img
                   src={"https://api.semicolon.live/file/" + e.image}
                   key={index}
