@@ -3,6 +3,7 @@ import feed from "@/utils/api/feed"
 import FeedCard from "./FeedCard"
 import * as S from "./styles"
 import { FeedData } from "@/interfaces";
+import FeedSkeleton from "./FeedSkelton";
 
 /*const data = [
     {
@@ -76,7 +77,9 @@ function Feed(){
     return(
         <S.FeedList>
           {
+            data.length!==0 ? 
               data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
+            : Array(30).fill(1).map((_i, index : number)=>(<FeedSkeleton key={index}></FeedSkeleton>))
           }
             
         </S.FeedList>

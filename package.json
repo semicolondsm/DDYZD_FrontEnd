@@ -17,6 +17,7 @@
     "npm": "*",
     "react": "*",
     "react-dom": "*",
+    "react-loading-skeleton": "^2.2.0",
     "react-redux": "*",
     "redux": "*",
     "redux-saga": "*",
