@@ -48,15 +48,15 @@ const Modal =()=>{
                     <s.CategoryBox>스포츠</s.CategoryBox>
                     <s.CategoryBox>예술 ㆍ 창의 ㆍ 교양</s.CategoryBox>
                     <s.CategoryBox>교내활동</s.CategoryBox>
-                    <s.CategoryBox>기타 </s.CategoryBox>
+                    <s.CategoryBox>창체 </s.CategoryBox>
                 </s.CategoryTitle>
                 <s.Flex>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "교과목" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "전공과목" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "스포츠" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "예술" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "교내활동" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "기타" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
+                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "교과목" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
+                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "전공과목" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
+                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "스포츠" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
+                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "예술" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
+                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "교내활동" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
+                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "창체" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
                 </s.Flex>
             </s.Category>
         </s.ModalContainer>
