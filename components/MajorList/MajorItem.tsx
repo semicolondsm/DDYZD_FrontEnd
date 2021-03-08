@@ -5,7 +5,6 @@ import brainIc from "@/public/images/brain";
 import etcIc from "@/public/images/etc";
 import shieldIc from "@/public/images/shield";
 import embedIc from "@/public/images/embed";
-import phone from "@/public/images/phone";
 import Link from "next/link";
 
 interface propsType {
@@ -17,7 +16,7 @@ interface propsType {
   tag: string[];
   description: string;
   banner: string;
-  id : number;
+  id: number;
 }
 
 const MajorItem = (props: propsType) => {
@@ -37,7 +36,9 @@ const MajorItem = (props: propsType) => {
           <S.ItemSubHeader>{description}</S.ItemSubHeader>
         </S.ItemFontWrapper>
         <S.ButtonsWrapper>
-          <Link href={`/clubinfo?id=${id}`}><S.RadiusButton active={true}>신청하기</S.RadiusButton></Link>
+          <Link href={`/clubinfo?id=${id}`}>
+            <S.RadiusButton active={true}>신청하기</S.RadiusButton>
+          </Link>
         </S.ButtonsWrapper>
         <S.IconWrapper>
           <S.Icon src={`${process.env.NEXT_PUBLIC_URL}/file/${imgSrc}`} />

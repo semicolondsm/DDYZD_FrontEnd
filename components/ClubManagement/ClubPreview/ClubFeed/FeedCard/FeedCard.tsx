@@ -1,5 +1,5 @@
 import * as S from "./styles"
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FlagToggle from './FlagToggle';
 const fileURL="https://api.semicolon.live"
 function FeedCard({props} : {props: any}){

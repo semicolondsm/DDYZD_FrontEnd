@@ -1,5 +1,4 @@
 import * as s from './styles'
-import club from '@/utils/api/club'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
