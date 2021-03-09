@@ -5,6 +5,7 @@ export async function getMenu(dispatch: any) {
     try {
         let { data } = await club.getClubList();
         dispatch({type : GET_MENU_LIST_SUCCESS ,data : data})
+        console.log(data)
     }
     catch (err){
         dispatch({type : GET_MENU_LIST_ERROR, error: err})

@@ -62,12 +62,14 @@ a{
 `
 
 export const Flex = styled.div`
-width:104%;
+width:105%;
 display:flex;
 height:100%;
 padding: 0 2.1%;
 font-size:1.3vmin;
 color:${color.grey400};
+position:relative;
+overflow-y:scroll;
 `
 
 export const FeedModalCover = styled.div`
