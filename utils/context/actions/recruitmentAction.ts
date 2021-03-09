@@ -1,6 +1,5 @@
 import club from "../../api/club";
 import {
-    SET_RECRUITMENT,
     DEL_RECRUITMENT,
     SET_RECRUITMENT_SUCCESS,
     SET_RECRUITMENT_ERROR,

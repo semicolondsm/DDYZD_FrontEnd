@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import * as h from './styles'
 import Link from "next/link"
 import ListIco from './ListIco';
-
+import ChatIco from './ChatIco';
 import UserContext from '@/context/user';
 import { setState } from '@/context/context';
 /**야야 */
@@ -34,6 +34,9 @@ function Header({color} : {color:string}){
                 <Link href="/">
                     <a><img src={color=="white" ? "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logoblack.png" : "https://eungyeole.s3.ap-northeast-2.amazonaws.com/logowhite.png"} width={25} height={25}></img>대동여지도</a>
                 </Link>
+                <Link href="/chat">
+                  <a><ChatIco></ChatIco></a>
+                </Link>
             </h.TopHeader>
             <h.BottomHeader>
                 <ul>
@@ -41,6 +44,7 @@ function Header({color} : {color:string}){
                     <h3 onClick={ModalOn} style={{cursor:"pointer"}}>전체 카테고리</h3>
                     <li><Link href="/majorlist"><a>동아리 신청</a></Link></li>
                     <li onClick={()=>alert("개발중")}>동아리 물품 신청</li>
+                    <li onClick={()=>window.location.href="https://ddyzd-club.dsmkr.com/"}>관리 페이지</li>
                     <li>공지사항</li>
                 </ul>
                 <ul>

@@ -1,12 +1,8 @@
-import { useEffect } from "react";
+import Login from "@/components/Auth/login";
 
-const Oauthurl="https://developer.dsmkr.com/external/login?redirect_url=https://ddyzd.dsmkr.com/callback&client_id=ab840667ddcd41dc81b29f8f128a0e66"
-function Login(){
-    useEffect(()=>{
-        window.location.href=Oauthurl;
-    },[])
+function login(){
     return(
-        <div></div>
+        <Login></Login>
     )
 }
-export default Login;
+export default login;

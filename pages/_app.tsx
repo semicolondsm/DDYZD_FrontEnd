@@ -9,7 +9,7 @@ import { MenuProvider } from '@/context/menuProvider';
 
 class ReactApp extends App<any> {
   componentDidMount(){
-    onSilentRefresh()
+    localStorage.refreshToken && onSilentRefresh()
   }
   public render() {
     const { Component, pageProps } = this.props;

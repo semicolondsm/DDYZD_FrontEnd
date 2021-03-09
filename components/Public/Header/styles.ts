@@ -20,6 +20,7 @@ z-index: 99;
 background-color: ${(props)=>props.color=="purple"?color.purple300:props.color=="white"?"white":color.purple300};
 display:flex;
 align-items:center;
+justify-content: space-between;
 padding:0 250px;
 border-bottom:1px solid ${color.grey300};
 a{

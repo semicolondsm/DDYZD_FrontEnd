@@ -1,5 +1,11 @@
 import request from '../axios/axios'
 export default{
+    getBanner() {
+        return request({
+          url: `/club/promotional`,
+          method: "get",
+        });
+    },
     getFeed(club_id : number, page: number){
         return request({
             url : `/feed/${club_id}/list`,

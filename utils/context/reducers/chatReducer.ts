@@ -78,7 +78,6 @@ export default function (state: any, action: any) {
     case GET_ROOM_LIST:
       return { ...state, RoomList: loadingState };
     case GET_ROOM_LIST_SUCCESS:
-      console.log(action.data);
       return { ...state, RoomList: success(action.data) };
     case GET_ROOM_LIST_ERROR:
       return { ...state, RoomList: error(action.error) };

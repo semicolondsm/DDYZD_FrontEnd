@@ -11,6 +11,7 @@ import {
   getChatList,
   getApplicant,
   changeStatus,
+  getRoomList,
 } from "../../utils/context/actions/chatAction";
 import chatApi from "../../utils/api/chat";
 import * as S from "./styles";
@@ -41,6 +42,7 @@ function Chat() {
             club_id,
           },
         });
+        getRoomList(dispatch, club_id);
       })
       .catch((err) => console.log(err));
   }, []);

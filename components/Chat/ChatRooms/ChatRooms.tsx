@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import ActiveLink from "../../Public/ActiveLink";
 import Link from "next/link";
 import { readMessage } from "../../../utils/context/actions/chatAction";
 import * as S from "./styles";
@@ -46,7 +45,7 @@ function ChatRooms({ club_id }: { club_id: number }) {
   const [data, setData] = useState<any>(null);
   const [isOn, setIsOn] = useState<boolean>(false);
   const router = useRouter();
-  const { pathname, query } = router;
+  const { query } = router;
   useEffect(() => {
     getRoomList(dispatch, undefined);
   }, [club_id]);

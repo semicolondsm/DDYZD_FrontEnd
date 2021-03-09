@@ -1,10 +1,4 @@
-import {
-  FormEvent,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import * as S from "./styles";
 import useChat from "../../../utils/hooks/useChat";
 import { ChatData } from "../../../interfaces";
@@ -19,7 +13,6 @@ import {
 } from "../../../utils/context/actions/chatAction";
 import Loading from "../../Public/Loading/Loading";
 import clubApi from "../../../utils/api/club";
-import { useRouter } from "next/router";
 
 function ChatBreakDown({
   roomToken,
@@ -49,13 +42,9 @@ function ChatBreakDown({
   const messagesEndRef = useRef<any>(null);
   const dispatch = useChatDispatch();
   const state = useChatState();
-  const router = useRouter();
+
   const selectRef: any = useRef(null);
   useEffect(() => {
-    clubApi
-      .getRecruitment(Number(router.query.club_id))
-      .then((res) => setCategory(res.data.major))
-      .catch((err) => console.log(err));
     if (state.ChatList.data !== null) {
       const index = state.ChatList.data.findIndex(
         (val: any) => val.chat_id == chatId
@@ -90,7 +79,10 @@ function ChatBreakDown({
       if (chatId == val.roomid) {
         setChatStatus(val.status);
         temp = val.status;
-        console.log(temp);
+        clubApi
+          .getRecruitment(val.id)
+          .then((res) => setCategory(res.data.major))
+          .catch((err) => console.log(err));
       }
     });
     messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
@@ -186,7 +178,7 @@ function ChatBreakDown({
           value={value}
           placeholder="메세지 입력"
         ></input>
-        {chatStatus === "C" ? (
+        {chatStatus === "C" && category.length !== 0 ? (
           <S.JiButton
             onClick={() => {
               modal ? setModal(null) : setModal("J");
