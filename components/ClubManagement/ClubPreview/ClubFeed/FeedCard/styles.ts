@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { color } from "../../../../../style";
-import { ReactComponent as PrevSVG } from "../../../../../assets/images/prev.svg";
-import { ReactComponent as NextSVG } from "../../../../../assets/images/next.svg";
+import PrevSVG from "../../../../../assets/images/prev.svg";
+import NextSVG from "../../../../../assets/images/next.svg";
 
 const maxWidth = "630px";
 export const PrevIco = styled(PrevSVG)``;
