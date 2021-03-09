@@ -8,7 +8,9 @@ function FeedCard({ props }: { props: FeedData }) {
   const [start, setStart] = useState<number>(0);
   const [end, setEnd] = useState<number>(0);
   const [flags, setFlags] = useState<number>(props.flags);
+  const [state, setState1] = useState<boolean>(props.flag);
   const slideRef = useRef<HTMLDivElement>(null);
+  const [originState, setOriginState] = useState<boolean>(props.flag);
   function prev() {
     if (page > 0) setPage(page - 1);
   }
@@ -260,7 +262,10 @@ function FeedCard({ props }: { props: FeedData }) {
             setFlags={setFlags}
             flags={flags}
             feed_id={props.feedId}
-            state={props.flag}
+            state={state}
+            setState={setState1}
+            originState={originState}
+            setOriginState={setOriginState}
           ></FlagToggle>
           <S.SliderState>
             {props.media.map((_i, index) => (

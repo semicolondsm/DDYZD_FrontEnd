@@ -1,25 +1,27 @@
-import { useState } from "react"
-import { useRouter } from 'next/router'
-import club from '@/utils/api/club';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import club from "@/utils/api/club";
 
 import * as S from "./styles";
 function ClubUtil({ data }: { data: any }) {
   const router = useRouter();
 
-    const [ info ] = useState<any>(data);
-    const [ follow, setFollow ] = useState<boolean>(data.follow)
-    
-    const onFollow = () => {
-        if(!follow){
-            club.postFollow(info.clubid)
-            .then(()=> setFollow(true))
-        }else{
-            club.deleteFollow(info.clubid)
-            .then(()=>setFollow(false))
-        }
+  const [info] = useState<any>(data);
+  const [follow, setFollow] = useState<boolean>(data.follow);
+
+  const onFollow = () => {
+    if (!follow) {
+      club.postFollow(info.clubid).then(() => setFollow(true));
+    } else {
+      club.deleteFollow(info.clubid).then(() => setFollow(false));
     }
-    
+  };
+
   const onSupport = () => {
+    if (!localStorage.getItem("accessToken")) {
+      alert("로그인을 해주세요 !");
+      return;
+    }
     router.push("/chat?club_id=" + router.query.id);
   };
 
