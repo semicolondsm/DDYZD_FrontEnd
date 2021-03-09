@@ -19,7 +19,6 @@ const Menu =({name} : any)=>{
     useEffect(()=>{
         state.MenuList.data && setData(state.MenuList.data);
     },[state])
-    console.log(data)
     return (
         <s.Detail>
             {data.map((res : any)=>
