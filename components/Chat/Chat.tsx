@@ -32,6 +32,7 @@ function Chat() {
   const { club_id, chat_id }: any = router.query;
 
   useEffect(() => {
+    window.Notification.requestPermission();
     chat
       .createRoom(club_id)
       .then((res) => {
@@ -86,9 +87,39 @@ function Chat() {
           isread: true,
         };
         refreshLastMessage(dispatch, tempM, room_id);
+
+        if (sessionStorage.getItem("onf") == "false") {
+          chatApi
+            .getRefresh(room_id)
+            .then((response: any) => {
+              const notification: Notification = new Notification(
+                `${response.data.name}`,
+                {
+                  body: `${response.data.lastmessage}`,
+                  icon: "../../public/images/semicolon.png",
+                }
+              );
+              notification.onclick = () => {
+                return false;
+              };
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       });
       socket.on("alarm", async ({ room_id }: { room_id: number }) => {
         const response: any = await chatApi.getRefresh(room_id);
+        const notification: Notification = new Notification(
+          `${response.data.name}`,
+          {
+            body: `${response.data.lastmessage}`,
+            icon: "../../public/images/semicolon.png",
+          }
+        );
+        notification.onclick = () => {
+          return false;
+        };
         if (
           response.data.status === "A" ||
           response.data.status === "S" ||
@@ -123,6 +154,12 @@ function Chat() {
   }, [router]);
 
   useEffect(() => {
+    window.onfocus = () => {
+      sessionStorage.setItem("onf", "true");
+    };
+    window.onblur = () => {
+      sessionStorage.setItem("onf", "false");
+    };
     if (isCon) return;
     const Socket = socketIOClient.connect(
       SOCKET_SERVER_URL + localStorage.accessToken,

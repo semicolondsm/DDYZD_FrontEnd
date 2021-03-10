@@ -177,6 +177,7 @@ function ChatBreakDown({
           onChange={(e) => setValue(e.target.value)}
           value={value}
           placeholder="메세지 입력"
+          style={{ color: "black" }}
         ></input>
         {chatStatus === "C" && category.length !== 0 ? (
           <S.JiButton
