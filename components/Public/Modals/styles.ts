@@ -46,8 +46,9 @@ padding: 0 2%;
 `
 export const Detail = styled.div`
 width:calc(100%/6);
-height:100%;
-display:flex;
+height: 95%;
+display: flex;
+overflow: scroll;
 flex-direction:column;
 a{
     cursor: pointer;
