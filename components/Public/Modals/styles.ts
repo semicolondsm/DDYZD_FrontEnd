@@ -68,6 +68,7 @@ height:100%;
 padding: 0 2.1%;
 font-size:1.3vmin;
 color:${color.grey400};
+overflow-y:scroll;
 `
 
 export const FeedModalCover = styled.div`
