@@ -48,7 +48,10 @@ export const Detail = styled.div`
 width:calc(100%/6);
 height: 95%;
 display: flex;
-overflow: scroll;
+overflow-y: scroll;
+::-webkit-scrollbar{
+    display:none;
+}
 flex-direction:column;
 a{
     cursor: pointer;
