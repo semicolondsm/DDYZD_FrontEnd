@@ -1,14 +1,13 @@
-import Header from '../components/Public/Header/Header'
-import Main from "../components/Main"
+import Header from "../components/Public/Header/Header";
+import Main from "../components/Main";
 
 const Index = () => {
-  return(
+  return (
     <>
-        <Header color="white"></Header>
-        <Main></Main>
+      <Header color="white"></Header>
+      <Main></Main>
     </>
-  )
-  
-}
+  );
+};
 
-export default Index
+export default Index;
