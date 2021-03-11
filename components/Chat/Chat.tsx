@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import chat from "../../utils/api/chat";
 import Header from "../Public/Header/Header";
 import ChatBreakDown from "./ChatBreakDown/ChatBreakDown";
@@ -30,6 +30,7 @@ function Chat() {
   const dispatch = useChatDispatch();
   const router = useRouter();
   const { club_id, chat_id }: any = router.query;
+  const chat_id123 = useRef<number | null>(null);
 
   useEffect(() => {
     window.Notification.requestPermission();
@@ -110,16 +111,6 @@ function Chat() {
       });
       socket.on("alarm", async ({ room_id }: { room_id: number }) => {
         const response: any = await chatApi.getRefresh(room_id);
-        const notification: Notification = new Notification(
-          `${response.data.name}`,
-          {
-            body: `${response.data.lastmessage}`,
-            icon: "../../public/images/semicolon.png",
-          }
-        );
-        notification.onclick = () => {
-          return false;
-        };
         if (
           response.data.status === "A" ||
           response.data.status === "S" ||
@@ -133,7 +124,19 @@ function Chat() {
           isread: false,
         };
         getChatList(dispatch, room_id);
-        refreshLastMessage(dispatch, message, room_id, response.data);
+        if (room_id !== chat_id123.current) {
+          refreshLastMessage(dispatch, message, room_id, response.data);
+          const notification: Notification = new Notification(
+            `${response.data.name}`,
+            {
+              body: `${response.data.lastmessage}`,
+              icon: "../../public/images/semicolon.png",
+            }
+          );
+          notification.onclick = () => {
+            return false;
+          };
+        }
       });
       socket.on("error", (messages: any) => {
         console.log(messages.msg);
@@ -145,6 +148,7 @@ function Chat() {
   }, [socket]);
 
   useEffect(() => {
+    chat_id123.current = chat_id;
     if (socket && room_token) socket.emit("leave_room", { room_token });
     setRoomToken(null);
     chat_id &&

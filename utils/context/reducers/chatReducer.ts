@@ -118,7 +118,6 @@ export default function (state: any, action: any) {
       const Mindex = tempM.findIndex(
         (val: any) => val.chat_id == action.data.room_id
       );
-      console.log(tempM, tempM[Mindex], Mindex);
       if (tempM[Mindex].Chattings !== undefined) {
         tempM[Mindex].Chattings.push(action.data.message);
       }
@@ -150,6 +149,9 @@ export default function (state: any, action: any) {
       tempL[Lindex].lastmessage = action.data.message.message;
       tempL[Lindex].lastdate = action.data.message.date;
       tempL[Lindex].isread = action.data.message.isread;
+      const tempRoom = tempL[Lindex];
+      tempL.splice(Lindex, 1);
+      tempL.unshift(tempRoom);
       return {
         ...state,
         RoomList: {
