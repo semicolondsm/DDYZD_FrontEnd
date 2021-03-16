@@ -24,6 +24,7 @@ function UserProfilePage({ router } : { router : any}) {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [introduction, setIntroduction] = useState<string>("");
   const [githubError, setGithubError] = useState<boolean>(false);
+  const [profileError, setprofileError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     router.query.id && user.getUserInfo(router.query.id)
@@ -37,10 +38,6 @@ function UserProfilePage({ router } : { router : any}) {
     try {
       await user.postUserInformationGithub(github);
       setGithubError(false);
-      user.getUserInfo(router.query.id)
-      .then((res)=>{
-        setProfile(res.data);
-      })
     } catch (error) {
       setGithubError(true);
     }
@@ -49,15 +46,20 @@ function UserProfilePage({ router } : { router : any}) {
   const putInfoIntro = async () => {
     try {
       await user.postUserInformationIntro(introduction);
+      setprofileError(false);
     } catch (error) {
-      alert(error);
+      setprofileError(true);
     }
   };
   const submit = async () =>{
     setLoading(true);
     await putInfoIntro();
     await putInfoGithub();
-    setLoading(false)
+    setLoading(false);
+    user.getUserInfo(router.query.id)
+    .then((res)=>{
+      setProfile(res.data);
+    })
   }
   return (
     <>
@@ -89,7 +91,7 @@ function UserProfilePage({ router } : { router : any}) {
               />
             </S.ForInfo>
 
-            <S.ForInfo>
+            <S.ForInfo error={profileError}>
               <h2>자기소개 </h2>
               <textarea 
                 maxLength={75}

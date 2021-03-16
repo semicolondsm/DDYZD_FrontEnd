@@ -3,6 +3,8 @@ import feed from "@/utils/api/feed"
 import FeedCard from "./FeedCard"
 import * as S from "./styles"
 import { FeedData } from "@/interfaces";
+import FeedSkeleton from "./FeedSkelton";
+import FeedLoading from "./FeedLoading/FeedLoading";
 
 /*const data = [
     {
@@ -28,8 +30,9 @@ import { FeedData } from "@/interfaces";
   
 function Feed(){
     const [data, setData] = useState<FeedData[]>([]);
-    const [page, setPage] = useState(0);
-    const [last, setLast] = useState(false);
+    const [page, setPage] = useState<number>(0);
+    const [last, setLast] = useState<boolean>(false);
+    const [loading,setLoading] = useState<boolean>(false);
     function infiniteScroll(){
         let scrollHeight = Math.max(
           document.documentElement.scrollHeight,
@@ -42,6 +45,7 @@ function Feed(){
         let clientHeight = document.documentElement.clientHeight;
       
         if (scrollTop + clientHeight >= scrollHeight-200) {  
+          setLoading(true);
           feed.getFeed(page+1)
           .then((res)=>{
             setPage(page+1);
@@ -49,9 +53,9 @@ function Feed(){
             if(res.data.length===0){
               setLast(true)
             }
+            setLoading(false);
           })
           window.onscroll=null;
-          
         }
       }
     useEffect(()=>{
@@ -73,13 +77,25 @@ function Feed(){
         console.log(localStorage.accessToken)
       }
     },[])
+    useEffect(()=>{
+      console.log(loading);
+    },[loading])
     return(
-        <S.FeedList>
+        <>
+          <S.FeedList>
+            {
+              data.length!==0 ? 
+                data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
+              : Array(30).fill(1).map((_i, index : number)=>(<FeedSkeleton key={index}></FeedSkeleton>))
+            }
+          </S.FeedList>
           {
-              data.map((i)=>(<FeedCard key={i["feedId"]} props={i}></FeedCard>))
+            loading ? 
+              <FeedLoading></FeedLoading>
+            : null
           }
-            
-        </S.FeedList>
+
+        </>
     )
 }
 export default Feed;

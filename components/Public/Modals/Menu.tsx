@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { useMenuDispatch, useMenuState } from '@/context/menuProvider';
 import { getMenu } from '@/context/actions/menuActions';
-
-const Modal =()=>{
+const Menu =({name} : any)=>{
     const [data,setData] = useState<any>([]);
     const router = useRouter();
     const dispatch = useMenuDispatch();
@@ -19,6 +18,19 @@ const Modal =()=>{
     useEffect(()=>{
         state.MenuList.data && setData(state.MenuList.data);
     },[state])
+    return (
+        <s.Detail>
+            {data.map((res : any)=>
+            {const a = res.clubtag.find((e:string)=>e === name); return a === name && 
+                <a  onClick={replacePage} className={res.clubid}  key={res.clubid}>
+                    {res.clubname}
+                </a>
+            }
+            )}
+        </s.Detail>
+    )
+}
+const Modal =()=>{
     return(
         <s.ModalContainer>
             <s.ModalTitle>전체 카테고리</s.ModalTitle>
@@ -32,12 +44,12 @@ const Modal =()=>{
                     <s.CategoryBox>정보보안</s.CategoryBox>
                 </s.CategoryTitle>
                 <s.Flex>
-                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "웹" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
-                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "앱" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
-                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "임베디드" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
-                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "게임" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
-                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "인공지능" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
-                    <s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "정보보안" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail>
+                    <Menu name="웹"/>
+                    <Menu name="앱"/>
+                    <Menu name="임베디드"/>
+                    <Menu name="게임"/>
+                    <Menu name="인공지능"/>
+                    <Menu name="정보보안"/>
                 </s.Flex>
             </s.Category>
 
@@ -48,15 +60,15 @@ const Modal =()=>{
                     <s.CategoryBox>스포츠</s.CategoryBox>
                     <s.CategoryBox>예술 ㆍ 창의 ㆍ 교양</s.CategoryBox>
                     <s.CategoryBox>교내활동</s.CategoryBox>
-                    <s.CategoryBox>기타 </s.CategoryBox>
+                    <s.CategoryBox>창체 </s.CategoryBox>
                 </s.CategoryTitle>
                 <s.Flex>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "교과목" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "전공과목" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "스포츠" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "예술" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "교내활동" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
-                    <s.Detail><s.Detail>{data.map((res : any)=>{return res.clubtag[0] == "기타" && <a onClick={replacePage} className={res.clubid} key={res.clubid}>{res.clubname}</a>})}</s.Detail></s.Detail>
+                    <Menu name="교과목"/>
+                    <Menu name="전공과목"/>
+                    <Menu name="스포츠"/>
+                    <Menu name="자율"/>
+                    <Menu name="위원회"/>
+                    <Menu name="창체"/>
                 </s.Flex>
             </s.Category>
         </s.ModalContainer>

@@ -37,8 +37,11 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
   
       - name : S3 Upload
-        run: aws s3 sync --region ap-northeast-2 ./out s3://eungyeole/
+        run: aws s3 cp --recursive --region ap-northeast-2 out s3://eungyeole
         
+      - name : CloudFront Cache invalidation
+        run : aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
+# code deploy        
 #      - name: Code Deploy
 #        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
 #      - name: Transfer to S3 for serving static

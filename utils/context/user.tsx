@@ -1,13 +1,11 @@
 import React, { createContext, useState } from "react";
-import UserData from "../../components/interfaces/user";
-
 const UserContext = createContext<any>({
   user_state: "",
   setUserState: () => {}
 });
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  function setUserState(state: UserData){
+  function setUserState(state: any){
     setUser((prevState: any) => {
         return {
           ...prevState,

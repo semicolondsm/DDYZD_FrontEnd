@@ -53,8 +53,15 @@ export const LastMessage = styled.div`
   }
 `;
 export const RoomList = styled.ul`
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 240px);
   overflow-y: scroll;
+  &::-webkit-scrollbar-thumb {
+    background: #999999;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
   & a {
     padding: 8px 10px;
     color: black;

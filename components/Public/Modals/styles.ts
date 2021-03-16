@@ -46,8 +46,12 @@ padding: 0 2%;
 `
 export const Detail = styled.div`
 width:calc(100%/6);
-height:100%;
-display:flex;
+height: 95%;
+display: flex;
+overflow-y: scroll;
+::-webkit-scrollbar{
+    display:none;
+}
 flex-direction:column;
 a{
     cursor: pointer;
@@ -68,6 +72,7 @@ height:100%;
 padding: 0 2.1%;
 font-size:1.3vmin;
 color:${color.grey400};
+overflow-y:scroll;
 `
 
 export const FeedModalCover = styled.div`
