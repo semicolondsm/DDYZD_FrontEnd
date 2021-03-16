@@ -60,6 +60,9 @@ export async function getRoomList(dispatch: any, club_id: number | undefined) {
         (val: any) => val.index === 0
       );
     }
+    response.data.rooms = response.data.rooms.filter(
+      (value: any) => value.lastmessage !== null
+    );
     dispatch({ type: GET_ROOM_LIST_SUCCESS, data: response.data });
   } catch (err) {
     dispatch({ type: GET_ROOM_LIST_ERROR, error: err });

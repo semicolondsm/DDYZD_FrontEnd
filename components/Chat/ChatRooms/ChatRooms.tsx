@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { readMessage } from "../../../utils/context/actions/chatAction";
@@ -44,8 +44,10 @@ function ChatRooms({ club_id }: { club_id: number }) {
   const state = useChatState();
   const [data, setData] = useState<any>(null);
   const [isOn, setIsOn] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
   const router = useRouter();
   const { query } = router;
+  const rooms = useRef<any>([]);
   useEffect(() => {
     getRoomList(dispatch, undefined);
   }, [club_id]);
@@ -64,12 +66,36 @@ function ChatRooms({ club_id }: { club_id: number }) {
   const read = (room_id: number) => {
     readMessage(dispatch, room_id);
   };
+
+  const searchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    if (rooms.current.length === 0) return;
+    let tempRooms: any = rooms.current.rooms;
+    for (let i = 0; i < event.target.value.length; i++) {
+      tempRooms = [
+        ...tempRooms.filter(
+          (room: any) => room.name.indexOf(event.target.value[i]) !== -1
+        ),
+      ];
+    }
+    if (tempRooms.length === 0 && event.target.value === "") {
+      tempRooms = rooms.current.rooms;
+    }
+    setData({
+      club_section: rooms.current.club_section,
+      rooms: tempRooms,
+    });
+  };
   return (
     <S.Wrapper>
       {loading && <Loading />}
       <S.SearchWrapper>
         <S.SearchIco></S.SearchIco>
-        <input placeholder="검색" readOnly></input>
+        <input
+          placeholder="검색"
+          value={search}
+          onChange={searchChange}
+        ></input>
       </S.SearchWrapper>
       <S.RoomListWrapper>
         <div>
