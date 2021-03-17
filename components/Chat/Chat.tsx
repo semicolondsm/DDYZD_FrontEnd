@@ -37,6 +37,7 @@ function Chat() {
     chat
       .createRoom(club_id)
       .then((res) => {
+        getRoomList(dispatch, club_id);
         router.replace({
           pathname: "/chat",
           query: {
@@ -44,7 +45,6 @@ function Chat() {
             club_id,
           },
         });
-        getRoomList(dispatch, club_id);
       })
       .catch((err) => console.log(err));
   }, []);
