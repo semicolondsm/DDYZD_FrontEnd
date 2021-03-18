@@ -1,10 +1,13 @@
 import React, { useReducer, useContext, createContext, Dispatch } from 'react';
 
 type State = {
-  modalName: string
+  modalName: string,
+  userIData : any
 };
 
-type Action =| { type: 'SET_MODAL'; name: string }
+type Action =
+| { type: 'SET_MODAL'; name: string }
+| { type : 'USER_APPLY_DATA'; data:{} }
 
 type SampleDispatch = Dispatch<Action>;
 
@@ -15,15 +18,24 @@ function reducer(_state: State, action: Action): State {
   switch (action.type) {
     case 'SET_MODAL':
       return {
+        ..._state,
         modalName:action.name
       };
+    case 'USER_APPLY_DATA':
+      return{
+        ..._state,
+        userIData:action.data
+      }
     default:
       throw new Error('Unhandled action');
   }
 }
 
 export function SampleProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(reducer,{modalName:''});
+  const [state, dispatch] = useReducer(reducer,{
+    modalName:'',
+    userIData:[]
+  });
 
   return (
     <SampleStateContext.Provider value={state}>
