@@ -6,7 +6,10 @@ import { useState } from "react";
 
 import ClubItem from "@/utils/api/clubItem";
 
+import { setState } from '@/context/context'
+ 
 function ClubItemApply() {
+  const dispatch = setState();
   const [cnt, setCnt] = useState<number>(1);
   const [IData, setIData] = useState<any>({
     price: 0,
@@ -49,6 +52,7 @@ function ClubItemApply() {
       return;
     }
     ClubItem.applyItem(IData).then((e) => {
+      dispatch({type:"USER_APPLY_DATA",data:IData})
       alert("정상적으로 신청되었습니다.");
       console.log(e);
       setCnt(1);

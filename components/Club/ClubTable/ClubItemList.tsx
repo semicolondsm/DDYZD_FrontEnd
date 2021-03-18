@@ -2,25 +2,24 @@ import { useEffect, useState } from "react";
 import { ClubItemTableData } from "../../../interfaces";
 import ClubItemTable from "./ClubItemTable"
 import * as S from "./styles"
+import ClubItem from 'utils/api/clubItem'
+import {getState} from '@/context/context'
 
 function ClubItemList(){
+    const state = getState();
     const [Data,setData] = useState<ClubItemTableData[] | null>(null);
     useEffect(()=>{
-        setData([
-            {
-                user_name: "안은결",
-                data: [{
-                    item_name : "test",
-                    item_state : "test",
-                    option : "test",
-                    link : "test",
-                    amount: "3",
-                    price: 5000,
-                    delivery_status: "test",
-                }]
-            }
-        ])
-    },[])
+        ClubItem.getItemList(19)
+        .then((e : any)=>{
+            console.log(e)
+            setData([
+                {
+                    user_name: "안은결",
+                    data: e.data
+                }
+            ])  
+        })
+    },[state.userIData])
     return(
         <S.Container>
             {
