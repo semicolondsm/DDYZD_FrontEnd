@@ -14,12 +14,14 @@ export interface ClubItemTableData {
 }
 export interface ClubItemData {
   item_state: string;
-  item_name: string;
+  name: string;
   option: string;
   link: string;
   amount: string;
   price: number;
   delivery_status: string;
+  count:number;
+  status:number;
 }
 export interface FeedData {
   feedId: number;

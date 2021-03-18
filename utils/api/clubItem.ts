@@ -13,7 +13,7 @@ export default{
             url : `/club/19/supply`,
             method : 'post',
             headers : {
-                "Authorization" : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MCIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2MTU5NzUyNTYsImV4cCI6MTYxNTk4MjQ1Nn0.8sp47JVbgX_cx2t-v3X1QhwBGyrfdowdmN3PB8aVqk4`
+                "Authorization" : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MCIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2MTYwNDY2NDMsImV4cCI6MTYxNjA1Mzg0M30.EfYjaNVRk10wSpsBubpoYZaGSJqkQVH5jCDyOxxdOzk`
             },
             data : {
                 "price" : parseInt(e.price) * e.count,
@@ -23,5 +23,14 @@ export default{
                 "url" : e.url
             }
         })  
+    },
+    getItemList(_id : number){
+        return request({
+            url : `/club/19/supply/list`,
+            method : 'get',
+            headers : {
+                "Authorization" : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MCIsInR5cGUiOiJhY2Nlc3MiLCJpYXQiOjE2MTYwNDY2NDMsImV4cCI6MTYxNjA1Mzg0M30.EfYjaNVRk10wSpsBubpoYZaGSJqkQVH5jCDyOxxdOzk`
+            }
+        })
     }
 }
