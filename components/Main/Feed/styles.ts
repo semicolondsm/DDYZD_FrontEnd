@@ -31,6 +31,9 @@ export const CardHeader = styled.div`
     }
     padding-bottom: 0;
     margin-bottom: 10px;
+    & > a{
+        height : 40px;
+    }
     & img{
         width: 40px;
         height: 40px;
