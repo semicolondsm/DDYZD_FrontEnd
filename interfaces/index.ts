@@ -32,6 +32,7 @@ export interface FeedData {
   media: string[];
   flag: boolean;
   flags: number;
+  clubId : number;
 }
 
 export interface MajorData {
