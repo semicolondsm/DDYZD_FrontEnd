@@ -30,6 +30,7 @@ module.exports = function (key) {
       if (document.readyState === "complete") {
         l();
       } else if (window.attachEvent) {
+        console.log("2");
         window.attachEvent("onload", l);
       } else {
         window.addEventListener("DOMContentLoaded", l, false);
