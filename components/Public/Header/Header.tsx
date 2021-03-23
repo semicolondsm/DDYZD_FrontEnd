@@ -6,6 +6,11 @@ import ChatIco from './ChatIco';
 import UserContext from '@/context/user';
 import { setState } from '@/context/context';
 /**야야 */
+export const logout =()=>{
+    alert("로그아웃 되었습니다.")
+    localStorage.clear()
+    window.location.href="/"  
+}
 function Header({color} : {color:string}){
     const [scroll, setScroll] = useState<number>(0);
     const { user_state, setUserState } = useContext(UserContext);
@@ -15,11 +20,7 @@ function Header({color} : {color:string}){
         window.onscroll=()=>setScroll(window.scrollY);
         localStorage.userCache && setUserState(JSON.parse(localStorage.userCache))
     },[])
-    const logout =()=>{
-        alert("로그아웃 되었습니다.")
-        localStorage.clear()
-        window.location.href="/"  
-    }
+    
     
     const ModalOn=()=>{
         setToggle(!toggle)
