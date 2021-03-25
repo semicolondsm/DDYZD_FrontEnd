@@ -3,6 +3,7 @@ import { FeedData } from "@/interfaces";
 import { useEffect, useRef, useState } from "react";
 import FlagToggle from "./FlagToggle";
 import { setState } from "@/context/context";
+import Link from "next/link";
 function FeedCard({ props }: { props: FeedData }) {
   const [page, setPage] = useState<number>(0);
   const [start, setStart] = useState<number>(0);
@@ -61,9 +62,13 @@ function FeedCard({ props }: { props: FeedData }) {
   return (
     <li>
       <S.CardHeader>
-        <img
-          src={`${process.env.NEXT_PUBLIC_URL}/file/${props.profileImage}`}
-        ></img>
+        <Link href={`clubinfo?id=${props.clubId}`}>
+          <a>
+            <img
+              src={`${process.env.NEXT_PUBLIC_URL}/file/${props.profileImage}`}
+            ></img>
+          </a>
+        </Link>
         <S.CardHeaderContent>
           <div style={{ display: "flex", alignItems: "center" }}>
             <div>
