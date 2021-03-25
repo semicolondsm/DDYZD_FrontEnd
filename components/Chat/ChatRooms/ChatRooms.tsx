@@ -156,7 +156,11 @@ function ChatRooms({ club_id }: { club_id: number }) {
                               }
                         }
                       >
-                        <p>{i.lastmessage}</p> · {date(i.lastdate)}
+                        {i.lastmessage !== null && (
+                          <>
+                            <p>{i.lastmessage}</p> · {date(i.lastdate)}
+                          </>
+                        )}
                       </S.LastMessage>
                     </div>
                   </a>
