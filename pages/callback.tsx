@@ -1,4 +1,5 @@
 import { logout } from "@/components/Public/Header/Header"
+import { AxiosError } from "axios"
 import { useEffect } from "react"
 import auth from "../utils/api/auth"
 interface Clubs{
@@ -19,7 +20,7 @@ interface UserData {
 export const onSilentRefresh = () => {
     auth.refreshToken()
     .then(OnLoginSuccess)
-    .catch(()=>{logout()})
+    .catch((e : AxiosError)=>{e.response?.status===401 && logout()})
  
  }
  
