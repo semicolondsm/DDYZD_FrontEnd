@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import club from "@/utils/api/club";
 
@@ -16,13 +16,12 @@ function ClubUtil({ data }: { data: any }) {
       club.deleteFollow(info.clubid).then(() => setFollow(false));
     }
   };
-
   const onSupport = () => {
     if (!localStorage.getItem("accessToken")) {
       alert("로그인을 해주세요 !");
       return;
     }
-    router.push("/chat?club_id=" + router.query.id);
+    router.push("/chat/" + router.query.clubid);
   };
 
   const member = `https://api.eungyeol.live/file/icon/member.png`;

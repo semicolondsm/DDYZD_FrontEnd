@@ -22,7 +22,7 @@ interface propsType {
 const MajorItem = (props: propsType) => {
   const { imgSrc, header, description, tag, banner, id } = props;
   return (
-    <Link href={`/clubinfo?id=${id}`}>
+    <Link href={`/club/${id}`}>
       <S.ItemWrapper max={props.max} now={props.now}>
         <div className={props.className}>
           <S.PurpleBack />

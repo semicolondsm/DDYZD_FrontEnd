@@ -127,8 +127,7 @@ function ChatRooms({ club_id }: { club_id: number }) {
               >
                 <Link
                   href={{
-                    pathname: "/chat",
-                    query: { chat_id: i.roomid, club_id: query.club_id },
+                    pathname: `/chat/${club_id}/${i.roomid}`,
                   }}
                 >
                   <a

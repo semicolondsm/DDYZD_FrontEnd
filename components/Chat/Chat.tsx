@@ -23,26 +23,23 @@ interface messageType {
   isread: boolean;
 }
 const SOCKET_SERVER_URL = "https://api.semicolon.live/chat?token=";
-function Chat() {
+function Chat({club_id, chat_id} : {club_id : number, chat_id? : number}) {
   const [room_token, setRoomToken] = useState<string | null>(null);
   const [socket, setSocket] = useState<any>(null);
   const [isCon, setIsCon] = useState<boolean>(false);
   const dispatch = useChatDispatch();
   const router = useRouter();
-  const { club_id, chat_id }: any = router.query;
   const chat_id123 = useRef<number | null>(null);
 
   useEffect(() => {
+    console.log(router)
     window.Notification.requestPermission();
     chat
       .createRoom(club_id)
       .then((res) => {
         router.replace({
-          pathname: "/chat",
-          query: {
-            chat_id: res.data.room_id,
-            club_id,
-          },
+          pathname: `/chat/${club_id}/${res.data.room_id}`,
+       
         });
         getRoomList(dispatch, club_id);
       })
@@ -52,9 +49,7 @@ function Chat() {
   useEffect(() => {
     if (socket) {
       socket.on("recv_chat", (message: any) => {
-        const room_id: number = Number(
-          window.location.href.split("chat_id=")[1].split("&club_id")[0]
-        );
+        const room_id: number = chat_id ? chat_id : 0
         if (room_id === null) return;
         if (
           message.user_type === "H1" ||
@@ -190,7 +185,7 @@ function Chat() {
           <ChatBreakDown
             Socket={socket}
             roomToken={room_token}
-            chatId={chat_id}
+            chatId={chat_id ? chat_id : 0}
           ></ChatBreakDown>
         ) : null}
       </S.Wrapper>
