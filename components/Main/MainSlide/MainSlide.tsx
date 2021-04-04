@@ -2,12 +2,10 @@ import * as s from "./styles";
 import { useState, createRef, useEffect } from "react";
 import useInterval from "../../../utils/hooks";
 import Menu from "../Menu/Menu";
-import { getState } from "../../../context/context";
 import Modal from "@/components/Public/Modals/Menu";
 import club from "@/utils/api/club";
 
 const MainSlide = () => {
-  const state = getState();
   const [transVal, setTransVal] = useState(0);
   const [delay, setDelay] = useState(5000);
   const [promoData, setPromoData] = useState<any>([]);
@@ -74,7 +72,6 @@ const MainSlide = () => {
   return (
     <>
       <s.SlideContainer>
-        {state.modalName === "mainModal" && <Modal></Modal>}
         <s.SlideBox ref={SlideCont}>
           {" "}
           {/* 슬라이드 이미지 */}
