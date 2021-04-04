@@ -1,5 +1,5 @@
 import * as s from "./styles";
-import { useState ,createRef, useEffect} from "react";
+import { useState, createRef, useEffect } from "react";
 import useInterval from "../../../utils/hooks";
 import Menu from "../Menu/Menu";
 import { getState } from "../../../context/context";
@@ -29,10 +29,18 @@ const MainSlide = () => {
   const rightShow = () => {
     if (transVal == -pos + 1) setTransVal(0);
     else setTransVal(transVal - 1);
+    setDelay(6000);
+    setTimeout(() => {
+      setDelay(5000);
+    }, 8000);
   };
   const LeftShow = () => {
     if (transVal == 0) setTransVal(-pos + 1);
     else setTransVal(transVal + 1);
+    setDelay(6000);
+    setTimeout(() => {
+      setDelay(5000);
+    }, 8000);
   };
 
   const ClubProfileClick = (index: number) => {
@@ -57,27 +65,21 @@ const MainSlide = () => {
   useEffect(() => {
     setPromoData(data.filter((e: any) => e.image != null));
   }, [data]);
-  useEffect(()=>{
-      if(data.length > 0){
-        setTimeout(()=>{
-          if(SlideCont.current !== null && UnderProfile.current !== null){
-            SlideCont.current.style.opacity = "1";
-            UnderProfile.current.style.opacity = "1";
-          }
-        },1000)
-      }
-  })
+  useEffect(() => {
+    if (data.length > 0) {
+      setTimeout(() => {
+        if (SlideCont.current !== null && UnderProfile.current !== null) {
+          SlideCont.current.style.opacity = "1";
+          UnderProfile.current.style.opacity = "1";
+        }
+      }, 1000);
+    }
+  });
   return (
     <>
       <s.SlideContainer>
         {state.modalName === "mainModal" && <Modal></Modal>}
-        <s.SlideBox
-          style={{
-            width: promoData.length * 100 + "%",
-            transform: "translateX(" + (transVal * 100) / pos + "%)",
-          }}
-          ref={SlideCont}
-        >
+        <s.SlideBox ref={SlideCont}>
           {" "}
           {/* 슬라이드 이미지 */}
           {promoData.map((e: any, index: any) => {
@@ -86,7 +88,23 @@ const MainSlide = () => {
                 <img
                   src={"https://api.eungyeol.live/file/" + e.image}
                   key={index}
-                  style={{ width: 100 / pos + "%", objectFit: "contain" }}
+                  style={
+                    transVal === -index
+                      ? {
+                          height: "100%",
+                          objectFit: "contain",
+                          position: "absolute",
+                          opacity: 1,
+                          transition: "1s",
+                        }
+                      : {
+                          height: "100%",
+                          objectFit: "contain",
+                          position: "absolute",
+                          opacity: 0,
+                          transition: "1s",
+                        }
+                  }
                 ></img>
               )
             );
@@ -99,26 +117,26 @@ const MainSlide = () => {
         <Menu></Menu>
       </s.SlideContainer>
       <s.UnderBar>
-      <s.SlideUnderBar ref={UnderProfile}>
-        {promoData.map((e: any, index: any) => {
-          return (
-            e.image != null && (
-              <s.ClubProfileBox key={index}>
-                <s.ClubProfile style={index == -transVal ? CurBorder : none}>
-                  <img
-                    onClick={() => ClubProfileClick(index)}
-                    src={"https://api.eungyeol.live/file/" + e.profile}
-                  ></img>
-                </s.ClubProfile>
-                <a style={{ whiteSpace: "nowrap" }}>{e.name}</a>
-                <s.ProfileLine
-                  style={index == -transVal ? CurBack : none}
-                ></s.ProfileLine>
-              </s.ClubProfileBox>
-            )
-          );
-        })}
-      </s.SlideUnderBar>
+        <s.SlideUnderBar ref={UnderProfile}>
+          {promoData.map((e: any, index: any) => {
+            return (
+              e.image != null && (
+                <s.ClubProfileBox key={index}>
+                  <s.ClubProfile style={index == -transVal ? CurBorder : none}>
+                    <img
+                      onClick={() => ClubProfileClick(index)}
+                      src={"https://api.eungyeol.live/file/" + e.profile}
+                    ></img>
+                  </s.ClubProfile>
+                  <a style={{ whiteSpace: "nowrap" }}>{e.name}</a>
+                  <s.ProfileLine
+                    style={index == -transVal ? CurBack : none}
+                  ></s.ProfileLine>
+                </s.ClubProfileBox>
+              )
+            );
+          })}
+        </s.SlideUnderBar>
       </s.UnderBar>
     </>
   );

@@ -119,6 +119,10 @@ export const UnderBar = styled.div`
   height:120px;
   border-bottom: 1px solid ${color.grey300};
   min-width: 1500px;
+  overflow-x:scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const SlideUnderBar = styled.div`
@@ -159,12 +163,14 @@ export const Allow = styled.div`
 `;
 
 export const SlideBox = styled.div`
-  width: 200%;
+  width: 100%;
   height: 700px;
   display: flex;
   min-width: 1000px;
   position: absolute;
   transition: 1s;
+  align-items:center;
+  justify-content:center;
   opacity: 0;
 `;
 
