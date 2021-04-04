@@ -1,11 +1,10 @@
 import * as s from "./styles";
-import { useState } from "react";
+import { useState ,createRef, useEffect} from "react";
 import useInterval from "../../../utils/hooks";
 import Menu from "../Menu/Menu";
 import { getState } from "../../../context/context";
 import Modal from "@/components/Public/Modals/Menu";
 import club from "@/utils/api/club";
-import { useEffect } from "react";
 
 const MainSlide = () => {
   const state = getState();
@@ -13,6 +12,8 @@ const MainSlide = () => {
   const [delay, setDelay] = useState(5000);
   const [promoData, setPromoData] = useState<any>([]);
   const [data, setData] = useState<any>([]);
+  const UnderProfile = createRef<HTMLDivElement>();
+  const SlideCont = createRef<HTMLDivElement>();
   const pos = promoData.length;
   const CurBack = {
     background:
@@ -56,6 +57,16 @@ const MainSlide = () => {
   useEffect(() => {
     setPromoData(data.filter((e: any) => e.image != null));
   }, [data]);
+  useEffect(()=>{
+      if(data.length > 0){
+        setTimeout(()=>{
+          if(SlideCont.current !== null && UnderProfile.current !== null){
+            SlideCont.current.style.opacity = "1";
+            UnderProfile.current.style.opacity = "1";
+          }
+        },1000)
+      }
+  })
   return (
     <>
       <s.SlideContainer>
@@ -65,6 +76,7 @@ const MainSlide = () => {
             width: promoData.length * 100 + "%",
             transform: "translateX(" + (transVal * 100) / pos + "%)",
           }}
+          ref={SlideCont}
         >
           {" "}
           {/* 슬라이드 이미지 */}
@@ -86,7 +98,8 @@ const MainSlide = () => {
         </s.AllowContainer>
         <Menu></Menu>
       </s.SlideContainer>
-      <s.SlideUnderBar>
+      <s.UnderBar>
+      <s.SlideUnderBar ref={UnderProfile}>
         {promoData.map((e: any, index: any) => {
           return (
             e.image != null && (
@@ -106,6 +119,7 @@ const MainSlide = () => {
           );
         })}
       </s.SlideUnderBar>
+      </s.UnderBar>
     </>
   );
 };
