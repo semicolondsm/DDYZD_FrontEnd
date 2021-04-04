@@ -15,10 +15,6 @@ const MainSlide = () => {
   const UnderProfile = createRef<HTMLDivElement>();
   const SlideCont = createRef<HTMLDivElement>();
   const pos = promoData.length;
-  const CurBack = {
-    background:
-      "transparent linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%) 0% 0% no-repeat padding-box",
-  };
   const CurBorder = {
     backgroundImage:
       "linear-gradient(white,white), linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%)",

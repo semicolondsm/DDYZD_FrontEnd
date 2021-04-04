@@ -1,5 +1,5 @@
 import { color } from "../../../style";
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const SlideContainer = styled.div`
   width: 100%;
