@@ -51,7 +51,7 @@ function ClubItemApply() {
       alert("가격을 입력하세요.");
       return;
     }
-    ClubItem.applyItem(IData).then((e) => {
+    ClubItem.applyItem(IData,19).then((e) => { // 동아리 아이디
       dispatch({type:"USER_APPLY_DATA",data:IData})
       alert("정상적으로 신청되었습니다.");
       console.log(e);
