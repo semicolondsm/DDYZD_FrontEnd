@@ -122,16 +122,16 @@ const MainSlide = () => {
             return (
               e.image != null && (
                 <s.ClubProfileBox key={index}>
-                  <s.ClubProfile style={index == -transVal ? CurBorder : none}>
+                  <s.ClubProfile style={index === -transVal ? CurBorder : none}>
                     <img
                       onClick={() => ClubProfileClick(index)}
                       src={"https://api.eungyeol.live/file/" + e.profile}
                     ></img>
                   </s.ClubProfile>
                   <a style={{ whiteSpace: "nowrap" }}>{e.name}</a>
-                  <s.ProfileLine
-                    style={index == -transVal ? CurBack : none}
-                  ></s.ProfileLine>
+                  <s.ProfileLine>
+                    <s.AnimLine style={index === -transVal ? {width : "100%"} : {width:"0%", transition:"0s"}}/>
+                  </s.ProfileLine>
                 </s.ClubProfileBox>
               )
             );

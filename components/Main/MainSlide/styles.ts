@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { color } from "../../../style";
+import styled, { keyframes } from 'styled-components';
 
 export const SlideContainer = styled.div`
   width: 100%;
@@ -224,4 +224,11 @@ export const ProfileLine = styled.div`
   height: 2px;
   background-color: ${color.grey300};
   margin-top: 2%;
+`;
+
+export const AnimLine = styled.div`
+  width:0%;
+  height:100%;
+  background : transparent linear-gradient(90deg, #FFE874 0%, #A45EE1 52%, #713EFF 100%) 0% 0% no-repeat padding-box;
+  transition:6s;
 `;
