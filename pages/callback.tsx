@@ -1,7 +1,7 @@
-import { logout } from "@/components/Public/Header/Header";
+import { logout } from "@/src/components/Public/Header/Header";
 import { AxiosError } from "axios";
 import { useEffect } from "react";
-import auth from "../utils/api/auth";
+import auth from "../src/utils/api/auth";
 interface Clubs {
     club_id: number;
     club_name: string;

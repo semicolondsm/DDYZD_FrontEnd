@@ -1,5 +1,5 @@
-import Header from '../components/Public/Header/Header'
-import Club from "../components/Club"
+import Header from '../src/components/Public/Header/Header'
+import Club from "../src/components/Club"
 const Index = () => {
   return(
     <>

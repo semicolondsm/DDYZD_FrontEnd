@@ -1,4 +1,4 @@
-import FeedSlider from '@/components/Main/Feed/FeedSlider';
+import FeedSlider from '@/src/components/Main/Feed/FeedSlider';
 import { useRouter } from 'next/router';
 
 const feedSlide = () => {
