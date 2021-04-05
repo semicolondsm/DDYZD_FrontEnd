@@ -6,6 +6,8 @@ import etcIc from "@/public/images/etc";
 import shieldIc from "@/public/images/shield";
 import embedIc from "@/public/images/embed";
 import Link from "next/link";
+import { CreateRoomAndGetRoomId } from "@/utils/function/chat";
+import { useEffect, useState } from "react";
 
 interface propsType {
     max: number;
@@ -17,26 +19,20 @@ interface propsType {
     description: string;
     banner: string;
     id: number;
-    clubrecruitment: boolean;
 }
 
 const MajorItem = (props: propsType) => {
-    const {
-        imgSrc,
-        header,
-        description,
-        tag,
-        banner,
-        id,
-        clubrecruitment,
-    } = props;
+    const { imgSrc, header, description, tag, banner, id } = props;
+    const [chatId, setChatId] = useState<number | null>(null);
+    useEffect(() => {
+        (async function () {
+            const chat_id: number = await CreateRoomAndGetRoomId(id);
+            setChatId(chat_id);
+        })();
+    }, []);
     return (
-        <Link href={`/clubinfo?id=${id}`}>
-            <S.ItemWrapper
-                max={props.max}
-                now={props.now}
-                style={clubrecruitment ? { border: "3px solid #7b1acf" } : {}}
-            >
+        <Link href={`/club/${id}`}>
+            <S.ItemWrapper max={props.max} now={props.now}>
                 <div className={props.className}>
                     <S.PurpleBack />
                     {/* 핀 버튼 추가 */}
@@ -51,8 +47,8 @@ const MajorItem = (props: propsType) => {
                         <S.ItemSubHeader>{description}</S.ItemSubHeader>
                     </S.ItemFontWrapper>
                     <S.ButtonsWrapper>
-                        <Link href={`/chat?club_id=${id}`}>
-                            <S.RadiusButton active={false}>
+                        <Link href={`/chat/${chatId}`}>
+                            <S.RadiusButton active={true}>
                                 신청하기
                             </S.RadiusButton>
                         </Link>

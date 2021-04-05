@@ -1,17 +1,14 @@
-import { useRouter } from "next/router";
 import Header from "../Public/Header/Header";
 import ClubPreview from "./ClubPreview/ClubPreview";
-function ClubManagement(){
-    const router = useRouter()
-    let id :number = +router.query.id
+function ClubManagement({ club_id } : { club_id : number}){
     return(
         <>
             
             {
-                id ? 
+                club_id ? 
                 <>
                     <Header color="white"></Header>
-                    <ClubPreview club_id={id}></ClubPreview>
+                    <ClubPreview club_id={club_id}></ClubPreview>
                 </>
                 : null
             }
