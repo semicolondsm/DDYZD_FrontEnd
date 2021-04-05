@@ -2,15 +2,12 @@ import ClubManagement from "@/src/components/ClubView/ClubView";
 import { GetServerSidePropsContext } from "next";
 export function getServerSideProps(context : GetServerSidePropsContext) {
     return {
-        props: {params: context.params}
+        props: {clubid: context.query.clubid}
     };
 }
 
-interface Props{
-    clubid : number;
-}
-function club({params} : {params : Props}){
-    const { clubid } = params;
+
+function club({clubid} : {clubid : number}){
     return(
         <ClubManagement club_id={clubid}></ClubManagement>
     )
