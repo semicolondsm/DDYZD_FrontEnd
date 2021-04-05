@@ -8,7 +8,7 @@ import embedIc from "@/public/images/embed";
 import Link from "next/link";
 import { CreateRoomAndGetRoomId } from "@/utils/function/chat";
 import { useEffect, useState } from "react";
-
+import { color } from "@/style";
 interface propsType {
     max: number;
     now: number;
@@ -19,10 +19,19 @@ interface propsType {
     description: string;
     banner: string;
     id: number;
+    clubrecruitment: boolean;
 }
 
 const MajorItem = (props: propsType) => {
-    const { imgSrc, header, description, tag, banner, id } = props;
+    const {
+        imgSrc,
+        header,
+        description,
+        tag,
+        banner,
+        id,
+        clubrecruitment,
+    } = props;
     const [chatId, setChatId] = useState<number | null>(null);
     useEffect(() => {
         (async function () {
@@ -32,7 +41,15 @@ const MajorItem = (props: propsType) => {
     }, []);
     return (
         <Link href={`/club/${id}`}>
-            <S.ItemWrapper max={props.max} now={props.now}>
+            <S.ItemWrapper
+                max={props.max}
+                now={props.now}
+                style={
+                    clubrecruitment
+                        ? { border: `3px solid ${color.purple400}` }
+                        : {}
+                }
+            >
                 <div className={props.className}>
                     <S.PurpleBack />
                     {/* 핀 버튼 추가 */}

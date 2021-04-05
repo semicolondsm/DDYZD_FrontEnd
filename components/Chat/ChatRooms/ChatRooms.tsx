@@ -145,23 +145,36 @@ function ChatRooms({ chat_id }: { chat_id: number }) {
                                             src={i.image}
                                             alt="프로필"
                                         ></img>
-                                        <div>
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                height: "100%",
+                                                margin: "5px 0 0",
+                                            }}
+                                        >
                                             <p>{i.name}</p>
-                                            <S.LastMessage
-                                                style={
-                                                    i.isread
-                                                        ? { color: "#a4a4a4" }
-                                                        : {
-                                                              color: "#222222",
-                                                              fontWeight: 900,
-                                                              textShadow:
-                                                                  "0 3px 5px rgba(0, 0, 0, 0.3)",
-                                                          }
-                                                }
-                                            >
-                                                <p>{i.lastmessage}</p> ·{" "}
-                                                {date(i.lastdate)}
-                                            </S.LastMessage>
+                                            {i.lastmessage && (
+                                                <S.LastMessage
+                                                    style={
+                                                        i.isread
+                                                            ? {
+                                                                  color:
+                                                                      "#a4a4a4",
+                                                              }
+                                                            : {
+                                                                  color:
+                                                                      "#222222",
+                                                                  fontWeight: 900,
+                                                                  textShadow:
+                                                                      "0 3px 5px rgba(0, 0, 0, 0.3)",
+                                                              }
+                                                    }
+                                                >
+                                                    <p>{i.lastmessage}</p> ·{" "}
+                                                    {date(i.lastdate)}
+                                                </S.LastMessage>
+                                            )}
                                         </div>
                                     </a>
                                 </Link>
@@ -171,6 +184,5 @@ function ChatRooms({ chat_id }: { chat_id: number }) {
             </S.RoomListWrapper>
         </S.Wrapper>
     );
-
 }
 export default ChatRooms;
