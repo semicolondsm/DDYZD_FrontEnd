@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import * as S from './styles'
-import feedId from '@/utils/api/feedId';
+import feedId from '@/src/utils/api/feedId';
 
 const FeedSlider = (props: {id: number}) => {
     const [page, setPage] = useState<number>(0);

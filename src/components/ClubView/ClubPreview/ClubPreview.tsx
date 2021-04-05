@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import club from '@/utils/api/club';
+import club from '@/src/utils/api/club';
 import ClubFeed from "./ClubFeed/ClubFeed";
 import ClubHeader from "./ClubHeader/ClubHeader";
 import ClubRecruitment from "./ClubRecruitment/ClubRecruitment";

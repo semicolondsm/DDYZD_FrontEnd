@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import club from "@/utils/api/club";
-import { CreateRoomAndGetRoomId } from "@/utils/function/chat";
+import club from "@/src/utils/api/club";
+import { CreateRoomAndGetRoomId } from "@/src/utils/function/chat";
 
 import * as S from "./styles";
 function ClubUtil({ data }: { data: any }) {

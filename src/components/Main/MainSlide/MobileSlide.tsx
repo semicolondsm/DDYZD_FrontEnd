@@ -1,6 +1,6 @@
 import * as s from "./styles";
 import { useState, useRef, useEffect, MutableRefObject } from "react";
-import club from "@/utils/api/club";
+import club from "@/src/utils/api/club";
 
 interface paramsType {
   image: string;

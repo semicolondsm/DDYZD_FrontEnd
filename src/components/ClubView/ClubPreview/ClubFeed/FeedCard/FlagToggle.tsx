@@ -1,5 +1,5 @@
 import { useState, useRef, MutableRefObject } from "react";
-import feed from "@/utils/api/feed";
+import feed from "@/src/utils/api/feed";
 const color = "#606670";
 function FlagToggle({
   setFlags,
