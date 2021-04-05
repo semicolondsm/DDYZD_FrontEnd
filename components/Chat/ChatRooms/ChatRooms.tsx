@@ -171,5 +171,6 @@ function ChatRooms({ chat_id }: { chat_id: number }) {
             </S.RoomListWrapper>
         </S.Wrapper>
     );
+
 }
 export default ChatRooms;

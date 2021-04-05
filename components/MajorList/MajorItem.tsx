@@ -63,7 +63,6 @@ const MajorItem = (props: propsType) => {
                         <S.IntroIcon>
                             <S.FieldIconWrapper>
                                 {tag.map((val) => {
-                                    console.log(val, header);
                                     switch (val) {
                                         case "인공지능":
                                             return brainIc;
