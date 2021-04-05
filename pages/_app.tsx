@@ -1,11 +1,11 @@
 import App from "next/app";
 import Head from "next/head";
 import React from "react";
-import { SampleProvider } from "@/context/context";
-import ReturnModal from "@/components/Public/Modals";
-import { UserProvider } from "@/context/user";
+import { SampleProvider } from "@/src/context/context";
+import ReturnModal from "@/src/components/Public/Modals";
+import { UserProvider } from "@/src/context/user";
 import { onSilentRefresh } from "./callback";
-import { MenuProvider } from "@/context/menuProvider";
+import { MenuProvider } from "@/src/context/menuProvider";
 
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";

@@ -1,5 +1,5 @@
-import Header from '@/components/Public/Header/Header'
-import MajorList from '../components/MajorList/MajorList'
+import Header from '@/src/components/Public/Header/Header'
+import MajorList from '../src/components/MajorList/MajorList'
 
 const majorlist = () => {
 

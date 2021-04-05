@@ -1,5 +1,5 @@
-import Chat from "@/components/Chat/Chat";
-import { ChatProvider } from "@/utils/context/chatProvider";
+import Chat from "@/src/components/Chat/Chat";
+import { ChatProvider } from "@/src/utils/context/chatProvider";
 const chat = () => {
     return (
         <ChatProvider>

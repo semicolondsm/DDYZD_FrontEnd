@@ -1,4 +1,4 @@
-import LoginSlide from "@/components/Main/LoginSlide/loginSlide"
+import LoginSlide from "@/src/components/Main/LoginSlide/loginSlide"
 
 const MobileSlide=()=>{
     return(

@@ -1,4 +1,4 @@
-import Feed from "@/components/Main/Feed/Feed"
+import Feed from "@/src/components/Main/Feed/Feed"
 
 function mobilefeed(){
     return(

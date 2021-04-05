@@ -1,7 +1,7 @@
-import Header from "../components/Public/Header/Header";
-import Main from "../components/Main";
+import Header from "../src/components/Public/Header/Header";
+import Main from "../src/components/Main";
 import { useEffect } from "react";
-import channel from "../utils/channel"
+import channel from "../src/utils/channel"
 const Index = () => {
   useEffect(()=>{
     console.log("test");

@@ -1,4 +1,4 @@
-import ClubManagement from "@/components/ClubView/ClubView";
+import ClubManagement from "@/src/components/ClubView/ClubView";
 import { GetServerSidePropsContext } from "next";
 export function getServerSideProps(context : GetServerSidePropsContext) {
     return {
