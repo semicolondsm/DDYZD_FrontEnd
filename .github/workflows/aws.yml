@@ -29,18 +29,18 @@ jobs:
         run: npm run build
         
       
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+#      - name: Configure AWS credentials
+#        uses: aws-actions/configure-aws-credentials@v1
+#        with:
+#          aws-access-key-id: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
+#          aws-secret-access-key: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
+ #         aws-region: ${{ secrets.AWS_REGION }}
   
-      - name : S3 Upload
-        run: aws s3 cp --recursive --region ap-northeast-2 out s3://eungyeole
+#      - name : S3 Upload
+#        run: aws s3 cp --recursive --region ap-northeast-2 out s3://eungyeole
         
-      - name : CloudFront Cache invalidation
-        run : aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
+#      - name : CloudFront Cache invalidation
+#        run : aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
 # code deploy        
 #      - name: Code Deploy
 #        run: aws deploy create-deployment --application-name ddyzd_v2 --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name ddyzd_v2_webservice_group --s3-location bucket=eungyeole,bundleType=zip,key=build.zip   
