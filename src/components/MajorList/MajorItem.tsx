@@ -7,8 +7,8 @@ import shieldIc from "@/public/images/shield";
 import embedIc from "@/public/images/embed";
 import Link from "next/link";
 import { CreateRoomAndGetRoomId } from "@/src/utils/function/chat";
-import { useEffect, useState } from "react";
 import { color } from "@/src/style";
+import { useRouter } from "next/router";
 interface propsType {
     max: number;
     now: number;
@@ -23,6 +23,7 @@ interface propsType {
 }
 
 const MajorItem = (props: propsType) => {
+    const router = useRouter();
     const {
         imgSrc,
         header,
@@ -32,13 +33,10 @@ const MajorItem = (props: propsType) => {
         id,
         clubrecruitment,
     } = props;
-    const [chatId, setChatId] = useState<number | null>(null);
-    useEffect(() => {
-        (async function () {
-            const chat_id: number = await CreateRoomAndGetRoomId(id);
-            setChatId(chat_id);
-        })();
-    }, []);
+    const convertIdLinkChat = async () => {
+        const chat_id: number = await CreateRoomAndGetRoomId(id);
+        router.push(`/chat/${chat_id}`);
+    };
     return (
         <Link href={`/club/${id}`}>
             <S.ItemWrapper
@@ -64,11 +62,11 @@ const MajorItem = (props: propsType) => {
                         <S.ItemSubHeader>{description}</S.ItemSubHeader>
                     </S.ItemFontWrapper>
                     <S.ButtonsWrapper>
-                        <Link href={`/chat/${chatId}`}>
+                        <a onClick={convertIdLinkChat}>
                             <S.RadiusButton active={true}>
                                 신청하기
                             </S.RadiusButton>
-                        </Link>
+                        </a>
                     </S.ButtonsWrapper>
                     <S.IconWrapper>
                         <S.Icon

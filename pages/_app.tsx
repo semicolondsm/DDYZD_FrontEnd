@@ -9,7 +9,7 @@ import { MenuProvider } from "@/src/context/menuProvider";
 
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
-
+import "@/src/style/GlobalStyle.css";
 Sentry.init({
   dsn:
     "https://f8554d59c1864fe283a494f7c139cce9@o542644.ingest.sentry.io/5670863",
