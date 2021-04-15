@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="면접결과-001" transform="translate(-1550 -985)">
+    <rect id="사각형_884" data-name="사각형 884" width="40" height="40" rx="15" transform="translate(1550 985)" fill="#350871"/>
+    <g id="notification" transform="translate(1520.359 990)">
+      <g id="그룹_573" data-name="그룹 573" transform="translate(37.333)">
+        <g id="그룹_572" data-name="그룹 572" transform="translate(0)">
+          <path id="패스_124" data-name="패스 124" d="M168.411,376.41a3.076,3.076,0,0,0,3.077-3.077h-6.154A3.076,3.076,0,0,0,168.411,376.41Z" transform="translate(-156.103 -346.41)" fill="#fff"/>
+          <path id="패스_125" data-name="패스 125" d="M58.871,20.769V13.077c0-4.731-2.515-8.677-6.923-9.723V2.308a2.308,2.308,0,0,0-4.615,0V3.354C42.925,4.4,40.41,8.346,40.41,13.077v7.692l-3.077,3.077v1.538H61.948V23.846Z" transform="translate(-37.333)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

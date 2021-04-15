@@ -1,13 +1,12 @@
-import ClubHeader from "./ClubHeader/ClubHeader"
-import ClubContainer from './ClubTable/ClubContainer'
+import ClubHeader from "./ClubHeader/ClubHeader";
+import ClubContainer from "./ClubTable/ClubContainer";
 const Club = () => {
-  return(
+  return (
     <>
-        <ClubHeader></ClubHeader>
-        <ClubContainer></ClubContainer>
+      <ClubHeader></ClubHeader>
+      <ClubContainer></ClubContainer>
     </>
-  )
-  
-}
+  );
+};
 
 export default Club;

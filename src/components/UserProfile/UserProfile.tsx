@@ -33,6 +33,7 @@ function UserProfilePage({ router } : { router : any}) {
       setGithub(res.data.github_url)
       setIntroduction(res.data.bio)
     })
+    console.log(profile?.name);
   }, [router])
   const putInfoGithub = async () => {
     try {
