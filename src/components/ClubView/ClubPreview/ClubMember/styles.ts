@@ -10,18 +10,18 @@ export const MemberHeader = styled.div`
     margin-bottom: 8px;
     justify-content: space-around;
     overflow: hidden;
+   
 `;
 
 export const ClubMemberContainer = styled.div`
   background-color: #ffffff;
   position: relative;
+  left: 5%;
+  top: 18px;
   float: left;
-  flex-direction: column;
   width: 350px;
   box-shadow: 0px 5px 5px #00000029;
-  border-radius: 2px;
-  margin: 16px 0 0 200px;  
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 
 export const Member = styled.div`
@@ -38,6 +38,9 @@ export const Member = styled.div`
 export const MemberContainer = styled.div`
     height: 350px;
     overflow: scroll;
+    &::-webkit-scrollbar {
+    display: none;
+}
 `;
 
 export const Img = styled.img`

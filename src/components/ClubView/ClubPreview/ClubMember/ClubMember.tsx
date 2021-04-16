@@ -4,7 +4,7 @@ import club from "../../../../utils/api/club";
 import Loading from "../../../Public/Loading/Loading";
 interface MemberData {
   user_name: string[];
-  profile_image: null;
+  profile_image: string;
   gcn: number[];
   git: string;
   loading: boolean;
@@ -39,6 +39,7 @@ function ClubMember({ club_id }: { club_id: number }) {
         <S.MemberContainer>
           <S.Member>
             <S.Img src={memberData[0].profile_image} />
+            {/* <S.Img src={require(memberData[0].profile_image)}/> */}
             <div>
               <S.MemberName>{memberData[0].user_name}</S.MemberName>
               <S.MemberRole>동아리장</S.MemberRole>
