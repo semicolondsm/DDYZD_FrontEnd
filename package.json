@@ -34,7 +34,7 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "@types/react-redux": "*",
-    "@types/socket.io-client": "^1.4.35",
+    "@types/socket.io-client": "^1.4.36",
     "@types/styled-components": "*",
     "babel-plugin-root-import": "*",
     "babel-plugin-styled-components": "*",
