@@ -9,7 +9,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@sentry/react": "^6.2.1",
+    "@sentry/react": "^6.5.1",
     "@sentry/tracing": "^6.2.1",
     "@svgr/webpack": "^5.5.0",
     "axios": "*",
