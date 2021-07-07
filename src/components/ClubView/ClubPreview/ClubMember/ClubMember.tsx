@@ -4,7 +4,7 @@ import club from "../../../../utils/api/club";
 import Loading from "../../../Public/Loading/Loading";
 interface MemberData {
   user_name: string[];
-  profile_image: null;
+  profile_image: string;
   gcn: number[];
   git: string;
   loading: boolean;
