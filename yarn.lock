@@ -1533,7 +1533,7 @@
     "@sentry/types" "6.8.0"
     tslib "^1.9.3"
 
-"@sentry/react@^6.2.1":
+"@sentry/react@^6.8.0":
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/@sentry/react/-/react-6.8.0.tgz#3cf4a2e1ef042ee227836e268e702e9cb3b67e41"
   integrity sha512-yXNnDaVw8kIacbwQjA27w8DA74WxmDVw4RlUTJGtq35SDmWsaGN1mwvU+mE1u3zEg927QTCBYig2Zqk8Tdt/fQ==
