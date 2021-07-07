@@ -93,3 +93,4 @@ export const ClubContainer = styled.div`
     margin-top: 10px;
     padding: 0 250px;
 `
+
