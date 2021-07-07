@@ -36,12 +36,10 @@ export const OnLoginSuccess = async (res: any) => {
 function Callback() {
     const onLogin = () => {
         const code = window.location.href.split("?code=")[1];
-        auth.postToken(code).then((res) =>
-            auth.getUsersToken(res.data["access-token"]).then(async (res) => {
-                await OnLoginSuccess(res);
-                window.location.href = "/";
-            })
-        );
+        auth.getToken(code).then(async (res)=>{
+            await OnLoginSuccess(res);
+            window.location.href = "/";
+        })
         /*auth.getToken(code.split("?code=")[1].split("&state=")[0])
         .then(async (res)=>{ await OnLoginSuccess(res); window.location.href="/"})
         .catch((e)=>console.error(e))*/
