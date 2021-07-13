@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@sentry/react": "^6.2.1",
-    "@sentry/tracing": "^6.2.1",
+    "@sentry/tracing": "^6.9.0",
     "@svgr/webpack": "^5.5.0",
     "axios": "*",
     "next": "*",
